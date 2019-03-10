@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>블로그소개 on salgunamu&#39;s LAB Blog</title>
+    <link>http://ssanggu.github.io/</link>
+    <description>Recent content in 블로그소개 on salgunamu&#39;s LAB Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Sun, 10 Mar 2019 18:41:29 +0900</lastBuildDate>
+    
+	<atom:link href="http://ssanggu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>0.1 OSI 7 Layer</title>
+      <link>http://ssanggu.github.io/ch0/osi-7-layer/</link>
+      <pubDate>Sun, 10 Mar 2019 18:56:07 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch0/osi-7-layer/</guid>
+      <description>PC A와 B간에 통신을 한다고 하면 아래의 그림처럼 각각의 PC상에 우리에 게 보이지 않는 논리적인 7층짜치 스택이 만들어진다고 보면 됩니다. 이것을 OSI 7 Layer Model이라고 하는데, 통신을 하고자 하는 서로간에 통신방법을 정의하고 체크하기 위한 논리적인 모델이라고 생각하면 될듯합니다. 7층짜리 스택의 맨 상단은 응용게층으로 우리가 일반적으로 인터넷을 접근하기 위하여 사용하는 프로그램들이 존재한다고 보면되는데, 가장많이 사용&amp;gt;하는 인터넷브라우저에서 수행되는 작업들이 이 7층에서 발생한다고 생각하며 됩니다. A &amp;ndash;&amp;gt; B한테 통신을 하려고 시도한다고 하면 아래의 그림처럼 보내는 측에서는 보자기로 짐을 싸는 행동(Encapsulation)을 하고, 받는측에서는 보자기 의 짐을 푸는 행동(Decapsulation)을 하게됩니다.</description>
+    </item>
+    
+  </channel>
+</rss>
