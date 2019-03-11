@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.55.0-DEV" />
+    <meta name="description" content="Network Simulation LAB with EVE-NG">
+<meta name="author" content="Han SangGu(한상구)">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>0.4 Cable에 대한 정리 :: salgunamu&#39;s LAB Blog</title>
+
+    
+    <link href="/css/nucleus.css?1552273252" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1552273252" rel="stylesheet">
+    <link href="/css/hybrid.css?1552273252" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1552273252" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1552273252" rel="stylesheet">
+    <link href="/css/auto-complete.css?1552273252" rel="stylesheet">
+    <link href="/css/theme.css?1552273252" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1552273252" rel="stylesheet">
+    
+      <link href="/css/theme-blue.css?1552273252" rel="stylesheet">
+    
+
+    <script src="/js/jquery-2.x.min.js?1552273252"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ch0/cable%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://ssanggu.github.io"><img src="/images/logo.png"></a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1552273252"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1552273252"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/ssanggu.github.io\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1552273252"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ch0/" title="네트워크 기초이론" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/ch0/">
+          <b>0. </b>네트워크 기초이론
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/ethernet%EB%B0%9C%EC%A0%84%EA%B3%BC-%EC%BC%80%EC%9D%B4%EB%B8%94-%EC%95%85%EC%84%B8%EC%82%AC%EB%A6%AC/" title="0.5 Ethernet발전과 케이블 악세사리" class="dd-item ">
+        <a href="/ch0/ethernet%EB%B0%9C%EC%A0%84%EA%B3%BC-%EC%BC%80%EC%9D%B4%EB%B8%94-%EC%95%85%EC%84%B8%EC%82%AC%EB%A6%AC/">
+        0.5 Ethernet발전과 케이블 악세사리
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/cable%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC/" title="0.4 Cable에 대한 정리" class="dd-item active">
+        <a href="/ch0/cable%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC/">
+        0.4 Cable에 대한 정리
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/ethernet%EC%9D%B4%EB%9E%80/" title="0.3 Ethernet이란" class="dd-item ">
+        <a href="/ch0/ethernet%EC%9D%B4%EB%9E%80/">
+        0.3 Ethernet이란
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/" title="0.2 물리적인 연결정의" class="dd-item ">
+        <a href="/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/">
+        0.2 물리적인 연결정의
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/osi-7-layer/" title="0.1 OSI 7 Layer" class="dd-item ">
+        <a href="/ch0/osi-7-layer/">
+        0.1 OSI 7 Layer
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   0.4 Cable에 대한 정리 
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>0.4 Cable에 대한 정리</h1>
+          
+
+        
+
+
+<p>이제까지 가상의 통신모델과 구성형태, 어떠한 방식으로 통신하는지를 정의했으니 이제는 직선으로 표시했던 케이블부분을 정의해보겠습니다.
+<img src="/images/blog/CH-1/16.png" alt="Cable" />
+위의 그림에서 보듯이 처음 교육을 시작할때부터 일직선으로 그린부분이 있는데, 이 일직선이 10Base5케이블을 의미하는 것입니다. 공유매체(공통으로 사용한다)인 케이블을 10Mbps Ethernet에서부터 출발을 해보겠습니다.
+<img src="/images/blog/CH-1/17.png" alt="10Mbps Ethernet" />
+위의 그림에 나열된것은 10Mbps Ethernet에서 사용하는 케이블의 종류입니다.케이블 이름에서 맨앞의 <strong>10은 10Mbps</strong>를 의미하고 <strong>Base는 Baseband신호방식(저대역)</strong>을 의미하며, 맨 마지막은 <strong>케이블의 거리제한</strong>을 의미합니다.
+<p/>
+<strong>Ethernet에서 사용하는 신호방식을 Baseband(저대역)신호방식이라고 하는데 방송국에서 사용하는 MBC, SBS, KBS의 B는 Broadband(광대역)신호방식 입니다. 저대역통신방식과 광대역통신방식간의 차이점이 무엇인지 간략하게 찾아보세요.</strong>
+<p/>
+10Base5케이블은 굵어서 그런지 Thick cable이라고도 불립니다. 500m의 거리제한이 있고, 2.5m간격마다 표시가 되어 있어서 노드를 연결할 수 있는 포인트가 정해져 있습니다. 끝부분에는 50오옴짜리 Terminator라는 저항을 달아서 전기신호가 소멸되는것을 막고 있습니다. 2.5m간격마다 노드를 연결할때 Tap이라는 것을 달아서 3개의 핀(pin)이 하나는 구리선에 닿고 2개는 피복에 닿도록 하여 연결하고 거기에 트랜시버를 연결해서 Carrier Sense를 하도록 합니다.
+<img src="/images/blog/CH-1/18.png" alt="10Base5" />
+Ethernet을 접하다보면 세그먼트(Segment)라는 용어를 자주 접하게 되는데요, 세그먼트라고 하면 케이블의 최대거리로 꾸며진 하나의 라인이라고 생각하면 될듯합니다. 아래의 10Base5의 경우에는 세그먼트를 표시하는 그림입니다.
+<img src="/images/blog/CH-1/19.png" alt="1Segment" />
+10Base2케이블은 최대거리 182m를 지원하는 케이블로 Thin cable이라고 합니다. 이 케이블은 우리가 집에서 보는 동축 TV선하고 똑같이 생겼지만 규격이름은 다름니다. 어쨌든 모양은 TV선을 생각하면 됩니다. 이 케이블은 PC를 연결하기 위해서 케이블을 끊어서 T커넥터를 연결하고 그 커넥터에 PC의 NIC카드를 연결하는 구조입니다. Thick케이블보다 얇고 관리가 수월해서 초기에 확 도입되다가 사용자들이 자가 PC의 네트워크를 분리한다는것이 T커넥터를 끊는 행위를 많이 해서 전체 네트워크가 안되는 장애가 많이 발생하는 문제로 인하여 사용율이 급격하게 떨어졌습니다.
+<img src="/images/blog/CH-1/20.png" alt="10Base2" />
+전기신호를 다루는 케이블을 다루다 보면 주파수라는 말이 많이 나옵니다. 주파수란 전기가 흘러갈때 파도처럼 파형을 그리는데 1초에 몇번의 파도가 치느냐 처럼 진동하는 수를 의미합니다.
+<img src="/images/blog/CH-1/21.png" alt="주파수정의" />
+10BaseT케이블이 나오면서 이더넷 사용이 활발해졌다고 생각이 듭니다.Thick, Thin케이블들은 관리가 어렵고 만들기도 힘들어서 사용이 어려웠는데 10BaseT케이블이 등장하니 전화선같이 얇고 쉽게 사용할 수 있어서 많이들 사용하게 됩니다. 사용의 편리성때문에 모든 Ethnet표준안이 만들어지면 UTP케이블을 이용하는 표준은 반드시 만들고 있는것입니다. 10BaseT케이블은 UTP케이블이라고도 불리는데 Unshield (<strong>쉴드가 되어 있지 않고</strong>, STP와 대조) Twisted(<strong>꼬여있다</strong>. 1쌍으로 케이블이 꼬여있음. 이 꼬임수가 기술. 케이블 끝까지 이 꼬임수를 유지하는것이 필요) Pair(<strong>쌍으로 되어 있음</strong>. 8가닥 4Pair)의 약자입니다. <br/>
+10BaseT에서 사용한 UTP케이블은 Category 3케이블인데 이 케이블은 16MHz주파수를 지원하는 케이블입니다. 왜 앞에서 주파수 얘기를 한지 알겠죠..
+100Mbps, 1Gbps, 10Gbps Ethernet에서도 UTP케이블을 사용하는데 지원되는 Category가 틀립니다. 틀린 이유는 당연히 지원되는 주파수가 관건입니다.
+<img src="/images/blog/CH-1/22.png" alt="10BaseT" />
+<p/>
+<strong>STP(Shield Twisted Pair)케이블을 검색해보면서 Shield가 뭔지 찾아보고 UTP는 왜 Unshield라고 하는지 이해해보세요. 그리고, 지금 사용하는 UTP케이블의 피복에 보면 글씨가 써있는데, 그 글씨에서 Category가 뭐라고 쓰여있는지 확인해보고, 그 케이블은 지원되는 주파수가 얼마이고 어떤 Ethernet까지 지원되는지 찾아봅시다.</strong>
+<p/>
+아래의 그림처럼 UTP는 2가지 타입(T568A, T568B)가 있읍니다. 우리는 T568B타입을 사용하고 있습니다. 오렌지색깔을 1,2번 핀에다 넣기 때문에 오렌지가 1번 pair라고 알고 있었는데..(저만 그럴지도 모르고&hellip;) <strong>1번Pair는 청색, 2번Pair는 오렌지, 3번 Pair는 녹색, 4번Pair는 갈색</strong>입니다. T568B표준은 2번 Pair 오렌지를 송신으로 3번 Pair 녹색을 수신으로 사용하는것입니다.
+<img src="/images/blog/CH-1/23.png" alt="T568A&amp;T568B" />
+UTP케이블은 4Pair중에 실제 통신용으로 2Pair만 사용하기 때문에 초창기에는 아래의 그림처럼 하나의 UTP케이블을 2Pair씩 갈라서 2개의 노드를 연결하는 구조를 많이 사용했었습니다. 하지만, 이 방식은 주파수의 차이때문에 1,3번 Pair를 사용하는 노드들의 연결이 불안정한 부분이 발생해서 요즘은 사용하지 않고 있읍니다.
+<img src="/images/blog/CH-1/24.png" alt="UTP 2Pair씩 사용" />
+아래의 그림처럼 A동과 B동을 연결할때 거리가 500m이내라면 10Base5케이블 1세그먼트로 연결하면 됩니다. 하지만 500m를 넘는다면요?? 10Base5케이블을 2개 이어서 하면 되는데(한동안 그런식으로 연결을 했었음), 안정적으로 더 먼거리를 지원하는 케이블이 필요하게 된거죠&hellip;<br/>
+그래서 등장하는 것이 10BaseF케이블로 MultiMode광케이블을 사용하여 2Km까지 지원을 합니다. 그래서 요즘 동간의 연결은 안정적인 광케이블을 많이 사용하게 됩니다.
+<img src="/images/blog/CH-1/25.png" alt="동간연결" />
+광케이블에서 사용하는 용어를 살펴봅시가.<br/>
+동간에 설치하는 검은색 광케이블은 아래 그림에서 보듯이 여러개의 광섬유 가닥을 묶어놓은 선이라고 보면됩니다. 우리가 사용하는 8Core, 16Core광케이블이다라고 하면 광섬유가닥을 8가닥, 16가닥을 묶어놓은것입니다. 그 묶음에서 광케이블을 이용해서 송신(tx), 수신(rx)을 해야하니깐 2가닥의 광섬유를 사용하는거죠&hellip;하나의 광섬유는 코어와 클래딩이 있는데 광케이블 규격을 말할때 이것의 크기로 말합니다.
+<img src="/images/blog/CH-1/26.png" alt="광케이블 용어살펴보기" />
+광케이블의 규격을 말할때 코어와 클래딩의 사이즈로 말한다고 했습니다. 아래 그림을 보면서 이해해보세요. 또한, 광케이블은 전송방식에 따라서 멀티모드와 싱글모드로 나눕니다. 멀티모드의 경우에는 파형을 크게 그리면서 전파되기때문에 짧은거리를 지원하고 싱글모드는 파형이 거의 직선에 가깝기때문에 장거리를 지원합니다.
+<img src="/images/blog/CH-1/27.png" alt="광케이블 MM과 SM" />
+<p/>
+<strong>8Core광케이블을 건물간에 포설했다면 그 안에 들어있는 8가닥의 광섬유에 대한 종단처리가 필요하겠죠. 그 종단처리를 위해서 필요한것이 FDF와 스플라이싱(splicing)인데요, FDF와 Splicing에 대해서 찾아봅시다.</strong>
+<p/>
+FDF에 광케이블을 종단처리하면 그 종단처리된 FDF에서 장비를 연결할때 사용하는 광케이블 필요합니다. 광케이블에서 사용하는 케이블 커넥터의 종류는 다양하지만 우리가 주로 사용하는 것은 아래의 그림에서 SC, ST, LC타입을 주로 사용합니다. 커넥터의 모양을 잘 살펴보고 ST-LC타입 광케이블을 찾아오라고 한다면 바로 찾을 수 있어야 겠죠.
+<img src="/images/blog/CH-1/28.png" alt="광케이블 커넥터" />
+<p/>
+<strong>A동과 B동간의 광케이블 연결상태를 노트에 그려봅시다. 그림에는 두 건물간에 몇 Core인지, 어떤방식의 광케이블이 포설되었는지, FDF는 몇 Core로 종단처리되었는지, FDF는 무슨 커넥터 타입인지와 FDF에서 장비를 연결하는 광케이블은 어떤 커넥터 타입인지가 표시되도록 그려봅시다.</strong>
+<p/>
+<strong>두 건물간에 8Core 싱글모드 광케이블이 설치되어서 FDF로 종단처리되어 있습니다. FDF에서 장비를 연결하는 광케이블을 멀티모드를 사용하여 연결하면 통신이 될까요?</strong>
+<p/>
+UTP케이블과 광케이블은 이후 표준안에서 중요한 케이블로 계속 등장하므로 Ethernet규격에 따라서 각각의 타입과 거리제한을 명확하게 알아야 합니다.
+<img src="/images/blog/CH-1/29.png" alt="UTP와 광케이블" />
+이제까지 10Mbps Ethernet에서 사용하는 케이블을 정리했습니다. 말이 10Mbps Ethernet에서 사용하는 케이블이지 UTP와 광케이블의 경우에는 주파수만 틀려지고 이후에 등장하는 모든 Ethernet에서 사용됩니다.
+<img src="/images/blog/CH-1/30.png" alt="UTP Ethernet규격별 케이블" /></p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1552273252"></script>
+    <script src="/js/perfect-scrollbar.min.js?1552273252"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1552273252"></script>
+    <script src="/js/jquery.sticky.js?1552273252"></script>
+    <script src="/js/featherlight.min.js?1552273252"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1552273252"></script>
+    <script src="/js/highlight.pack.js?1552273252"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js?1552273252"></script>
+    <script src="/js/learn.js?1552273252"></script>
+    <script src="/js/hugo-learn.js?1552273252"></script>
+
+    <link href="/mermaid/mermaid.css?1552273252" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1552273252"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

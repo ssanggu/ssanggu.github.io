@@ -12,6 +12,43 @@
     
     
     <item>
+      <title>0.5 Ethernet발전과 케이블 악세사리</title>
+      <link>http://ssanggu.github.io/ch0/ethernet%EB%B0%9C%EC%A0%84%EA%B3%BC-%EC%BC%80%EC%9D%B4%EB%B8%94-%EC%95%85%EC%84%B8%EC%82%AC%EB%A6%AC/</link>
+      <pubDate>Mon, 11 Mar 2019 11:37:21 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch0/ethernet%EB%B0%9C%EC%A0%84%EA%B3%BC-%EC%BC%80%EC%9D%B4%EB%B8%94-%EC%95%85%EC%84%B8%EC%82%AC%EB%A6%AC/</guid>
+      <description>이제까지 10Mbps Ethernet만 살펴봤는데 기본에 충실하면 이후는 동일합니다. 이후로는 Ethernet으로 쭈~~욱 발전한다고 얘기했습니다. 그렇다면 동일한 CSMA/CD방식에 broadcast네트워크라는 점만 알고 있으면 되겠네요. 10Mbps이후로 등장하는것이 100Mbps를 지원하는 FastEthernet방식입니다. FastEthernet에서는 사용하는 케이블 종류에 따라서 아래와 같은 표준안을 사용했는데 각 표준별로 케이블의 최대거리를 잘 살펴보세요.  A동과 B동간의 거리가 600M일때 100Mbps FastEthernet방식으로 구성해보세요.  FastEthernet이 보편화되면서 더 빠른 속도가 필요해서 등장하는것이 1Gbps를 제공하는 GigabitEthernet입니다. GigabitEthernet도 사용하는 케이블의 종류에 따라서 여러가지 표준안이 있으므로 표준별로 케이블의 최대거리를 잘 확인하세요.</description>
+    </item>
+    
+    <item>
+      <title>0.4 Cable에 대한 정리</title>
+      <link>http://ssanggu.github.io/ch0/cable%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC/</link>
+      <pubDate>Mon, 11 Mar 2019 10:52:55 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch0/cable%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC/</guid>
+      <description>이제까지 가상의 통신모델과 구성형태, 어떠한 방식으로 통신하는지를 정의했으니 이제는 직선으로 표시했던 케이블부분을 정의해보겠습니다. 위의 그림에서 보듯이 처음 교육을 시작할때부터 일직선으로 그린부분이 있는데, 이 일직선이 10Base5케이블을 의미하는 것입니다. 공유매체(공통으로 사용한다)인 케이블을 10Mbps Ethernet에서부터 출발을 해보겠습니다. 위의 그림에 나열된것은 10Mbps Ethernet에서 사용하는 케이블의 종류입니다.케이블 이름에서 맨앞의 10은 10Mbps를 의미하고 Base는 Baseband신호방식(저대역)을 의미하며, 맨 마지막은 케이블의 거리제한을 의미합니다.  Ethernet에서 사용하는 신호방식을 Baseband(저대역)신호방식이라고 하는데 방송국에서 사용하는 MBC, SBS, KBS의 B는 Broadband(광대역)신호방식 입니다. 저대역통신방식과 광대역통신방식간의 차이점이 무엇인지 간략하게 찾아보세요.</description>
+    </item>
+    
+    <item>
+      <title>0.3 Ethernet이란</title>
+      <link>http://ssanggu.github.io/ch0/ethernet%EC%9D%B4%EB%9E%80/</link>
+      <pubDate>Mon, 11 Mar 2019 10:20:03 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch0/ethernet%EC%9D%B4%EB%9E%80/</guid>
+      <description>구성도를 그리면서 Topology가 무엇인지 어떠한 형태로 연결되는구나&amp;hellip;하는식으로 이해가 좀 되었으면 합니다. 
+우리가 앞으로 취급할 부분은 LAN이고&amp;hellip;. LAN에서 사용하는 통신규칙중에 Ethernet을 가장많이 다루게 될것입니다.  Ethernet이란 통신을 하고자 하는 PC들을 선으로 연결해야하는데 어떤선으로 어떤방식으로 연결할것인가, 연결된 PC들끼리 통신을 하려고 하면 어떻게 동작을 해서 통신을 할것인가와 같은 규칙을 정의해놓은것이라고 생각하면 됩니다. 제가 Ethernet을 설명할때는 아래와 같이 2가지로 설명하곤합니다.  Ethernet이란 무엇인가? 라는 질문을 받는다면 CSMA/CD방식의 broadcast네트워크이다. 라고 정의할 수 있습니다. CS(Carrier Sense) Ethernet은 케이블을 기본적으로 공유(share)한다는 개념을 가지고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>0.2 물리적인 연결정의</title>
+      <link>http://ssanggu.github.io/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/</link>
+      <pubDate>Mon, 11 Mar 2019 10:03:53 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/</guid>
+      <description>통신을 하고자 하는 PC의 내부에는 우리에게 보이지는 않지만 논리적인 통신모델이 만들어진다고 생각합시다. 그 통신모델 맨 꼭대기층(응용계층)에서 사용자 어떤 작업을(브라우저로 사이트 연결)수행하면 맨꼭대기층에서부터 차례로 아래층으로 내리는 작업을 수행하고 물리계층까지 도달해서 전기신호로 보내진다는 것입니다.  통신을 하고자하는 PC에는 네트워크에 연결하기 위해서 어떤 장치가 있어야 합니다. 그것이 유선이든 무선이든.. 그러한 장치를 네트워크카드라고 하는데 내 PC에 어떤 종류의 네트워크카드가 설치되어 있는지 확인할 줄 알아야 합니다. 설치된 네트워크카드는 고유한 하드웨어주소(MAC Address)를 가지는데 장치관리자에서 찾은 네트워크카드와 MAC주소를 연관시켜서 이 MAC은 내 PC에 설치된 어떤 네트워크 카드의 주소이다를 알 수 있어야 합니다.</description>
+    </item>
+    
+    <item>
       <title>0.1 OSI 7 Layer</title>
       <link>http://ssanggu.github.io/ch0/osi-7-layer/</link>
       <pubDate>Sun, 10 Mar 2019 18:56:07 +0900</pubDate>

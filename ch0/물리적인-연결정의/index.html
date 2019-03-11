@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>0.1 OSI 7 Layer :: salgunamu&#39;s LAB Blog</title>
+    <title>0.2 물리적인 연결정의 :: salgunamu&#39;s LAB Blog</title>
 
     
     <link href="/css/nucleus.css?1552273252" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch0/osi-7-layer/">
+  <body class="" data-url="/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/">
     <nav id="sidebar" class="">
 
 
@@ -156,7 +156,7 @@
  
   
     
-      <li data-nav-id="/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/" title="0.2 물리적인 연결정의" class="dd-item ">
+      <li data-nav-id="/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/" title="0.2 물리적인 연결정의" class="dd-item active">
         <a href="/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/">
         0.2 물리적인 연결정의
         
@@ -175,7 +175,7 @@
  
   
     
-      <li data-nav-id="/ch0/osi-7-layer/" title="0.1 OSI 7 Layer" class="dd-item active">
+      <li data-nav-id="/ch0/osi-7-layer/" title="0.1 OSI 7 Layer" class="dd-item ">
         <a href="/ch0/osi-7-layer/">
         0.1 OSI 7 Layer
         
@@ -232,7 +232,7 @@
                   <span class="links">
                  
                  
-                   0.1 OSI 7 Layer 
+                   0.2 물리적인 연결정의 
                  
                   </span>
                 </div>
@@ -251,45 +251,31 @@
         
         <div id="body-inner">
           
-            <h1>0.1 OSI 7 Layer</h1>
+            <h1>0.2 물리적인 연결정의</h1>
           
 
         
 
 
-<p>PC A와 B간에 통신을 한다고 하면 아래의 그림처럼 각각의 PC상에 우리에 게 보이지 않는 논리적인 7층짜치 스택이 만들어진다고 보면 됩니다. 이것을
- OSI 7 Layer Model이라고 하는데, 통신을 하고자 하는 서로간에 통신방법을 정의하고 체크하기 위한 논리적인 모델이라고 생각하면 될듯합니다.
-<img src="/images/blog/CH-1/1.png" alt="OSI 7 Layer Model" /></p>
+<ol>
+<li>통신을 하고자 하는 PC의 내부에는 우리에게 보이지는 않지만 논리적인 통신모델이 만들어진다고 생각합시다. 그 통신모델 맨 꼭대기층(응용계층)에서 사용자 어떤 작업을(브라우저로 사이트 연결)수행하면 맨꼭대기층에서부터 차례로 아래층으로 내리는 작업을 수행하고 물리계층까지 도달해서 전기신호로 보내진다는 것입니다. <br/></li>
+<li>통신을 하고자하는 PC에는 네트워크에 연결하기 위해서 어떤 장치가 있어야 합니다. 그것이 유선이든 무선이든.. 그러한 장치를 네트워크카드라고 하는데 내 PC에 어떤 종류의 네트워크카드가 설치되어 있는지 확인할 줄 알아야 합니다. 설치된 네트워크카드는 고유한 하드웨어주소(MAC Address)를 가지는데 장치관리자에서 찾은 네트워크카드와 MAC주소를 연관시켜서 이 MAC은 내 PC에 설치된 어떤 네트워크 카드의 주소이다를 알 수 있어야 합니다.
+<p/></li>
+</ol>
 
-<p>7층짜리 스택의 맨 상단은 응용게층으로 우리가 일반적으로 인터넷을 접근하기 위하여 사용하는 프로그램들이 존재한다고 보면되는데, 가장많이 사용&gt;하는 인터넷브라우저에서 수행되는 작업들이 이 7층에서 발생한다고 생각하며 됩니다.
-A &ndash;&gt; B한테 통신을 하려고 시도한다고 하면 아래의 그림처럼 보내는 측에서는 보자기로 짐을 싸는 행동(Encapsulation)을 하고, 받는측에서는 보자기
-의 짐을 푸는 행동(Decapsulation)을 하게됩니다.
-A측의 7층에서 브라우저 데이터를 한층한층 아래로 내려보내면서 해당층을 정상적으로 통과했다는 표시를 하면서 짐을 싸는 작업을 수행하고, B측에서
-는 1층부터 도착한 데이터의 보자기를 벗겨보면서 한층한층 올려서 7층까지 올리는 작업을 수행하게 됩니다. 이것이 <strong>Encapsulation과 Decapsulation</strong>입니다.
-<img src="/images/blog/CH-1/2.png" alt="Encapsulation&amp;Decapsulation" /></p>
-
-<p>아래의 그림은 Encapsulation과 Decapsulation에대한 추가적인 설명인데, 데이터가 한층한층 통과할때마다 해당층을 정상적으로 통과했다는것을 데이&gt;터에 헤더와 꼬리를 붙여서 바로 아래층으로 내려보내게됩니다. 그러면 받는측에서는 해당층에 맞는 헤더와 꼬리를 제거하고 데이터부분만 상단으로 &gt;올리게 됩니다. 예를들어서 4층에서 데이터부분에 헤더와 꼬리를 붙여서 3층으로 내려보냈을때는 3층에서 인식하는 데이터부분은 &ldquo;4층헤더+4층데이터+4층꼬리&rdquo;를 통틀어서 3층에서 데이터로 인식하게됩니다.
-<img src="/images/blog/CH-1/3.png" alt="Encapsulation&amp;Decapsulation1" /></p>
-
-<p>통신을 하고자하는 서로간에 이러한 논리적인 모델이 만들어진다는 것을 이해했는지요?
-우리눈에는 안보이지만 내부적으로 이러한 모델이 만들어져서 통신준비를 한다는 것을 이해해야 합니다. OSI 7 Layer model은 정말로 이론적인 모델이
-어서 시장에서는 사용되지 않고 이론을 설명할때만 등장하는 모델입니다. 실제 시장에서(우리가 취급하는 네트워크 장비들)는 TCP/IP Layer model이 &gt;많이 사용되어서 이것이 표준화가 된것입니다. 따라서, 우리가 보는것은 5계층짜리의 TCP/IP Layer Model입니다.
-<img src="/images/blog/CH-1/4.png" alt="TCP/IP Model" /></p>
-
-<p>이론적인 모델에서 우리가 취급하는 장비는 아래의 그림과 같이 3개층만 주로 취급합니다.
-<img src="/images/blog/CH-1/5.png" alt="3층만" /></p>
-
-<p>A &ndash;&gt; B로 통신을 하려고 한다면 사람인 우리는 목적지가 B라는 것을 바로 알수가 있지만, 컴퓨터는 내가 통신을 하려고 하는 목적지를 어떻게 판단할
-까요?
-컴퓨터가 통신을 하고자 하는 목적지 B라는 것을 판단하는 방법은 주소를 사용합니다.<br/>
-<strong>주소라????</strong><br/>
-당신의 집주소는?<br/>
-우리나라에서 당신의 집주소는 유일한 주소인가요?<br/>
-우리가 사용하는 집주소는 집을 찾아가기 위한 주소이고 우리나라 아니 전세계적으로 유일하겠죠. 마찬가지로 컴퓨터통신에서 사용하는 주소(Address)도 해당 컴퓨터를 찾아가기 위한 집주소라고 생각하면되고, IP Addres와 MAC Address라는 2가지 체계가 있습니다. 물론, IP Address와 MAC Address도 전세계적으로 유일해야합니다.
-<img src="/images/blog/CH-1/6.png" alt="address" /></p>
-
-<p>위의 2가지 주소(IP Address, MAC Address)는 아래의 그림처럼 OSI 7 Layer에서 2,3층에서 해당되는데 해당층에서 목적지를 판단하여 패킷을 만들때 &gt;사용하게됩니다. 3층에서는 IP Address를 사용하는데 목적지에 대한 IP Address를 찾지 못하면 3층을 통과 못하고, 2층에서 목적지의 MAC Address를 &gt;찾지못하면 2층을 통과하지 못합니다. 해당층을 통과하지 못하면 Encapsulation과정이 수행되지 않기 때문에 패킷이 만들어지지 않고 통신이 안되게 &gt;됩니다.
-<img src="/images/blog/CH-1/7.png" alt="층별 Address" /></p>
+<p>논리적인 통신모델이 만들어진다는것을 알았으니 이번에는 연결하는 물리적인 방법에 대해서 얘기해봅시다. 아래의 그림처럼 통신하는 2대의 노드사이의 일직선으로 그은 직선에 대해서 얘기할것인데요, 그림으로는 그냥 일직선으로 그렸지만 이 부분이 우리가 많이 다루게 될 물리적인 케이블 연결부분입니다.
+<img src="/images/blog/CH-1/8.png" alt="물리적인 연결정의" />
+<p/>
+케이블을 연결하는 방식을 설명할때 토플로지(Topology)라는 용어를 사용하는데 아래의 그림처럼 케이블을 어떠한 형태로 연결하는지 연결방법을 정의한것이라고 보면 됩니다.
+<img src="/images/blog/CH-1/9.png" alt="토플로지" />
+<p/>
+이런식으로 연결된 토플로지들이 계속해서 연결되며서 LAN과 WAN을 구성하게 되는데 요즘은 Metro이터넷이 등장하면서 LAN과 WAN의 구분이 거의 없어졌다고 봐야할듯합니다. 어쨌든 아래의 그림처럼 LAN과 EAN을 나누어 본다면 한 기관의 네트워크를 LAN으로 보고 회선사업자가 연결되는 부분부터는 WAN이라고 구분하면 될듯합니다.
+<img src="/images/blog/CH-1/10.png" alt="LAN&amp;WAN" />
+<p/>
+우리는 기관의 네트워크를 설계, 구축, 유지관리를 해주기 때문에 LAN에 국한된다고 생각하면 됩니다. LAN에서 사용하는 통신기술은 아래의 그림처럼 몇가지가 있는데 통신기술이라고 하면 물리적으로 어떻게 연결하고 어떤 방식으로 통신을 하는지 정의를 하는것입니다.
+<img src="/images/blog/CH-1/11.png" alt="LAN통신기술" />
+<p/>
+<strong>현재는 Ethernet방식만 취급하는데 TokenRing, FDDI가 어떤방식으로 연결하고 어떻게 동작하는지 간단한 기본원리만 찾아볼까요?</strong></p>
 
 
 <footer class=" footline" >
@@ -393,6 +379,7 @@ A측의 7층에서 브라우저 데이터를 한층한층 아래로 내려보내
             
                 
                     
+                    
                 
                 
 
@@ -409,6 +396,8 @@ A측의 7층에서 브라우저 데이터를 한층한층 아래로 내려보내
             
                 
                     
+                        
+                        
                     
                 
                 
