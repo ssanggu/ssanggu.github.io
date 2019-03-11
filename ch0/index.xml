@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>0.6 네트워크장비개요</title>
+      <link>http://ssanggu.github.io/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/</link>
+      <pubDate>Mon, 11 Mar 2019 13:43:09 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/</guid>
+      <description>네트워크에 사용되는 케이블을 알아보면서 모든 케이블마다 통신할 수 있는 거리제한이 있다는 것을 알게되었습니다. 한 세그먼트의 최대거리에 수용할 수 있는 PC들이 모두 수용되었을떄 추가적인 케이블 세그먼트를 만드는데 이 두 세그먼트간의 통신은 어떻게 할까요? 이렇게 케이블의 물리적인 거리의 한계를 극복하기 위하여 네트워크장비들이 등장하게 됩니다. 등장한 네트워크장비는 Repeater(리피터), Bridge(브리지), Router(라우터)입니다. 우리는 OSI 7 Layer중에서 아래 3계층만 다룬다고 했는데, 등장한 네트워크장비들이 이 3계층에 아래와 같이 매핑됩니다. Repeater &amp;nbsp;&amp;nbsp;:거리연장 + 신호증폭  리피터는 케이블의 물리적인 거리한계를 극복하도록 거리를 연장하는 기능과 감쇠된 신호를 증폭하여 다시 전달할 수 있는 기능을 제공합니다.</description>
+    </item>
+    
+    <item>
       <title>0.5 Ethernet발전과 케이블 악세사리</title>
       <link>http://ssanggu.github.io/ch0/ethernet%EB%B0%9C%EC%A0%84%EA%B3%BC-%EC%BC%80%EC%9D%B4%EB%B8%94-%EC%95%85%EC%84%B8%EC%82%AC%EB%A6%AC/</link>
       <pubDate>Mon, 11 Mar 2019 11:37:21 +0900</pubDate>

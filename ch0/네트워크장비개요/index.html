@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>0.1 OSI 7 Layer :: salgunamu&#39;s LAB Blog</title>
+    <title>0.6 네트워크장비개요 :: salgunamu&#39;s LAB Blog</title>
 
     
     <link href="/css/nucleus.css?1552280925" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch0/osi-7-layer/">
+  <body class="" data-url="/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/">
     <nav id="sidebar" class="">
 
 
@@ -99,7 +99,7 @@
  
   
     
-      <li data-nav-id="/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/" title="0.6 네트워크장비개요" class="dd-item ">
+      <li data-nav-id="/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/" title="0.6 네트워크장비개요" class="dd-item active">
         <a href="/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/">
         0.6 네트워크장비개요
         
@@ -194,7 +194,7 @@
  
   
     
-      <li data-nav-id="/ch0/osi-7-layer/" title="0.1 OSI 7 Layer" class="dd-item active">
+      <li data-nav-id="/ch0/osi-7-layer/" title="0.1 OSI 7 Layer" class="dd-item ">
         <a href="/ch0/osi-7-layer/">
         0.1 OSI 7 Layer
         
@@ -251,7 +251,7 @@
                   <span class="links">
                  
                  
-                   0.1 OSI 7 Layer 
+                   0.6 네트워크장비개요 
                  
                   </span>
                 </div>
@@ -270,45 +270,41 @@
         
         <div id="body-inner">
           
-            <h1>0.1 OSI 7 Layer</h1>
+            <h1>0.6 네트워크장비개요</h1>
           
 
         
 
 
-<p>PC A와 B간에 통신을 한다고 하면 아래의 그림처럼 각각의 PC상에 우리에 게 보이지 않는 논리적인 7층짜치 스택이 만들어진다고 보면 됩니다. 이것을
- OSI 7 Layer Model이라고 하는데, 통신을 하고자 하는 서로간에 통신방법을 정의하고 체크하기 위한 논리적인 모델이라고 생각하면 될듯합니다.
-<img src="/images/blog/CH-1/1.png" alt="OSI 7 Layer Model" /></p>
+<p>네트워크에 사용되는 케이블을 알아보면서 모든 케이블마다 통신할 수 있는 거리제한이 있다는 것을 알게되었습니다. 한 세그먼트의 최대거리에 수용할 수 있는 PC들이 모두 수용되었을떄 추가적인 케이블 세그먼트를 만드는데 이 두 세그먼트간의 통신은 어떻게 할까요? 이렇게 케이블의 물리적인 거리의 한계를 극복하기 위하여 네트워크장비들이 등장하게 됩니다.
+<img src="/images/blog/CH-1/34.png" alt="네트워크장비의 등장" /></p>
 
-<p>7층짜리 스택의 맨 상단은 응용게층으로 우리가 일반적으로 인터넷을 접근하기 위하여 사용하는 프로그램들이 존재한다고 보면되는데, 가장많이 사용&gt;하는 인터넷브라우저에서 수행되는 작업들이 이 7층에서 발생한다고 생각하며 됩니다.
-A &ndash;&gt; B한테 통신을 하려고 시도한다고 하면 아래의 그림처럼 보내는 측에서는 보자기로 짐을 싸는 행동(Encapsulation)을 하고, 받는측에서는 보자기
-의 짐을 푸는 행동(Decapsulation)을 하게됩니다.
-A측의 7층에서 브라우저 데이터를 한층한층 아래로 내려보내면서 해당층을 정상적으로 통과했다는 표시를 하면서 짐을 싸는 작업을 수행하고, B측에서
-는 1층부터 도착한 데이터의 보자기를 벗겨보면서 한층한층 올려서 7층까지 올리는 작업을 수행하게 됩니다. 이것이 <strong>Encapsulation과 Decapsulation</strong>입니다.
-<img src="/images/blog/CH-1/2.png" alt="Encapsulation&amp;Decapsulation" /></p>
+<p>등장한 네트워크장비는 Repeater(리피터), Bridge(브리지), Router(라우터)입니다. 우리는 OSI 7 Layer중에서 아래 3계층만 다룬다고 했는데, 등장한 네트워크장비들이 이 3계층에 아래와 같이 매핑됩니다.
+<img src="/images/blog/CH-1/35.png" alt="네트워크장비와 OSI 7 Layer" /></p>
 
-<p>아래의 그림은 Encapsulation과 Decapsulation에대한 추가적인 설명인데, 데이터가 한층한층 통과할때마다 해당층을 정상적으로 통과했다는것을 데이&gt;터에 헤더와 꼬리를 붙여서 바로 아래층으로 내려보내게됩니다. 그러면 받는측에서는 해당층에 맞는 헤더와 꼬리를 제거하고 데이터부분만 상단으로 &gt;올리게 됩니다. 예를들어서 4층에서 데이터부분에 헤더와 꼬리를 붙여서 3층으로 내려보냈을때는 3층에서 인식하는 데이터부분은 &ldquo;4층헤더+4층데이터+4층꼬리&rdquo;를 통틀어서 3층에서 데이터로 인식하게됩니다.
-<img src="/images/blog/CH-1/3.png" alt="Encapsulation&amp;Decapsulation1" /></p>
+<p><h4>Repeater<br/>
+<font color="red">&nbsp;&nbsp;:거리연장 + 신호증폭</font>
+</h4>
+리피터는 케이블의 물리적인 거리한계를 극복하도록 거리를 연장하는 기능과 감쇠된 신호를 증폭하여 다시 전달할 수 있는 기능을 제공합니다.
+<img src="/images/blog/CH-1/36.png" alt="리피터의 기능" /></p>
 
-<p>통신을 하고자하는 서로간에 이러한 논리적인 모델이 만들어진다는 것을 이해했는지요?
-우리눈에는 안보이지만 내부적으로 이러한 모델이 만들어져서 통신준비를 한다는 것을 이해해야 합니다. OSI 7 Layer model은 정말로 이론적인 모델이
-어서 시장에서는 사용되지 않고 이론을 설명할때만 등장하는 모델입니다. 실제 시장에서(우리가 취급하는 네트워크 장비들)는 TCP/IP Layer model이 &gt;많이 사용되어서 이것이 표준화가 된것입니다. 따라서, 우리가 보는것은 5계층짜리의 TCP/IP Layer Model입니다.
-<img src="/images/blog/CH-1/4.png" alt="TCP/IP Model" /></p>
+<p><h4>Bridge<br/>
+<font color="red">&nbsp;&nbsp;:Repeater기능 + MAC Address 필터링</font>
+</h4>
+브리지는 리피터가 제공하는 기능을 모두 수용하고 추가적으로 Layer2에서 사용하는 MAC Address에 대해서 테이블을 관리하고 필터링하는 기능을 제공합니다. MAC Address필터링을 통하여 불필요한 트래픽을 줄일 수 있습니다.
+<img src="/images/blog/CH-1/37.png" alt="브리지의 기능" /></p>
 
-<p>이론적인 모델에서 우리가 취급하는 장비는 아래의 그림과 같이 3개층만 주로 취급합니다.
-<img src="/images/blog/CH-1/5.png" alt="3층만" /></p>
+<p><h4>Router<br/>
+<font color="red">&nbsp;&nbsp;:Bridge기능 + IP Address필터링</font>
+</h4>
+라우터는 브리지가 제공하는 기능을 모두 수용하고 추가적으로 Layer3에서 사용하는 IP Address에 대해서 테이블을 관리하고 필터링하는 기능을 제공합니다.
+<img src="/images/blog/CH-1/38.png" alt="라우터의 기능" /></p>
 
-<p>A &ndash;&gt; B로 통신을 하려고 한다면 사람인 우리는 목적지가 B라는 것을 바로 알수가 있지만, 컴퓨터는 내가 통신을 하려고 하는 목적지를 어떻게 판단할
-까요?
-컴퓨터가 통신을 하고자 하는 목적지 B라는 것을 판단하는 방법은 주소를 사용합니다.<br/>
-<strong>주소라????</strong><br/>
-당신의 집주소는?<br/>
-우리나라에서 당신의 집주소는 유일한 주소인가요?<br/>
-우리가 사용하는 집주소는 집을 찾아가기 위한 주소이고 우리나라 아니 전세계적으로 유일하겠죠. 마찬가지로 컴퓨터통신에서 사용하는 주소(Address)도 해당 컴퓨터를 찾아가기 위한 집주소라고 생각하면되고, IP Addres와 MAC Address라는 2가지 체계가 있습니다. 물론, IP Address와 MAC Address도 전세계적으로 유일해야합니다.
-<img src="/images/blog/CH-1/6.png" alt="address" /></p>
+<p>요즘은 HUB(허브)를 볼 수 없지만, 초장기때에는 HUB와 SWITCH를 구분이 필요했습니다.
+<img src="/images/blog/CH-1/39.png" alt="HUB와 SWITCH" /></p>
 
-<p>위의 2가지 주소(IP Address, MAC Address)는 아래의 그림처럼 OSI 7 Layer에서 2,3층에서 해당되는데 해당층에서 목적지를 판단하여 패킷을 만들때 &gt;사용하게됩니다. 3층에서는 IP Address를 사용하는데 목적지에 대한 IP Address를 찾지 못하면 3층을 통과 못하고, 2층에서 목적지의 MAC Address를 &gt;찾지못하면 2층을 통과하지 못합니다. 해당층을 통과하지 못하면 Encapsulation과정이 수행되지 않기 때문에 패킷이 만들어지지 않고 통신이 안되게 &gt;됩니다.
-<img src="/images/blog/CH-1/7.png" alt="층별 Address" /></p>
+<p>건물별로 네트워크를 생각할때 어떤 케이블을 사용할 것인가를 선택하고, 사용하는 케이블의 거리제한을 고려하여 센터의 위치를 정해야합니다. 아래의 그림처럼 거리제한이 있는 케이블을 고려하여 통신센터의 위치를 선정하는것이 필요합니다.
+<img src="/images/blog/CH-1/40.png" alt="통신센터 위치지정" /></p>
 
 
 <footer class=" footline" >
@@ -361,6 +357,23 @@ A측의 7층에서 브라우저 데이터를 한층한층 아래로 내려보내
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -427,23 +440,6 @@ A측의 7층에서 브라우저 데이터를 한층한층 아래로 내려보내
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
