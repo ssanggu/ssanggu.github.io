@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EVE-NG LAB on salgunamu&#39;s LAB Blog</title>
+    <link>http://ssanggu.github.io/ch2/</link>
+    <description>Recent content in EVE-NG LAB on salgunamu&#39;s LAB Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Mon, 11 Mar 2019 22:32:43 +0900</lastBuildDate>
+    
+	<atom:link href="http://ssanggu.github.io/ch2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
