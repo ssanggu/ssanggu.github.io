@@ -9,22 +9,22 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>네트워크 기초이론 :: salgunamu&#39;s LAB Blog</title>
+    <title>2.5 Trunk환경설정 :: salgunamu&#39;s LAB Blog</title>
 
     
-    <link href="/css/nucleus.css?1552480432" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1552480432" rel="stylesheet">
-    <link href="/css/hybrid.css?1552480432" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1552480432" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1552480432" rel="stylesheet">
-    <link href="/css/auto-complete.css?1552480432" rel="stylesheet">
-    <link href="/css/theme.css?1552480432" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1552480432" rel="stylesheet">
+    <link href="/css/nucleus.css?1552480433" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1552480433" rel="stylesheet">
+    <link href="/css/hybrid.css?1552480433" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1552480433" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1552480433" rel="stylesheet">
+    <link href="/css/auto-complete.css?1552480433" rel="stylesheet">
+    <link href="/css/theme.css?1552480433" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1552480433" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1552480432" rel="stylesheet">
+      <link href="/css/theme-blue.css?1552480433" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1552480432"></script>
+    <script src="/js/jquery-2.x.min.js?1552480433"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch0/">
+  <body class="" data-url="/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/">
     <nav id="sidebar" class="">
 
 
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1552480432"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1552480432"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1552480433"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1552480433"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/ssanggu.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1552480432"></script>
+<script type="text/javascript" src="/js/search.js?1552480433"></script>
 
     
   </div>
@@ -75,7 +75,7 @@
   
     
     <li data-nav-id="/ch2/" title="EVE-NG LAB" class="dd-item 
-        
+        parent
         
         
         ">
@@ -99,7 +99,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/" title="2.5 Trunk환경설정" class="dd-item ">
+      <li data-nav-id="/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/" title="2.5 Trunk환경설정" class="dd-item active">
         <a href="/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/">
         2.5 Trunk환경설정
         
@@ -310,8 +310,8 @@
   
     
     <li data-nav-id="/ch0/" title="네트워크 기초이론" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/ch0/">
@@ -481,22 +481,46 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
-                   네트워크 기초이론 
+                   2.5 Trunk환경설정 
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#구성도">[구성도]</a></li>
+<li><a href="#lab의-목적">[LAB의 목적]</a></li>
+<li><a href="#습득해야할-내용">[습득해야할 내용]</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
             
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>2.5 Trunk환경설정</h1>
           
 
         
@@ -504,21 +528,31 @@
 
 
 
-<h3 id="chapter-0">Chapter 0</h3>
+<h4 id="구성도">[구성도]</h4>
 
-<h1 id="네트워크-기초이론">네트워크 기초이론</h1>
+<p><img src="/images/ch2/2-1.png" alt="2-1.구성도" />
+LAB구성파일: <a href="/lab_export/1227_VLAN-Trunk2.zip">1227_VLAN-Trunk2.zip</a>
+<p/></p>
 
-<blockquote>
-<p>본 장에서는 네트워크에 입문할때 기본적으로 알아야하는 기초이론에 대한 정리입니다.</p>
-</blockquote>
+<h4 id="lab의-목적">[LAB의 목적]</h4>
+
+<p>물리적인 단일 연결을 통해서 여러개의 VLAN통신이 가능하도록 하는 Trunk설정 익히기
+<p/></p>
+
+<h4 id="습득해야할-내용">[습득해야할 내용]</h4>
+
+<ul>
+<li>떨어져 있는 건물에 있는 사용자들을 동일한 VLAN으로 묶어주기 위한 Trunk설정 익히기</li>
+<li>설정할때 SW2스위치의 관리 IP는 VLAN100에서 할당하고 SW3스위치의 관리 IP는 VLAN200에서 할당하기</li>
+<li>스위치에 trunk설정방법 익히기</li>
+</ul>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div> 
         
@@ -550,8 +584,106 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -625,22 +757,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -661,90 +777,6 @@
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -876,3 +908,4 @@
 
   </body>
 </html>
+

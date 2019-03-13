@@ -11,5 +11,61 @@
 	<atom:link href="http://ssanggu.github.io/ch2/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>2.5 Trunk환경설정</title>
+      <link>http://ssanggu.github.io/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Wed, 13 Mar 2019 21:15:19 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/</guid>
+      <description> [구성도] LAB구성파일: 1227_VLAN-Trunk2.zip 
+[LAB의 목적] 물리적인 단일 연결을 통해서 여러개의 VLAN통신이 가능하도록 하는 Trunk설정 익히기 
+[습득해야할 내용]  떨어져 있는 건물에 있는 사용자들을 동일한 VLAN으로 묶어주기 위한 Trunk설정 익히기 설정할때 SW2스위치의 관리 IP는 VLAN100에서 할당하고 SW3스위치의 관리 IP는 VLAN200에서 할당하기 스위치에 trunk설정방법 익히기  </description>
+    </item>
+    
+    <item>
+      <title>2.4 스위치 기본설정 템플릿</title>
+      <link>http://ssanggu.github.io/ch2/2.4-%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF/</link>
+      <pubDate>Wed, 13 Mar 2019 21:07:18 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.4-%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF/</guid>
+      <description> [구성도] 
+[LAB의 목적] 2.3장의 LAB을 그대로 이용하여 LAB상의 스위치에 아래의 사항들을 설정해보고 시험하기 
+[습득해야할 내용]  스위치에 Timezone을 설정하고 외부 NTP서버를 지정하여 시간동기화. NTP시간동기화 상태 통신확인하기 debug와 log메시지가 현재 장비시간으로 정확하게 표시되도록 설정하기 설정하는 password가 복호화가 안되도록 암호화 설정하기 원격에서 장비를 연결할때 username과 암호를 물어봐서 로그인하도록 구성하기 호스트OS에서 LAB상의 장비로 telnet연결가능하게 하기(호스트OS에서 LAB상의 장비들을 연결하기 위하여 라우팅을 추가하는 방법 익히기) 모든 스위치에 대해서 원격접속을 SSH로만 가능하도록 설정하기 모든 스위치에 대해서 SSH연결시에 호스트OS에서만 접근가능하도록 ACL설정해보기 호스트OS에 tftp나 ftp데몬을 구동하여 LAB에 구성한 모든 스위치의 config를 백업해보기  </description>
+    </item>
+    
+    <item>
+      <title>2.3 호스트OS에서 LAB환경 접속하기</title>
+      <link>http://ssanggu.github.io/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Wed, 13 Mar 2019 20:42:40 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/</guid>
+      <description> [구성도] LAB구성파일: 20161222_L3-VLAN_Cloud.zip 
+[LAB의 목적] 2.2 LAB에서 구성한 환경을 VMWare에서 제공하는 Host-Only(VMNet1)네트워크에 연결해서 HostOS에서 LAB장비를 연결할 수 있는 방법 익히기 
+[습득해야할 내용]  VMWare Plyaer에서 제공하는 Bridge, NAT, Host-only인터페이스 이해하기 자기의 VMWare Player버전에 맞는 vmnetcfg.exe를 받아서 네트워크를 재구성하는 방법 익히기 Bridge, NAT, Host-only인터페이스중 어떤것을 연결하더라도 LAB상의 장비를 연결하는 방법 익히기 
+[VMWare어댑터관계 개념그림]   </description>
+    </item>
+    
+    <item>
+      <title>2.2 VLAN간 ip routing시험</title>
+      <link>http://ssanggu.github.io/ch2/2.2-vlan%EA%B0%84-ip-routing%EC%8B%9C%ED%97%98/</link>
+      <pubDate>Wed, 13 Mar 2019 20:34:06 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.2-vlan%EA%B0%84-ip-routing%EC%8B%9C%ED%97%98/</guid>
+      <description> [구성도] LAB구성파일: 20161222_L3-VLAN.zip 
+[LAB의 목적] L3를 수행하는 백본스위치 1대를 놓고 서로 다른 VLAN간에 ip routing을 수행하여 서로 다른 VLAN간에 통신 시험 
+[습득해야할 내용]  Cisco IOL에서 스위치 이미지를 사용할때  L3 라우팅기능을 사용하려면 ip routing L3 스위치에서 default gateway를 지정하려면 ip route 0.0.0.0 0.0.0.0 nexthop으로 지정 L2스위치로만 사용하려면 no ip routing L2 스위치에서 default gateway를 지정하려면 ip default-gateway nexthop으로 지정   </description>
+    </item>
+    
+    <item>
+      <title>2.1 L2스위치 기본LAB</title>
+      <link>http://ssanggu.github.io/ch2/2.1-l2%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8lab/</link>
+      <pubDate>Wed, 13 Mar 2019 20:23:12 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.1-l2%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8lab/</guid>
+      <description> [구성도] LAB구성파일: 20161222_L2-VLAN.zip 
+[LAB의 목적] UnetLAB에 등록한 Cisco IOL이미지가 정상적으로 동작하여 L2스위치의 기능을 수행하는지를 시험 
+[습득해야할 내용]  Cisco스위치의 기본설정 (보안을 고려한 설정으로 기본적으로 설정하는 내용에 대한 설정 템플릿을 만들어 보기) VPC의 기본 IP설정방법과 통신명령 익히기 동일한 VLAN상의 노느들간의 통신확인하기  </description>
+    </item>
+    
   </channel>
 </rss>

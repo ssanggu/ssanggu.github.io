@@ -9,22 +9,22 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>네트워크 기초이론 :: salgunamu&#39;s LAB Blog</title>
+    <title>2.3 호스트OS에서 LAB환경 접속하기 :: salgunamu&#39;s LAB Blog</title>
 
     
-    <link href="/css/nucleus.css?1552480432" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1552480432" rel="stylesheet">
-    <link href="/css/hybrid.css?1552480432" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1552480432" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1552480432" rel="stylesheet">
-    <link href="/css/auto-complete.css?1552480432" rel="stylesheet">
-    <link href="/css/theme.css?1552480432" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1552480432" rel="stylesheet">
+    <link href="/css/nucleus.css?1552480433" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1552480433" rel="stylesheet">
+    <link href="/css/hybrid.css?1552480433" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1552480433" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1552480433" rel="stylesheet">
+    <link href="/css/auto-complete.css?1552480433" rel="stylesheet">
+    <link href="/css/theme.css?1552480433" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1552480433" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1552480432" rel="stylesheet">
+      <link href="/css/theme-blue.css?1552480433" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1552480432"></script>
+    <script src="/js/jquery-2.x.min.js?1552480433"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch0/">
+  <body class="" data-url="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
     <nav id="sidebar" class="">
 
 
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1552480432"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1552480432"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1552480433"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1552480433"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/ssanggu.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1552480432"></script>
+<script type="text/javascript" src="/js/search.js?1552480433"></script>
 
     
   </div>
@@ -75,7 +75,7 @@
   
     
     <li data-nav-id="/ch2/" title="EVE-NG LAB" class="dd-item 
-        
+        parent
         
         
         ">
@@ -137,7 +137,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item ">
+      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item active">
         <a href="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
         2.3 호스트OS에서 LAB환경 접속하기
         
@@ -310,8 +310,8 @@
   
     
     <li data-nav-id="/ch0/" title="네트워크 기초이론" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/ch0/">
@@ -481,22 +481,47 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
-                   네트워크 기초이론 
+                   2.3 호스트OS에서 LAB환경 접속하기 
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#구성도">[구성도]</a></li>
+<li><a href="#lab의-목적">[LAB의 목적]</a></li>
+<li><a href="#습득해야할-내용">[습득해야할 내용]</a></li>
+<li><a href="#vmware어댑터관계-개념그림">[VMWare어댑터관계 개념그림]</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
             
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>2.3 호스트OS에서 LAB환경 접속하기</h1>
           
 
         
@@ -504,21 +529,40 @@
 
 
 
-<h3 id="chapter-0">Chapter 0</h3>
+<h4 id="구성도">[구성도]</h4>
 
-<h1 id="네트워크-기초이론">네트워크 기초이론</h1>
+<p><img src="/images/ch2/2-3.png" alt="2-1.구성도" />
+LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VLAN_Cloud.zip</a>
+<p/></p>
 
-<blockquote>
-<p>본 장에서는 네트워크에 입문할때 기본적으로 알아야하는 기초이론에 대한 정리입니다.</p>
-</blockquote>
+<h4 id="lab의-목적">[LAB의 목적]</h4>
+
+<p>2.2 LAB에서 구성한 환경을 VMWare에서 제공하는 Host-Only(VMNet1)네트워크에 연결해서 HostOS에서 LAB장비를 연결할 수 있는 방법 익히기
+<p/></p>
+
+<h4 id="습득해야할-내용">[습득해야할 내용]</h4>
+
+<ul>
+<li>VMWare Plyaer에서 제공하는 Bridge, NAT, Host-only인터페이스 이해하기</li>
+<li>자기의 VMWare Player버전에 맞는 vmnetcfg.exe를 받아서 네트워크를 재구성하는 방법 익히기</li>
+
+<li><p>Bridge, NAT, Host-only인터페이스중 어떤것을 연결하더라도 LAB상의 장비를 연결하는 방법 익히기
+<p/></p>
+
+<h4 id="vmware어댑터관계-개념그림">[VMWare어댑터관계 개념그림]</h4>
+
+<p><img src="/images/ch2/2-3-1.png" alt="Host OS와 Guest OS" />
+<img src="/images/ch2/2-3-2.png" alt="Bridge Mode" />
+<img src="/images/ch2/2-3-3.png" alt="NAT Mode" />
+<img src="/images/ch2/2-3-4.png" alt="UnetLAB의 NAT에 연결" /></p></li>
+</ul>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div> 
         
@@ -550,8 +594,109 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -625,22 +770,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -661,90 +790,6 @@
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -876,3 +921,4 @@
 
   </body>
 </html>
+
