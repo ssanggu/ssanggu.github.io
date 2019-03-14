@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>1.3 UnetLab(EVE-NG) 설치하기 :: salgunamu&#39;s LAB Blog</title>
+    <title>2.9 우분투머신에 하드디스크 추가 :: salgunamu&#39;s LAB Blog</title>
 
     
     <link href="/css/nucleus.css?1552568991" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">
+  <body class="" data-url="/ch2/2.9-%EC%9A%B0%EB%B6%84%ED%88%AC%EB%A8%B8%EC%8B%A0%EC%97%90-%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC%EC%B6%94%EA%B0%80/">
     <nav id="sidebar" class="">
 
 
@@ -75,7 +75,7 @@
   
     
     <li data-nav-id="/ch2/" title="EVE-NG LAB" class="dd-item 
-        
+        parent
         
         
         ">
@@ -99,7 +99,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.9-%EC%9A%B0%EB%B6%84%ED%88%AC%EB%A8%B8%EC%8B%A0%EC%97%90-%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC%EC%B6%94%EA%B0%80/" title="2.9 우분투머신에 하드디스크 추가" class="dd-item ">
+      <li data-nav-id="/ch2/2.9-%EC%9A%B0%EB%B6%84%ED%88%AC%EB%A8%B8%EC%8B%A0%EC%97%90-%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC%EC%B6%94%EA%B0%80/" title="2.9 우분투머신에 하드디스크 추가" class="dd-item active">
         <a href="/ch2/2.9-%EC%9A%B0%EB%B6%84%ED%88%AC%EB%A8%B8%EC%8B%A0%EC%97%90-%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC%EC%B6%94%EA%B0%80/">
         2.9 우분투머신에 하드디스크 추가
         
@@ -278,7 +278,7 @@
   
     
     <li data-nav-id="/ch1/" title="준비단계" class="dd-item 
-        parent
+        
         
         
         ">
@@ -321,7 +321,7 @@
  
   
     
-      <li data-nav-id="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" title="1.3 UnetLab(EVE-NG) 설치하기" class="dd-item active">
+      <li data-nav-id="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" title="1.3 UnetLab(EVE-NG) 설치하기" class="dd-item ">
         <a href="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">
         1.3 UnetLab(EVE-NG) 설치하기
         
@@ -562,14 +562,28 @@
                   <span class="links">
                  
                  
-                   1.3 UnetLab(EVE-NG) 설치하기 
+                   2.9 우분투머신에 하드디스크 추가 
                  
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#lab의-목적">[LAB의 목적]</a></li>
+<li><a href="#습득해야할-내용">[습득해야할 내용]</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -581,34 +595,31 @@
         
         <div id="body-inner">
           
-            <h1>1.3 UnetLab(EVE-NG) 설치하기</h1>
+            <h1>2.9 우분투머신에 하드디스크 추가</h1>
           
 
         
 
 
-<ul>
-<li>Check if Virtualization Technology is available for UnetLab
+
+
+<h4 id="lab의-목적">[LAB의 목적]</h4>
+
+<p>UnetLaB을 돌리기 위하여 우분투 가상머신을 생성할때 20G하드디스크를 생성했는데 이미지를 몇개 추가하다보니 디스트의 용량부족발생.<br/>
+리눅스에 신규로 하드디스크를 추가했을때 수행되는 작업 익히기
+<p/></p>
+
+<h4 id="습득해야할-내용">[습득해야할 내용]</h4>
 
 <ul>
-<li>설치한 VMware Player에 UnetLab을 위한 가상머신을 생성할때 <strong>Virtualize Intel VT-x/EPT or AMD-V/RVI기능</strong>이 활성화됨을 확인</li>
-<li><a href="https://www.brianlinkletter.com/how-to-set-up-the-eve-ng-network-emulator-on-a-linux-system/" target="_blank">Open-Source Routing and Network Simulation</a></li>
-</ul></li>
-<li>Installing UnetLab on a Physical Server
-
-<ul>
-<li>VMWare Player에 가상머신으로 설치하지만 설치방법은 물리적인 서버에 설치하는 방법과 동일하게 설치</li>
-<li>설치방법은 <a href="https://www.brianlinkletter.com/how-to-set-up-the-eve-ng-network-emulator-on-a-linux-system/" target="_blank">Open-Source Routing and Network Simulation</a>를 참조</li>
-<li>설치후에 <font color="red">grub를 수정하는 부분 주의할것!!!</font></li>
-</ul></li>
-<li>설치후에 처음 부팅할때 UnetLab구성하기
-
-<ul>
-<li>설치한 후에 처음으로 부팅하면 UnetLab설정화면이 기본으로 구동되는데 우분투는 root암호를 넣는 부분이 없기때문에 자동으로 구동되는 프로세스를 찾아서 중지한후에 수동으로 설정하는 것을 진행할 필요가 있음</li>
-</ul></li>
-<li>브라우저에서 UnetLab연결하고 기본 사용법 익히기</li>
-<li>UnetLab에서 구성하는 장비들을 실제PC에서 자유롭게 접속하고 관리하기 위해서는 VMWare와 우분투, UnetLab간의 네트워크 어댑터 고나계를 정확하게 이해를 해야합니다. 아래의 그림은 Windows 10 PC에서 VMWare Player를 설치하고 우분투 가상머신을 설치하여 그 우분투에 UnetLab을 설치했을때 네트워크 어댑터의 관계를 그린 그림입니다.
-<img src="/images/ch1/어댑터관계.jpg" alt="NIC관계" /></li>
+<li>VMWare가상머신 설정에서 20GB SCSI HDD 한개 추가하기</li>
+<li>우분투머신을 부팅하고 <code>dmesg|grep sd</code>명령으로 하드디스크 인식된거 확인</li>
+<li><code>fdisk -l</code>명령으로 디스크 목록 확인하기</li>
+<li>fdisk명령으로 추가된 하드디스크 파티션하는 방법 방법익히기</li>
+<li>신규로 생성된 파티션을 포맷하는 방법 익히기.<br/>
+<strong>이 부분에서 리눅스의 파티션의 종류에 대해서 알아보기(ext2, ext3, ext4등등)</strong></li>
+<li>신규 파티션 마운트할 디렉토리 생성과 수동 마운트 진행해보기</li>
+<li>fstab에 부팅시에 자동으로 마운트 되도록 설정하기</li>
 </ul>
 
 
@@ -648,8 +659,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -663,6 +672,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -787,22 +816,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -811,7 +824,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -824,9 +836,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -844,7 +853,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -860,9 +868,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 

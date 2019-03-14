@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>1.3 UnetLab(EVE-NG) 설치하기 :: salgunamu&#39;s LAB Blog</title>
+    <title>2.8 VyOS이미지 등록 :: salgunamu&#39;s LAB Blog</title>
 
     
     <link href="/css/nucleus.css?1552568991" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">
+  <body class="" data-url="/ch2/2.8-vyos%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D/">
     <nav id="sidebar" class="">
 
 
@@ -75,7 +75,7 @@
   
     
     <li data-nav-id="/ch2/" title="EVE-NG LAB" class="dd-item 
-        
+        parent
         
         
         ">
@@ -118,7 +118,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.8-vyos%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D/" title="2.8 VyOS이미지 등록" class="dd-item ">
+      <li data-nav-id="/ch2/2.8-vyos%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D/" title="2.8 VyOS이미지 등록" class="dd-item active">
         <a href="/ch2/2.8-vyos%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D/">
         2.8 VyOS이미지 등록
         
@@ -278,7 +278,7 @@
   
     
     <li data-nav-id="/ch1/" title="준비단계" class="dd-item 
-        parent
+        
         
         
         ">
@@ -321,7 +321,7 @@
  
   
     
-      <li data-nav-id="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" title="1.3 UnetLab(EVE-NG) 설치하기" class="dd-item active">
+      <li data-nav-id="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" title="1.3 UnetLab(EVE-NG) 설치하기" class="dd-item ">
         <a href="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">
         1.3 UnetLab(EVE-NG) 설치하기
         
@@ -562,14 +562,28 @@
                   <span class="links">
                  
                  
-                   1.3 UnetLab(EVE-NG) 설치하기 
+                   2.8 VyOS이미지 등록 
                  
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#lab의-목적">[LAB의 목적]</a></li>
+<li><a href="#습득해야할-내용">[습득해야할 내용]</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -581,34 +595,34 @@
         
         <div id="body-inner">
           
-            <h1>1.3 UnetLab(EVE-NG) 설치하기</h1>
+            <h1>2.8 VyOS이미지 등록</h1>
           
 
         
 
 
-<ul>
-<li>Check if Virtualization Technology is available for UnetLab
+
+
+<h4 id="lab의-목적">[LAB의 목적]</h4>
+
+<p>LAB상에서 이용할 vyOS장비하나 추가하기.<br/>
+ova이미지에서 vmdk이미지를 추출하고, 그 추줄한 이미지를 리눅스 kvm상에서 실행할 수 있는 이미지로 변환하는 방법익히기
+<p/></p>
+
+<h4 id="습득해야할-내용">[습득해야할 내용]</h4>
 
 <ul>
-<li>설치한 VMware Player에 UnetLab을 위한 가상머신을 생성할때 <strong>Virtualize Intel VT-x/EPT or AMD-V/RVI기능</strong>이 활성화됨을 확인</li>
-<li><a href="https://www.brianlinkletter.com/how-to-set-up-the-eve-ng-network-emulator-on-a-linux-system/" target="_blank">Open-Source Routing and Network Simulation</a></li>
-</ul></li>
-<li>Installing UnetLab on a Physical Server
-
-<ul>
-<li>VMWare Player에 가상머신으로 설치하지만 설치방법은 물리적인 서버에 설치하는 방법과 동일하게 설치</li>
-<li>설치방법은 <a href="https://www.brianlinkletter.com/how-to-set-up-the-eve-ng-network-emulator-on-a-linux-system/" target="_blank">Open-Source Routing and Network Simulation</a>를 참조</li>
-<li>설치후에 <font color="red">grub를 수정하는 부분 주의할것!!!</font></li>
-</ul></li>
-<li>설치후에 처음 부팅할때 UnetLab구성하기
-
-<ul>
-<li>설치한 후에 처음으로 부팅하면 UnetLab설정화면이 기본으로 구동되는데 우분투는 root암호를 넣는 부분이 없기때문에 자동으로 구동되는 프로세스를 찾아서 중지한후에 수동으로 설정하는 것을 진행할 필요가 있음</li>
-</ul></li>
-<li>브라우저에서 UnetLab연결하고 기본 사용법 익히기</li>
-<li>UnetLab에서 구성하는 장비들을 실제PC에서 자유롭게 접속하고 관리하기 위해서는 VMWare와 우분투, UnetLab간의 네트워크 어댑터 고나계를 정확하게 이해를 해야합니다. 아래의 그림은 Windows 10 PC에서 VMWare Player를 설치하고 우분투 가상머신을 설치하여 그 우분투에 UnetLab을 설치했을때 네트워크 어댑터의 관계를 그린 그림입니다.
-<img src="/images/ch1/어댑터관계.jpg" alt="NIC관계" /></li>
+<li>VyOS란?</li>
+<li><a href="https://wiki.vyos.net/wiki/User_Guide">VyOS사용자 가이드</a>로 기본 사용법 숙지하기</li>
+<li>VyOS ova이미지 다운로드</li>
+<li>디렉토리 생성(<strong>VyOS이미지의 디렉토리 이름은 vyos-로 시작해야함</strong>)<br/>
+<code>mkdir -p /opt/unetlab/addons/qemu/vyos-117</code></li>
+<li>ova 압축풀기<br/>
+<code>tar xf vyos-1.1.7-amd64-signed.ova</code></li>
+<li>vmdk이미지를 qemu이미지로 변환<br/>
+<code>/opt/qemu/bin/qemu-img convert -f vmdk -O qcow2 VyOS-1.1.7-signed-disk1.vmdk hda.qcow2</code></li>
+<li>권한수정<br/>
+<code>/opt/unetlab/wrappers/unl-wrapper -a fixpermissions</code></li>
 </ul>
 
 
@@ -648,8 +662,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -663,6 +675,45 @@
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -771,6 +822,22 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -803,66 +870,10 @@
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 

@@ -28,6 +28,34 @@
 	"content": " 블로그 소개  적지않은 기간동안 네트워크를 설계, 구축하고 유지관리를 수행해오면서 습득한 지식을 후배들에게 조금이라도 쉽게 알려주고 새로운 기술에 대하여공부할때 실제적으로 구성해보고 이해할 수 있는 방안을 찾아오던중에 우연히 EVE-NG 프로그램을 알게 되었습니다. 이 프로그램을 통해서 기본적으로 리눅스와 VMWare 가상화를 공부할 수 있고, 다양한 네트워크 장비들을 실제적으로 배치하여 구성함으로써 네트워크에 대한 개념을 조금이라도 쉽게 접근할 수 있었습니다.\n본 블로그는 그 동안 EVE-NG를 통해서 구축했던 많은 LAB환경을 정리하여 각각의 LAB에서 어떠한 지식을 습득했었는지를 정리하는 블로그입니다.\n "
 },
 {
+	"uri": "http://ssanggu.github.io/ch2/2.9-%EC%9A%B0%EB%B6%84%ED%88%AC%EB%A8%B8%EC%8B%A0%EC%97%90-%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC%EC%B6%94%EA%B0%80/",
+	"title": "2.9 우분투머신에 하드디스크 추가",
+	"tags": [],
+	"description": "",
+	"content": " [LAB의 목적] UnetLaB을 돌리기 위하여 우분투 가상머신을 생성할때 20G하드디스크를 생성했는데 이미지를 몇개 추가하다보니 디스트의 용량부족발생. 리눅스에 신규로 하드디스크를 추가했을때 수행되는 작업 익히기 \n[습득해야할 내용]  VMWare가상머신 설정에서 20GB SCSI HDD 한개 추가하기 우분투머신을 부팅하고 dmesg|grep sd명령으로 하드디스크 인식된거 확인 fdisk -l명령으로 디스크 목록 확인하기 fdisk명령으로 추가된 하드디스크 파티션하는 방법 방법익히기 신규로 생성된 파티션을 포맷하는 방법 익히기. 이 부분에서 리눅스의 파티션의 종류에 대해서 알아보기(ext2, ext3, ext4등등) 신규 파티션 마운트할 디렉토리 생성과 수동 마운트 진행해보기 fstab에 부팅시에 자동으로 마운트 되도록 설정하기  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.8-vyos%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D/",
+	"title": "2.8 VyOS이미지 등록",
+	"tags": [],
+	"description": "",
+	"content": " [LAB의 목적] LAB상에서 이용할 vyOS장비하나 추가하기. ova이미지에서 vmdk이미지를 추출하고, 그 추줄한 이미지를 리눅스 kvm상에서 실행할 수 있는 이미지로 변환하는 방법익히기 \n[습득해야할 내용]  VyOS란? VyOS사용자 가이드로 기본 사용법 숙지하기 VyOS ova이미지 다운로드 디렉토리 생성(VyOS이미지의 디렉토리 이름은 vyos-로 시작해야함) mkdir -p /opt/unetlab/addons/qemu/vyos-117 ova 압축풀기 tar xf vyos-1.1.7-amd64-signed.ova vmdk이미지를 qemu이미지로 변환 /opt/qemu/bin/qemu-img convert -f vmdk -O qcow2 VyOS-1.1.7-signed-disk1.vmdk hda.qcow2 권한수정 /opt/unetlab/wrappers/unl-wrapper -a fixpermissions  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.7-%EC%8A%A4%EC%9C%84%EC%B9%98%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF2/",
+	"title": "2.7 스위치설정 템플릿2",
+	"tags": [],
+	"description": "",
+	"content": " [LAB의 목적] 네트워크 장비를 설정할때 아래의 사항들은 기본적으로 설정이 필요하여 기본 설정템플릿으로 정의. LAB상에서 스위치나 라우터 설정할때 귀찮다 생각하지 말고 아래의 사항들을 기본적으로 설정하면서 습관을 들이는것이 목적. \n[습득해야할 내용]  장비의 이름(hostname)을 의미있게 부여하였는가? 도메인이름을 설정하였고, ip domain-lookup을 수행하지 않도록 설정하였는가? (no ip domain-lookup을 설정하지 않으면 프롬포트에 오타를 치는 경우 대기시간이 발생) Timezone설정을 수행하였는가? debug, log메시지에 대해서 timestamp를 localtime으로 지정하였는가? VTP domain을 지정하고 VTO mode를 transparent로 변경하였는가? password encryption서비스를 설정하였는가? aaa new-model을 설정하여 사용자계정을 통해서 장비 접근하도록 설정하였는가? 로컬관리자 계정을 생성할때 secret암호를 사용하였는가? enable암호를 설정할때 secret암호를 사용하였는가? 장비접근은 SSH만 가능하도록 하고 SSH Ver2로 설정했는가? 관리자 접근제한 ACL테이블을 생성했는가? SSH, HTTP(s), SNMP접근에 대해서 위에서 생성한 접근제한 ACL을 적용했는가? Login 배너를 설정했는가? 배너를 한글로 설정하는 방법은?  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.6-static-route%EC%84%A4%EC%A0%95/",
+	"title": "2.6 Static Route 설정",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 1226_L3-Static-Route.zip \n[LAB의 목적] 본 LAB은 라우팅설정에 대한 이해를 돕기위한 LAB입니다. \n[습득해야할 내용]  모든 통신의 시작은 출발지 시스템의 라우팅테이블을 살펴본는것에서 출발한다는 사실 인지 라우팅테이블에 존재하지 않는 네트워크를 목적지로 하는 경우에는 default-gateway로 전달된다는것 default gateway를 정의하지 말고 LAB상의 모든 L3장비에서 사용하는 네트워크들에 대해서만 라우팅을 설정하여 모두 통신이 되도록 구성할것 supermasking으로 등록하는 라우팅 갯수를 줄일 수 있는 방안  "
+},
+{
 	"uri": "http://ssanggu.github.io/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/",
 	"title": "2.5 Trunk환경설정",
 	"tags": [],
