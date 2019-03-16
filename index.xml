@@ -12,6 +12,61 @@
     
     
     <item>
+      <title>2.21 Cisco HSRP이중화 구성</title>
+      <link>http://ssanggu.github.io/ch2/2.21-cisco-hsrp%EC%9D%B4%EC%A4%91%ED%99%94-%EA%B5%AC%EC%84%B1/</link>
+      <pubDate>Sat, 16 Mar 2019 14:42:17 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.21-cisco-hsrp%EC%9D%B4%EC%A4%91%ED%99%94-%EA%B5%AC%EC%84%B1/</guid>
+      <description>[구성도] LAB구성파일: 0120_Cisco-HSRP-Networks.zip 
+[LAB의 목적] Cisco IOS 백본스위치에 대한 장애를 대비하기 위하여 이중화로 구성하고 게이트웨이 이중화 프로토콜인 HSRP를 사용하여 이중화 네트워크를 구성합니다. 
+[LAB수행조건]  VRRP(Virtual Router Redundancy Protocol)와 HSRP(Hot Stanby Router Protocol)는 동일하게 게이트웨이를 이중화하는 프로토콜로 VRRP는 모든 제조사에서 사용가능 하지만 HSRP는 Cisco에서만 사용 가능 HSRP 기본구성 문서를 참조하여 LAB장비를 설정 VLAN100은 BACKBONE1이 Master, VLAN200은 BACKBONE2가 Master가 되도록 설정 show stanby brief로 HSRP상태확인 모든 노드에서 LAB상의 모든 IP로(slave ip address를 포함) 통신이 되는것을 확인 BACKBONE2를 stop했을때 HSRP Master가 BACKBONE1으로 전환되면서 네트워크 끊김이 없음을 보이려 했으나 사용한 이미지상의 버그로 인하여 fail-over시험은 완료 못함</description>
+    </item>
+    
+    <item>
+      <title>2.20 UnetLab에서 WireShark로 패킷 캡처</title>
+      <link>http://ssanggu.github.io/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/</link>
+      <pubDate>Sat, 16 Mar 2019 13:53:16 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/</guid>
+      <description>[LAB의 목적] UnetLab에 구성하는 LAB자체에서 WireShark를 통한 패킷을 캡처가 가능합니다. LAB에서 WireShark를 사용할 수 있도록 구성하는 LAB입니다. 우분투에서는 sudo개념을 사용하고 있기때문에 root암호를 생성하는 과정이 필요합니다. 
+[LAB수행조건]  네이버블로그에서 UNL에서 와이어샤크를 이용한 패킷캡처 라는 잘 정리된 글을 통해서 본 LAB을 잘 꾸밀 수 있읍니다. 원리: plink를 이용하여 UNL서버에 SSH터널을 구성하여 tcpdump데이터를 받아오는 구조
+  UnetLab사이트에서 Windows Client Side을 다운로드해서 설치하면 기본프로그램에 대한 레지스크리 등록 수행 wireshark_wrapper.bat파일에 USERNAME과 PASSWORD항목이 있는데 ssh로 연결해서 tcpdump를 실행할 수 있는 권한이 있어야 하므로 root계정정보를 입력해야함 우분투는 sudo개념을 사용함으로 root에 대한 암호설정 필요 ssh데몬의 config파일에서 root로 로그인할 수 있도록 설정 변경 필요 윈도우에 Wireshark프로그램 설치하고, wireshark_wrapper.</description>
+    </item>
+    
+    <item>
+      <title>2.19 Remote Access VPN구성</title>
+      <link>http://ssanggu.github.io/ch2/2.19-remote-access-vpn%EA%B5%AC%EC%84%B1/</link>
+      <pubDate>Sat, 16 Mar 2019 13:37:42 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.19-remote-access-vpn%EA%B5%AC%EC%84%B1/</guid>
+      <description>[구성도] LAB구성파일: 0118_RemoteAccess-VPN.zip 
+[LAB의 목적] Site-to-Site VPN은 사용자들이 VPN연결을 고려하지 않고 사용하면 라우터에서 해당 대역의 IP에 대해서 암호화를 진행해줍니다. 출장을 나갔거나 외부에서 사용하는 사용자들 위한 Remote VPN을 Cisco IOS라우터에 구성해서 사용자별로 VPN환경을 사용할 수 있도록 구성해봅니다. 
+[LAB수행조건]  라우터 R1, SW, VPC1,2에 기본 IP설정 참고파일에 올린 pdf문서를 기반으로 R1에 Remote Access VPN설정 Windows7에 Cisco IPSec VPN Client 5.0.07버전 설치. 한번에 정상적으로 설치 안되는 경우가 발생할 수 있는데, 그럴 경우에 Windows 7을 재시작후에 다시 설치해보세요.</description>
+    </item>
+    
+    <item>
+      <title>2.18 IPSec Site-to-Site VPN 구성하기</title>
+      <link>http://ssanggu.github.io/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Sat, 16 Mar 2019 13:26:20 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/</guid>
+      <description> [구성도] LAB구성파일: 0118_L2L-IPSec_Tunnel.zip 
+[LAB의 목적] 본사와 지사간에 공중망을 통해서 데이터전송을 할때 암호화된 트래픽으로 전달하기 위하여 VPN을 사용합니다. 본 LAB은 Cisco IOS기반 라우터를 사용하여 두 지점간에 IPSec VPN터널을 구성하는 방법을 습득합니다. 
+[LAB수행조건]  두개의 라우터(R1, R2)를 Cloud(pnet0) 네트워크에 연결해서 구성 두대의 라우터간에 Site-to-Site 터널구성 IPSec터널을 통해서 10.1.1.0/24네트워크와 172.16.20.0/24 네트워크가 통신됨을 확인 debug를 통해서 IPSec세션 로그 확인해보기    참고파일   LAN-to-LAN IPsec Tunnel Between Two Routers.pdf  (281 ko)    </description>
+    </item>
+    
+    <item>
+      <title>2.17 L3라우터의 Trunk인터페이스</title>
+      <link>http://ssanggu.github.io/ch2/2.17-l3%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%9D%98-trunk%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/</link>
+      <pubDate>Sat, 16 Mar 2019 13:18:24 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.17-l3%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%9D%98-trunk%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/</guid>
+      <description> [구성도] LAB구성파일: L3-Ro_Trunk.zip 
+[LAB의 목적] 물리적으로 단일 링크를 통해서 여러개의 VLAN을 통신하도록 하기 위해서 Trunk를 사용합니다. L3라우터장비에서 Trunk인터페이스를 sub-interface롤 생성하는 방법을 습득하는 LAB입니다. 
+[LAB수행조건]  SW1, SW2스위치는 L2스위치로 설정 SW1, SW2스위치 각각에 2개의 VLAN을 생성하고 각각의 VLAN에 VPC를 연결 SW스위치와 Cisco, Juniper라우터간에 trunk를 설정하고 L3인터페이스를 설정 L3라우터에서 trunk로 연결되는 L3인터페이스 생성방법 습득 2대의 라우터간에 라우팅 설정 모든 VPC간에 통신 가능한지 확인  </description>
+    </item>
+    
+    <item>
       <title>2.16 Juniper Olive 기본명령어 익히기</title>
       <link>http://ssanggu.github.io/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/</link>
       <pubDate>Sat, 16 Mar 2019 11:15:00 +0900</pubDate>

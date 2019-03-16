@@ -9,22 +9,22 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Categories :: salgunamu&#39;s LAB Blog</title>
+    <title>2.19 Remote Access VPN구성 :: salgunamu&#39;s LAB Blog</title>
 
     
-    <link href="/css/nucleus.css?1552716054" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1552716054" rel="stylesheet">
-    <link href="/css/hybrid.css?1552716054" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1552716054" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1552716054" rel="stylesheet">
-    <link href="/css/auto-complete.css?1552716054" rel="stylesheet">
-    <link href="/css/theme.css?1552716054" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1552716054" rel="stylesheet">
+    <link href="/css/nucleus.css?1552716053" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1552716053" rel="stylesheet">
+    <link href="/css/hybrid.css?1552716053" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1552716053" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1552716053" rel="stylesheet">
+    <link href="/css/auto-complete.css?1552716053" rel="stylesheet">
+    <link href="/css/theme.css?1552716053" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1552716053" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1552716054" rel="stylesheet">
+      <link href="/css/theme-blue.css?1552716053" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1552716054"></script>
+    <script src="/js/jquery-2.x.min.js?1552716053"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/categories/">
+  <body class="" data-url="/ch2/2.19-remote-access-vpn%EA%B5%AC%EC%84%B1/">
     <nav id="sidebar" class="">
 
 
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1552716054"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1552716054"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1552716053"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1552716053"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/ssanggu.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1552716054"></script>
+<script type="text/javascript" src="/js/search.js?1552716053"></script>
 
     
   </div>
@@ -75,7 +75,7 @@
   
     
     <li data-nav-id="/ch2/" title="EVE-NG LAB" class="dd-item 
-        
+        parent
         
         
         ">
@@ -137,7 +137,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.19-remote-access-vpn%EA%B5%AC%EC%84%B1/" title="2.19 Remote Access VPN구성" class="dd-item ">
+      <li data-nav-id="/ch2/2.19-remote-access-vpn%EA%B5%AC%EC%84%B1/" title="2.19 Remote Access VPN구성" class="dd-item active">
         <a href="/ch2/2.19-remote-access-vpn%EA%B5%AC%EC%84%B1/">
         2.19 Remote Access VPN구성
         
@@ -790,14 +790,29 @@
                   <span class="links">
                  
                  
-                   Categories 
+                   2.19 Remote Access VPN구성 
                  
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#구성도">[구성도]</a></li>
+<li><a href="#lab의-목적">[LAB의 목적]</a></li>
+<li><a href="#lab수행조건">[LAB수행조건]</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -809,7 +824,7 @@
         
         <div id="body-inner">
           
-            <h1>Categories</h1>
+            <h1>2.19 Remote Access VPN구성</h1>
           
 
         
@@ -817,9 +832,99 @@
 
 
 
+<h4 id="구성도">[구성도]</h4>
+
+<p><img src="/images/ch2/2-19.png" alt="구성도" />
+LAB구성파일: <a href="/lab_export/0118_RemoteAccess-VPN.zip">0118_RemoteAccess-VPN.zip</a>
+<p/></p>
+
+<h4 id="lab의-목적">[LAB의 목적]</h4>
+
+<p>Site-to-Site VPN은 사용자들이 VPN연결을 고려하지 않고 사용하면 라우터에서 해당 대역의 IP에 대해서 암호화를 진행해줍니다. 출장을 나갔거나 외부에서 사용하는 사용자들 위한 Remote VPN을 Cisco IOS라우터에 구성해서 사용자별로 VPN환경을 사용할 수 있도록 구성해봅니다.
+<p/></p>
+
+<h4 id="lab수행조건">[LAB수행조건]</h4>
+
+<ul>
+<li>라우터 R1, SW, VPC1,2에 기본 IP설정</li>
+<li>참고파일에 올린 pdf문서를 기반으로 R1에 Remote Access VPN설정</li>
+<li>Windows7에 Cisco IPSec VPN Client 5.0.07버전 설치. 한번에 정상적으로 설치 안되는 경우가 발생할 수 있는데, 그럴 경우에 Windows 7을 재시작후에 다시 설치해보세요.</li>
+<li>Windows 7에서 192.168.234.100으로 IPSec연결</li>
+<li>VPN Pool에서 IP할당 받아야 함</li>
+<li>VPN 정상 연결후 Windows 7에서 10.2.1.0/24대역과 통신됨을 확인</li>
+</ul>
+
+<section class="attachments orange">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		참고파일
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			<li>
+				<a href="/ch2/2.19%20Remote%20Access%20VPN%ea%b5%ac%ec%84%b1.files/2017-01-18%2015_19_43-QEMU%20%28Win7%29.png" >
+					2017-01-18 15_19_43-QEMU (Win7).png
+				</a>
+				(87 ko)
+			</li>
+		
+	
+		
+		
+			<li>
+				<a href="/ch2/2.19%20Remote%20Access%20VPN%ea%b5%ac%ec%84%b1.files/2017-01-18%2015_20_57-QEMU%20%28Win7%29.png" >
+					2017-01-18 15_20_57-QEMU (Win7).png
+				</a>
+				(84 ko)
+			</li>
+		
+	
+		
+		
+			<li>
+				<a href="/ch2/2.19%20Remote%20Access%20VPN%ea%b5%ac%ec%84%b1.files/2017-01-18%2015_21_25-.png" >
+					2017-01-18 15_21_25-.png
+				</a>
+				(71 ko)
+			</li>
+		
+	
+		
+		
+			<li>
+				<a href="/ch2/2.19%20Remote%20Access%20VPN%ea%b5%ac%ec%84%b1.files/2017-01-18%2015_22_36-QEMU%20%28Win7%29.png" >
+					2017-01-18 15_22_36-QEMU (Win7).png
+				</a>
+				(70 ko)
+			</li>
+		
+	
+		
+		
+			<li>
+				<a href="/ch2/2.19%20Remote%20Access%20VPN%ea%b5%ac%ec%84%b1.files/How%20to%20configure%20a%20Cisco%20IOS%20Remote%20Access%20IPSEC%20VPN.pdf" >
+					How to configure a Cisco IOS Remote Access IPSEC VPN.pdf
+				</a>
+				(227 ko)
+			</li>
+		
+	
+	<div>
+	
+</section>
+
+
+
+
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -852,8 +957,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -867,6 +970,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -900,6 +1006,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -915,6 +1022,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1409,20 +1519,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1552716054"></script>
-    <script src="/js/perfect-scrollbar.min.js?1552716054"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1552716054"></script>
-    <script src="/js/jquery.sticky.js?1552716054"></script>
-    <script src="/js/featherlight.min.js?1552716054"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1552716054"></script>
-    <script src="/js/highlight.pack.js?1552716054"></script>
+    <script src="/js/clipboard.min.js?1552716053"></script>
+    <script src="/js/perfect-scrollbar.min.js?1552716053"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1552716053"></script>
+    <script src="/js/jquery.sticky.js?1552716053"></script>
+    <script src="/js/featherlight.min.js?1552716053"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1552716053"></script>
+    <script src="/js/highlight.pack.js?1552716053"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1552716054"></script>
-    <script src="/js/learn.js?1552716054"></script>
-    <script src="/js/hugo-learn.js?1552716054"></script>
+    <script src="/js/modernizr.custom.71422.js?1552716053"></script>
+    <script src="/js/learn.js?1552716053"></script>
+    <script src="/js/hugo-learn.js?1552716053"></script>
 
-    <link href="/mermaid/mermaid.css?1552716054" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1552716054"></script>
+    <link href="/mermaid/mermaid.css?1552716053" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1552716053"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1430,3 +1540,4 @@
 
   </body>
 </html>
+

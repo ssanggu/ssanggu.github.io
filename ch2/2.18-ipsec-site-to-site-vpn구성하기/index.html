@@ -9,22 +9,22 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Categories :: salgunamu&#39;s LAB Blog</title>
+    <title>2.18 IPSec Site-to-Site VPN 구성하기 :: salgunamu&#39;s LAB Blog</title>
 
     
-    <link href="/css/nucleus.css?1552716054" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1552716054" rel="stylesheet">
-    <link href="/css/hybrid.css?1552716054" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1552716054" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1552716054" rel="stylesheet">
-    <link href="/css/auto-complete.css?1552716054" rel="stylesheet">
-    <link href="/css/theme.css?1552716054" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1552716054" rel="stylesheet">
+    <link href="/css/nucleus.css?1552716053" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1552716053" rel="stylesheet">
+    <link href="/css/hybrid.css?1552716053" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1552716053" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1552716053" rel="stylesheet">
+    <link href="/css/auto-complete.css?1552716053" rel="stylesheet">
+    <link href="/css/theme.css?1552716053" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1552716053" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1552716054" rel="stylesheet">
+      <link href="/css/theme-blue.css?1552716053" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1552716054"></script>
+    <script src="/js/jquery-2.x.min.js?1552716053"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/categories/">
+  <body class="" data-url="/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/">
     <nav id="sidebar" class="">
 
 
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1552716054"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1552716054"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1552716053"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1552716053"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/ssanggu.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1552716054"></script>
+<script type="text/javascript" src="/js/search.js?1552716053"></script>
 
     
   </div>
@@ -75,7 +75,7 @@
   
     
     <li data-nav-id="/ch2/" title="EVE-NG LAB" class="dd-item 
-        
+        parent
         
         
         ">
@@ -156,7 +156,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="2.18 IPSec Site-to-Site VPN 구성하기" class="dd-item ">
+      <li data-nav-id="/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="2.18 IPSec Site-to-Site VPN 구성하기" class="dd-item active">
         <a href="/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/">
         2.18 IPSec Site-to-Site VPN 구성하기
         
@@ -790,14 +790,29 @@
                   <span class="links">
                  
                  
-                   Categories 
+                   2.18 IPSec Site-to-Site VPN 구성하기 
                  
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#구성도">[구성도]</a></li>
+<li><a href="#lab의-목적">[LAB의 목적]</a></li>
+<li><a href="#lab수행조건">[LAB수행조건]</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -809,7 +824,7 @@
         
         <div id="body-inner">
           
-            <h1>Categories</h1>
+            <h1>2.18 IPSec Site-to-Site VPN 구성하기</h1>
           
 
         
@@ -817,9 +832,57 @@
 
 
 
+<h4 id="구성도">[구성도]</h4>
+
+<p><img src="/images/ch2/2-18.png" alt="구성도" />
+LAB구성파일: <a href="/lab_export/0118_L2L-IPSec_Tunnel.zip">0118_L2L-IPSec_Tunnel.zip</a>
+<p/></p>
+
+<h4 id="lab의-목적">[LAB의 목적]</h4>
+
+<p>본사와 지사간에 공중망을 통해서 데이터전송을 할때 암호화된 트래픽으로 전달하기 위하여 VPN을 사용합니다. 본 LAB은 Cisco IOS기반 라우터를 사용하여 두 지점간에 IPSec VPN터널을 구성하는 방법을 습득합니다.
+<p/></p>
+
+<h4 id="lab수행조건">[LAB수행조건]</h4>
+
+<ul>
+<li>두개의 라우터(R1, R2)를 Cloud(pnet0) 네트워크에 연결해서 구성</li>
+<li>두대의 라우터간에 Site-to-Site 터널구성</li>
+<li>IPSec터널을 통해서 10.1.1.0/24네트워크와 172.16.20.0/24 네트워크가 통신됨을 확인</li>
+<li>debug를 통해서 IPSec세션 로그 확인해보기</li>
+</ul>
+
+<section class="attachments orange">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		참고파일
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			<li>
+				<a href="/ch2/2.18%20IPSec%20Site-to-Site%20VPN%ea%b5%ac%ec%84%b1%ed%95%98%ea%b8%b0.files/LAN-to-LAN%20IPsec%20Tunnel%20Between%20Two%20Routers.pdf" >
+					LAN-to-LAN IPsec Tunnel Between Two Routers.pdf
+				</a>
+				(281 ko)
+			</li>
+		
+	
+	<div>
+	
+</section>
+
+
+
+
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -852,8 +915,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -867,6 +928,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -916,6 +980,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -931,6 +996,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1409,20 +1477,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1552716054"></script>
-    <script src="/js/perfect-scrollbar.min.js?1552716054"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1552716054"></script>
-    <script src="/js/jquery.sticky.js?1552716054"></script>
-    <script src="/js/featherlight.min.js?1552716054"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1552716054"></script>
-    <script src="/js/highlight.pack.js?1552716054"></script>
+    <script src="/js/clipboard.min.js?1552716053"></script>
+    <script src="/js/perfect-scrollbar.min.js?1552716053"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1552716053"></script>
+    <script src="/js/jquery.sticky.js?1552716053"></script>
+    <script src="/js/featherlight.min.js?1552716053"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1552716053"></script>
+    <script src="/js/highlight.pack.js?1552716053"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1552716054"></script>
-    <script src="/js/learn.js?1552716054"></script>
-    <script src="/js/hugo-learn.js?1552716054"></script>
+    <script src="/js/modernizr.custom.71422.js?1552716053"></script>
+    <script src="/js/learn.js?1552716053"></script>
+    <script src="/js/hugo-learn.js?1552716053"></script>
 
-    <link href="/mermaid/mermaid.css?1552716054" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1552716054"></script>
+    <link href="/mermaid/mermaid.css?1552716053" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1552716053"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1430,3 +1498,4 @@
 
   </body>
 </html>
+

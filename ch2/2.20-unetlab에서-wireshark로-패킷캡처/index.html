@@ -9,22 +9,22 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Categories :: salgunamu&#39;s LAB Blog</title>
+    <title>2.20 UnetLab에서 WireShark로 패킷 캡처 :: salgunamu&#39;s LAB Blog</title>
 
     
-    <link href="/css/nucleus.css?1552716054" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1552716054" rel="stylesheet">
-    <link href="/css/hybrid.css?1552716054" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1552716054" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1552716054" rel="stylesheet">
-    <link href="/css/auto-complete.css?1552716054" rel="stylesheet">
-    <link href="/css/theme.css?1552716054" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1552716054" rel="stylesheet">
+    <link href="/css/nucleus.css?1552716053" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1552716053" rel="stylesheet">
+    <link href="/css/hybrid.css?1552716053" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1552716053" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1552716053" rel="stylesheet">
+    <link href="/css/auto-complete.css?1552716053" rel="stylesheet">
+    <link href="/css/theme.css?1552716053" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1552716053" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1552716054" rel="stylesheet">
+      <link href="/css/theme-blue.css?1552716053" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1552716054"></script>
+    <script src="/js/jquery-2.x.min.js?1552716053"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/categories/">
+  <body class="" data-url="/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/">
     <nav id="sidebar" class="">
 
 
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1552716054"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1552716054"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1552716053"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1552716053"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/ssanggu.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1552716054"></script>
+<script type="text/javascript" src="/js/search.js?1552716053"></script>
 
     
   </div>
@@ -75,7 +75,7 @@
   
     
     <li data-nav-id="/ch2/" title="EVE-NG LAB" class="dd-item 
-        
+        parent
         
         
         ">
@@ -118,7 +118,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/" title="2.20 UnetLab에서 WireShark로 패킷 캡처" class="dd-item ">
+      <li data-nav-id="/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/" title="2.20 UnetLab에서 WireShark로 패킷 캡처" class="dd-item active">
         <a href="/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/">
         2.20 UnetLab에서 WireShark로 패킷 캡처
         
@@ -790,14 +790,28 @@
                   <span class="links">
                  
                  
-                   Categories 
+                   2.20 UnetLab에서 WireShark로 패킷 캡처 
                  
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#lab의-목적">[LAB의 목적]</a></li>
+<li><a href="#lab수행조건">[LAB수행조건]</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -809,7 +823,7 @@
         
         <div id="body-inner">
           
-            <h1>Categories</h1>
+            <h1>2.20 UnetLab에서 WireShark로 패킷 캡처</h1>
           
 
         
@@ -817,9 +831,30 @@
 
 
 
+<h4 id="lab의-목적">[LAB의 목적]</h4>
+
+<p>UnetLab에 구성하는 LAB자체에서 WireShark를 통한 패킷을 캡처가 가능합니다. LAB에서 WireShark를 사용할 수 있도록 구성하는 LAB입니다. 우분투에서는 sudo개념을 사용하고 있기때문에 root암호를 생성하는 과정이 필요합니다.
+<p/></p>
+
+<h4 id="lab수행조건">[LAB수행조건]</h4>
+
+<ul>
+<li>네이버블로그에서 <a href="https://blog.naver.com/ellen_chiwon/220747454635">UNL에서 와이어샤크를 이용한 패킷캡처</a> 라는 잘 정리된 글을 통해서 본 LAB을 잘 꾸밀 수 있읍니다.
+<div class="notices tip" ><p>원리: plink를 이용하여 UNL서버에 SSH터널을 구성하여 tcpdump데이터를 받아오는 구조</p>
+</div>
+</li>
+<li>UnetLab사이트에서 <a href="http://eve-ng.com/downloads/windows-client-side-pack" target="_blank">Windows Client Side</a>을 다운로드해서 설치하면 기본프로그램에 대한 레지스크리 등록 수행</li>
+<li><strong>wireshark_wrapper.bat</strong>파일에 USERNAME과 PASSWORD항목이 있는데 ssh로 연결해서 tcpdump를 실행할 수 있는 권한이 있어야 하므로 root계정정보를 입력해야함</li>
+<li>우분투는 sudo개념을 사용함으로 root에 대한 암호설정 필요</li>
+<li>ssh데몬의 config파일에서 root로 로그인할 수 있도록 설정 변경 필요</li>
+<li>윈도우에 Wireshark프로그램 설치하고, <strong>wireshark_wrapper.bat</strong>파일의 내용중 wireshark프로그램의 경로를 수정</li>
+</ul>
+
+
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -852,8 +887,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -867,6 +900,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -884,6 +920,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -899,6 +936,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1409,20 +1449,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1552716054"></script>
-    <script src="/js/perfect-scrollbar.min.js?1552716054"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1552716054"></script>
-    <script src="/js/jquery.sticky.js?1552716054"></script>
-    <script src="/js/featherlight.min.js?1552716054"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1552716054"></script>
-    <script src="/js/highlight.pack.js?1552716054"></script>
+    <script src="/js/clipboard.min.js?1552716053"></script>
+    <script src="/js/perfect-scrollbar.min.js?1552716053"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1552716053"></script>
+    <script src="/js/jquery.sticky.js?1552716053"></script>
+    <script src="/js/featherlight.min.js?1552716053"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1552716053"></script>
+    <script src="/js/highlight.pack.js?1552716053"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1552716054"></script>
-    <script src="/js/learn.js?1552716054"></script>
-    <script src="/js/hugo-learn.js?1552716054"></script>
+    <script src="/js/modernizr.custom.71422.js?1552716053"></script>
+    <script src="/js/learn.js?1552716053"></script>
+    <script src="/js/hugo-learn.js?1552716053"></script>
 
-    <link href="/mermaid/mermaid.css?1552716054" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1552716054"></script>
+    <link href="/mermaid/mermaid.css?1552716053" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1552716053"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1430,3 +1470,4 @@
 
   </body>
 </html>
+
