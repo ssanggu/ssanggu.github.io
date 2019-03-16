@@ -44,7 +44,7 @@
       <pubDate>Mon, 11 Mar 2019 21:18:59 +0900</pubDate>
       
       <guid>http://ssanggu.github.io/ch1/1.1-%EB%A6%AC%EB%88%85%EC%8A%A4%EC%9D%98-%EA%B8%B0%EB%B3%B8/</guid>
-      <description>운영체제란? (OS, Operating System) 커널과 shell Unix의 History: BSD계역과 System-V계열의 유닉스부터 전반적인 유닉스의 발전 히스토리를 설명 리눅스란? 리눅스 배포판이란? 리눅스의 배포판 History 리눅스의 init 왕데몬에 관하여 하지만, 이제는 Systemd가 대세 패키지 관리 명령어  Debian계열(Ubuntu): apt-get RedHat게열(CentOS): yum    리눅스라는 운영체제를 설명하기 위하여 운영체제에 대해서 간략하게 설명하고 사용자가 입력하는 명령어을 받아서 실행하는 명령어해독기(shell)에 대한 설명과 여러가지 shell별로 환경변수를 설정하는 방법을 살펴봅니다. 리눅스의 다양한 배포판들이 존재하는 것을 설명하고 배포판들의 뿌리를 설명할 것입니다.</description>
+      <description>운영체제란? (OS, Operating System) 커널과 shell Unix의 History: BSD계역과 System-V계열의 유닉스부터 전반적인 유닉스의 발전 히스토리를 설명 리눅스란? 리눅스 배포판이란? 리눅스의 배포판 History 리눅스의 init 왕데몬에 관하여 하지만, 이제는 Systemd가 대세 패키지 관리 명령어  Debian계열(Ubuntu): apt-get RedHat게열(CentOS): yum   리눅스라는 운영체제를 설명하기 위하여 운영체제에 대해서 간략하게 설명하고 사용자가 입력하는 명령어을 받아서 실행하는 명령어해독기(shell)에 대한 설명과 여러가지 shell별로 환경변수를 설정하는 방법을 살펴봅니다. 리눅스의 다양한 배포판들이 존재하는 것을 설명하고 배포판들의 뿌리를 설명할 것입니다.</description>
     </item>
     
   </channel>

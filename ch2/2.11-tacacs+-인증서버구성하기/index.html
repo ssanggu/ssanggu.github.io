@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>2.3 호스트OS에서 LAB환경 접속하기 :: salgunamu&#39;s LAB Blog</title>
+    <title>2.11 TACACS&#43; 인증서버 구성하기 :: salgunamu&#39;s LAB Blog</title>
 
     
     <link href="/css/nucleus.css?1552709307" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
+  <body class="" data-url="/ch2/2.11-tacacs&#43;-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/">
     <nav id="sidebar" class="">
 
 
@@ -194,7 +194,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.11-tacacs&#43;-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="2.11 TACACS&#43; 인증서버 구성하기" class="dd-item ">
+      <li data-nav-id="/ch2/2.11-tacacs&#43;-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="2.11 TACACS&#43; 인증서버 구성하기" class="dd-item active">
         <a href="/ch2/2.11-tacacs&#43;-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/">
         2.11 TACACS&#43; 인증서버 구성하기
         
@@ -346,7 +346,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item active">
+      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item ">
         <a href="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
         2.3 호스트OS에서 LAB환경 접속하기
         
@@ -695,7 +695,7 @@
                   <span class="links">
                  
                  
-                   2.3 호스트OS에서 LAB환경 접속하기 
+                   2.11 TACACS&#43; 인증서버 구성하기 
                  
                   </span>
                 </div>
@@ -713,7 +713,6 @@
 <li><a href="#구성도">[구성도]</a></li>
 <li><a href="#lab의-목적">[LAB의 목적]</a></li>
 <li><a href="#습득해야할-내용">[습득해야할 내용]</a></li>
-<li><a href="#vmware어댑터관계-개념그림">[VMWare어댑터관계 개념그림]</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -730,7 +729,7 @@
         
         <div id="body-inner">
           
-            <h1>2.3 호스트OS에서 LAB환경 접속하기</h1>
+            <h1>2.11 TACACS&#43; 인증서버 구성하기</h1>
           
 
         
@@ -740,30 +739,37 @@
 
 <h4 id="구성도">[구성도]</h4>
 
-<p><img src="/images/ch2/2-3.png" alt="2-1.구성도" />
-LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VLAN_Cloud.zip</a>
+<p><img src="/images/ch2/2-11.png" alt="2-1.구성도" />
+LAB구성파일: <a href="/lab_export/0104_TACACS-Lab.zip">0104_TACACS-Lab.zip</a>
 <p/></p>
 
 <h4 id="lab의-목적">[LAB의 목적]</h4>
 
-<p>2.2 LAB에서 구성한 환경을 VMWare에서 제공하는 Host-Only(VMNet1)네트워크에 연결해서 HostOS에서 LAB장비를 연결할 수 있는 방법 익히기
+<p>TACACS+인증서버 패키지를 저장소설치가 아닌 소스파일로 컴파일해서 설치하는 방법익히기<br/>
+TACACS+인증서버를 구성하고 장비 접근을 인증서버 통해서 인증하기
 <p/></p>
 
 <h4 id="습득해야할-내용">[습득해야할 내용]</h4>
 
 <ul>
-<li>VMWare Plyaer에서 제공하는 Bridge, NAT, Host-only인터페이스 이해하기</li>
-<li>자기의 VMWare Player버전에 맞는 vmnetcfg.exe를 받아서 네트워크를 재구성하는 방법 익히기</li>
+<li>UnetLab이 설치된 우분투시스템에 <a href="/lab_export/DEVEL.201611061407.tar.bz2">TACACS+를 소스</a>로 설치하는 방법. <br/></li>
+<li>소스로 설치하는 방법
 
-<li><p>Bridge, NAT, Host-only인터페이스중 어떤것을 연결하더라도 LAB상의 장비를 연결하는 방법 익히기
-<p/></p>
-
-<h4 id="vmware어댑터관계-개념그림">[VMWare어댑터관계 개념그림]</h4>
-
-<p><img src="/images/ch2/2-3-1.png" alt="Host OS와 Guest OS" />
-<img src="/images/ch2/2-3-2.png" alt="Bridge Mode" />
-<img src="/images/ch2/2-3-3.png" alt="NAT Mode" />
-<img src="/images/ch2/2-3-4.png" alt="UnetLAB의 NAT에 연결" /></p></li>
+<ul>
+<li>apt-get install build-essential (우분투에서 소스컴파일을 위한 기본 환경설정)</li>
+<li>압축풀기</li>
+<li>소스파일 압축해제후 설치가이드를 해주는 README나 INSTALL파일을 확인하기</li>
+<li><code>./configure tac_plus</code> 를 수행하면 시스템의 환경을 파악하여 컴파일 수행을 위한 Makefile생성</li>
+<li><code>make</code> 를 수행하면 만들어진 Makefile을 읽어서 내용대로 컴파일 수행됨</li>
+<li><code>make install</code> 을 수행하여 실행파일들 설치. 설치되는 실행파일의 위치를 확인</li>
+</ul></li>
+<li>pnet1에 IP주소 설정하고 tacacs+데몬을 debug 레벨15로 구동</li>
+<li>SW스위치에서 TACACS+인증관련된 기본설정</li>
+<li><strong>tac_plus.conf</strong> 파일생성 (암호 MD5알고리즘)<br/>
+<code>openssl passwd -l 스트링</code><br/></li>
+<li>tac_plus.conf파일에서 사용자 계정별로 사용할 수 있는 명령어를 제한하는 방법 익히기</li>
+<li>인증로그, 수행명령 로그가 기록되는것을 확인
+<img src="/images/ch2/2-11-1.png" alt="설정내역" /></li>
 </ul>
 
 
@@ -900,6 +906,26 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -1027,26 +1053,6 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1279,10 +1285,10 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
 	 
 	 
 		
-			<a class="nav nav-prev" href="/ch2/2.4-%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF/" title="2.4 스위치 기본설정 템플릿"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/ch2/2.12-dhcp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%EA%B3%BC-dhcp%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="2.12 DHCP서버구성과 DHCP네트워크"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/ch2/2.2-vlan%EA%B0%84-ip-routing%EC%8B%9C%ED%97%98/" title="2.2 VLAN간 ip routing시험" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/ch2/2.10-%EC%9C%88%EB%8F%84%EC%9A%B0%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0/" title="2.10 윈도우이미지 등록하기" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

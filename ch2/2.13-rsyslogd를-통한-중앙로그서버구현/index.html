@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>2.3 호스트OS에서 LAB환경 접속하기 :: salgunamu&#39;s LAB Blog</title>
+    <title>2.13 rsyslogd를 통한 중앙로그서버 구현 :: salgunamu&#39;s LAB Blog</title>
 
     
     <link href="/css/nucleus.css?1552709307" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
+  <body class="" data-url="/ch2/2.13-rsyslogd%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%A4%91%EC%95%99%EB%A1%9C%EA%B7%B8%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84/">
     <nav id="sidebar" class="">
 
 
@@ -156,7 +156,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.13-rsyslogd%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%A4%91%EC%95%99%EB%A1%9C%EA%B7%B8%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84/" title="2.13 rsyslogd를 통한 중앙로그서버 구현" class="dd-item ">
+      <li data-nav-id="/ch2/2.13-rsyslogd%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%A4%91%EC%95%99%EB%A1%9C%EA%B7%B8%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84/" title="2.13 rsyslogd를 통한 중앙로그서버 구현" class="dd-item active">
         <a href="/ch2/2.13-rsyslogd%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%A4%91%EC%95%99%EB%A1%9C%EA%B7%B8%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84/">
         2.13 rsyslogd를 통한 중앙로그서버 구현
         
@@ -346,7 +346,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item active">
+      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item ">
         <a href="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
         2.3 호스트OS에서 LAB환경 접속하기
         
@@ -695,7 +695,7 @@
                   <span class="links">
                  
                  
-                   2.3 호스트OS에서 LAB환경 접속하기 
+                   2.13 rsyslogd를 통한 중앙로그서버 구현 
                  
                   </span>
                 </div>
@@ -712,8 +712,7 @@
 <ul>
 <li><a href="#구성도">[구성도]</a></li>
 <li><a href="#lab의-목적">[LAB의 목적]</a></li>
-<li><a href="#습득해야할-내용">[습득해야할 내용]</a></li>
-<li><a href="#vmware어댑터관계-개념그림">[VMWare어댑터관계 개념그림]</a></li>
+<li><a href="#lab수행조건">[LAB수행조건]</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -730,7 +729,7 @@
         
         <div id="body-inner">
           
-            <h1>2.3 호스트OS에서 LAB환경 접속하기</h1>
+            <h1>2.13 rsyslogd를 통한 중앙로그서버 구현</h1>
           
 
         
@@ -740,30 +739,20 @@
 
 <h4 id="구성도">[구성도]</h4>
 
-<p><img src="/images/ch2/2-3.png" alt="2-1.구성도" />
-LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VLAN_Cloud.zip</a>
+<p><img src="/images/ch2/2-13.png" alt="구성도" />
+LAB구성파일: <a href="/lab_export/0104_DHCP-Network-Lab.zip">0104_DHCP-Network-Lab.zip</a>
 <p/></p>
 
 <h4 id="lab의-목적">[LAB의 목적]</h4>
 
-<p>2.2 LAB에서 구성한 환경을 VMWare에서 제공하는 Host-Only(VMNet1)네트워크에 연결해서 HostOS에서 LAB장비를 연결할 수 있는 방법 익히기
+<p>네트워크장비의 로그는 버퍼의 사이즈때문에 일정시간 지나면 overwrite되버립니다. 따라서, 원격서버에 로그서버를 구성하여 네트워크 장비의 로그를 저장하는것을 중요합니다. 본 LAB에서는 리눅스에서 기본제공되는 rsyslog데몬을 설정하여 네트워크장비의 로그를 수집하는 방법을 습득합니다.
 <p/></p>
 
-<h4 id="습득해야할-내용">[습득해야할 내용]</h4>
+<h4 id="lab수행조건">[LAB수행조건]</h4>
 
 <ul>
-<li>VMWare Plyaer에서 제공하는 Bridge, NAT, Host-only인터페이스 이해하기</li>
-<li>자기의 VMWare Player버전에 맞는 vmnetcfg.exe를 받아서 네트워크를 재구성하는 방법 익히기</li>
-
-<li><p>Bridge, NAT, Host-only인터페이스중 어떤것을 연결하더라도 LAB상의 장비를 연결하는 방법 익히기
-<p/></p>
-
-<h4 id="vmware어댑터관계-개념그림">[VMWare어댑터관계 개념그림]</h4>
-
-<p><img src="/images/ch2/2-3-1.png" alt="Host OS와 Guest OS" />
-<img src="/images/ch2/2-3-2.png" alt="Bridge Mode" />
-<img src="/images/ch2/2-3-3.png" alt="NAT Mode" />
-<img src="/images/ch2/2-3-4.png" alt="UnetLAB의 NAT에 연결" /></p></li>
+<li>우분투에 rsyslog라는 로그서버 데몬이 기본으로 설치되는데 기본적으로 네트워크에 대해서는 LISTEN하도록 설정되어 있지 않습니다. 네트워크에 대해서 LISTEN모드를 활성화하고 네트워크를 통해서 들어오는 syslog패킷을 수집할 수 있도록 구성</li>
+<li>장비의 IP별로 로그파일이 별도로 만들어지도록 구성</li>
 </ul>
 
 
@@ -868,6 +857,26 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -1027,26 +1036,6 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1279,10 +1268,10 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
 	 
 	 
 		
-			<a class="nav nav-prev" href="/ch2/2.4-%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF/" title="2.4 스위치 기본설정 템플릿"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/ch2/2.14-etherchannel-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="2.14 Etherchannel 구성하기"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/ch2/2.2-vlan%EA%B0%84-ip-routing%EC%8B%9C%ED%97%98/" title="2.2 VLAN간 ip routing시험" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/ch2/2.12-dhcp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%EA%B3%BC-dhcp%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="2.12 DHCP서버구성과 DHCP네트워크" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

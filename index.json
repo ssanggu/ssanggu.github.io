@@ -25,7 +25,56 @@
 	"title": "블로그소개",
 	"tags": [],
 	"description": "",
-	"content": " 블로그 소개  적지않은 기간동안 네트워크를 설계, 구축하고 유지관리를 수행해오면서 습득한 지식을 후배들에게 조금이라도 쉽게 알려주고 새로운 기술에 대하여공부할때 실제적으로 구성해보고 이해할 수 있는 방안을 찾아오던중에 우연히 EVE-NG 프로그램을 알게 되었습니다. 이 프로그램을 통해서 기본적으로 리눅스와 VMWare 가상화를 공부할 수 있고, 다양한 네트워크 장비들을 실제적으로 배치하여 구성함으로써 네트워크에 대한 개념을 조금이라도 쉽게 접근할 수 있었습니다.\n본 블로그는 그 동안 EVE-NG를 통해서 구축했던 많은 LAB환경을 정리하여 각각의 LAB에서 어떠한 지식을 습득했었는지를 정리하는 블로그입니다.\n "
+	"content": " 블로그 소개 한 상구(Han SangGu), 네트워크 필드 엔지니어, ssanggu@gmail.com\n \n 본 블로그는 EVE-NG(UnetLab)를 사용하여 구성하고 시험한 LAB환경을 정리하고, 각각의 LAB에서 어떤 지식을 습득해야하는지를 정리하는 블로그입니다. 가능한 다양한 네트워크 장비를 배치하여 구성함으로써 네트워크에 대한 개념을 좀더 효율적으로 정리할 수 있었습니다.    EVE-NG 가상화(VMWare Player, docker, kvm) 리눅스(Ubuntu, CentOS) 네트워크장비(Cisco, Juniper, Extreme VyOS) 보안장비(ASA, PaloAlto, SECUI MF2) IPSec VPN, OpenVPN, SSL VPN SDN(VxLAN)   "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/",
+	"title": "2.16 Juniper Olive 기본명령어 익히기",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0115_Juniper-Olive-1.zip \n[LAB의 목적] LAB에서 사용할 수 있는 장비들이 많다면 더 풍부한 테스트환경을 구현할 수 있습니다. Juniper장비를 LAB환경에서 사용하기 위해서 장비의 기본 명령어를 익혀보기위한 LAB입니다. \n[LAB수행조건]  Juniper Olive 이미지 업로드하고 압축해제하기 # tar xvpf Juniper*.ova 이미지 변환하기 # /opt/qemu/bin/qemu-img convert -f vmdk -O qcow2 JunOS\\ Olive-disk1.vmdk hda.qcow2 디렉토리 생성. Juniper이미지는 olive-이름으로 시작해야함. # mkdir -p /opt/unetlab/addons/qemu/olive-12.1R1.9 변환한 이미지 move # mv hda.qcow2 /opt/unetlab/addons/qemu/olive-12.1R1.9 권한수정 # /opt/unetlab/wrappers/unl_wrapper -a fixpermissions 구성한 LAB에서 JunOS명령어를 익혀보세요    참고파일   0115_Basic Juniper Router Configuration.pdf  (486 ko)    "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.15-null0%EB%9D%BC%EC%9A%B0%ED%8C%85/",
+	"title": "2.15 Null0 라우팅",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0113_Routing확장-Lab.zip \n[LAB의 목적] 내부에서 외부로 유해사이트를 접근하는 문제를 급하게 차단을 해야 하는 경우에 방화벽설정이나 ACL설정을 하지 않고 라우팅을 해당사이트에 대해서 Null0로 설정함으로 차단을 설정할 수 있습니다. 본 Lab은 Null0 라우팅을 설정하여 패킷이 drop되는 방법을 습득합니다. \n[LAB수행조건]  Lab구성도는 2.6 Static route설정 LAB을 이용 모든 노드들이 통신이 되도록 구성하기 모든 노드들간에 통신이 정상적임을 확인한 후에 오로지 라우팅 조정으로만 VPC5가 통신이 안되도록 설정  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.14-etherchannel-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/",
+	"title": "2.14 Etherchannel 구성하기",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0110_EtherChannel_Lab.zip \n[LAB의 목적] 물리적인 포트 여러개를 묶어서 대역폭을 확장해서 제공하고 물리적인 포트의 장애를 대비할 수 있는 Etherchannel기술을 습득하는 Lab으로서 동일장비에서 설정하는것도 중요하지만 서로다른 제조사의 제품간에 연동도 중요합니다. 따라서, 본 Lab에서는 Cisco스위치와 VyOS간의 설정을 수행합니다. \n[LAB수행조건]  VyOS 리눅스 이미지 추가하기 Lab을 설정할때 etherchannel mode를 여러가지로 변경해보고 debug메시지로 덤프보면서 어떻게 동작하는지 이해하기  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.13-rsyslogd%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%A4%91%EC%95%99%EB%A1%9C%EA%B7%B8%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84/",
+	"title": "2.13 rsyslogd를 통한 중앙로그서버 구현",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0104_DHCP-Network-Lab.zip \n[LAB의 목적] 네트워크장비의 로그는 버퍼의 사이즈때문에 일정시간 지나면 overwrite되버립니다. 따라서, 원격서버에 로그서버를 구성하여 네트워크 장비의 로그를 저장하는것을 중요합니다. 본 LAB에서는 리눅스에서 기본제공되는 rsyslog데몬을 설정하여 네트워크장비의 로그를 수집하는 방법을 습득합니다. \n[LAB수행조건]  우분투에 rsyslog라는 로그서버 데몬이 기본으로 설치되는데 기본적으로 네트워크에 대해서는 LISTEN하도록 설정되어 있지 않습니다. 네트워크에 대해서 LISTEN모드를 활성화하고 네트워크를 통해서 들어오는 syslog패킷을 수집할 수 있도록 구성 장비의 IP별로 로그파일이 별도로 만들어지도록 구성  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.12-dhcp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%EA%B3%BC-dhcp%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/",
+	"title": "2.12 DHCP서버구성과 DHCP네트워크",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0104_DHCP-Network-Lab.zip \n[LAB의 목적] 우분투서버에 DHCP서버를 구성하고 3개의 VLAN에 IP를 할당해주는 LAB \n[LAB수행조건]  UnetLab이 설치된 우분투시스템에 isc-dhcp-server패키지를 설치하고 DHCP서버를 구성하여 pnet1인터페이스에서만 LISTEN하도록 구성. pnet0인터페이스와 같이 물리적인 네트워크에 연결된 부분에서 LISTEN하게되면 실제 네트워크레 영향을 줄수 있으므로 반드시 UnetLab 가상머신 내부에서만 사용하는 pnet1에서만 LISTEN하도록 서버를 구성. 백본스위치에 3개 VLAN이 통신되도록 구성 각 VLAN별 스위치 설정 우분투서버에서 Lab환경의 네트워크와 통신할 수 있도록 라우팅설정 백본스위치의 각 VLAN인터페이스에 ip helper를 설정하여 DHCP패킷이 릴레이 되도록 설정 VPC 4,5,6은 DHCP서버에서 해당 네트워크 대역의 IP로 자동할당됨을 확인 VPC7은 DHCP서버에서 IP를 할당받는데 항상 고정된 10.4.4.100을 할당받도록 구성  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.11-tacacs+-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/",
+	"title": "2.11 TACACS+ 인증서버 구성하기",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0104_TACACS-Lab.zip \n[LAB의 목적] TACACS+인증서버 패키지를 저장소설치가 아닌 소스파일로 컴파일해서 설치하는 방법익히기 TACACS+인증서버를 구성하고 장비 접근을 인증서버 통해서 인증하기 \n[습득해야할 내용]  UnetLab이 설치된 우분투시스템에 TACACS+를 소스로 설치하는 방법.  소스로 설치하는 방법  apt-get install build-essential (우분투에서 소스컴파일을 위한 기본 환경설정) 압축풀기 소스파일 압축해제후 설치가이드를 해주는 README나 INSTALL파일을 확인하기 ./configure tac_plus 를 수행하면 시스템의 환경을 파악하여 컴파일 수행을 위한 Makefile생성 make 를 수행하면 만들어진 Makefile을 읽어서 내용대로 컴파일 수행됨 make install 을 수행하여 실행파일들 설치. 설치되는 실행파일의 위치를 확인  pnet1에 IP주소 설정하고 tacacs+데몬을 debug 레벨15로 구동 SW스위치에서 TACACS+인증관련된 기본설정 tac_plus.conf 파일생성 (암호 MD5알고리즘) openssl passwd -l 스트링 tac_plus.conf파일에서 사용자 계정별로 사용할 수 있는 명령어를 제한하는 방법 익히기 인증로그, 수행명령 로그가 기록되는것을 확인   "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.10-%EC%9C%88%EB%8F%84%EC%9A%B0%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0/",
+	"title": "2.10 윈도우이미지 등록하기",
+	"tags": [],
+	"description": "",
+	"content": " [LAB의 목적] 윈도우 가상머신을 LAB에서 활용할 수 있도록 이미지생성해서 넣기. 추가한 하드디스크영역에 생성한 이미지를 넣고 soft link를 설정하여 운영하는 방법 익히기 \n[습득해야할 내용]  윈도우 가상머신 다운로드하기 90일동안 사용할 수 있는 윈도우 가상머신을 제공하는 사이트에서 적절한 윈도우를(IE10 on Win7, VMWare용) 선택하여 zip파일 다운로드 다운로드한 zip파일을 우분투서버에 업로드하고 압축해제. 사이즈가 큰 관계로 추가로 장착한 하드디스크에서 수행하기를 권고. # unzip IE10.Win7.For.Windows.VMware.ZIP 윈도우 이미지 넣어줄 디렉토리 준비 윈도우 이미지는 win-으로 디렉토리명이 시작해야 하고, /opt/unetlab/addons/qemu/디렉토리 하단에 위치해야 합니다. 하지만, 하드디스크의 용량이 작은 관계로 추가한 하드디스크 영역에 이미지를 넣어주고 디렉토리 링크설정. 신규 HDD를 /data에 마운트한 상태임 \n# mkdir /data/qemu/win-7-IE10 # ln -s /data/qemu/win-7-IE10 /opt/unetlab/addons/qemu/win-7-IE10 # cd /opt/unetlab/addons/qemu/win-7-IE10  이미지 변환하기 다운로드한 zip파일을 /data/temp폴더에 압축해제 했다고 가정, 해당폴더에 *.vmdk이미지가 있음을 확인 # /opt/qemu/bin/qemu-img convert -f vmdk -O qcow2 /data/temp/IE10_-_Win7-disk1.vmdk hda.qcow2 이미지 변환작업이 끝나면 아래와 같이 hda.qcow2파일 있어야함. # ls -al /opt/unetlab/addons/qemu/win-7-IE10/hda.qcow2\n 권한수정하기 # /opt/unetlab/wrappers/unl_wrapper -a fixpermissions\n 윈도우 가상머신 LAB에 등록하기 사용해보기\n  "
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.9-%EC%9A%B0%EB%B6%84%ED%88%AC%EB%A8%B8%EC%8B%A0%EC%97%90-%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC%EC%B6%94%EA%B0%80/",
@@ -116,7 +165,7 @@
 	"title": "1.1 리눅스의 기본",
 	"tags": [],
 	"description": "",
-	"content": " 운영체제란? (OS, Operating System) 커널과 shell Unix의 History: BSD계역과 System-V계열의 유닉스부터 전반적인 유닉스의 발전 히스토리를 설명 리눅스란? 리눅스 배포판이란? 리눅스의 배포판 History 리눅스의 init 왕데몬에 관하여 하지만, 이제는 Systemd가 대세 패키지 관리 명령어  Debian계열(Ubuntu): apt-get RedHat게열(CentOS): yum    리눅스라는 운영체제를 설명하기 위하여 운영체제에 대해서 간략하게 설명하고 사용자가 입력하는 명령어을 받아서 실행하는 명령어해독기(shell)에 대한 설명과 여러가지 shell별로 환경변수를 설정하는 방법을 살펴봅니다. 리눅스의 다양한 배포판들이 존재하는 것을 설명하고 배포판들의 뿌리를 설명할 것입니다. 윈도를 처음 설치하면 반드시 업데이트를 수행해야 하는것처럼, 리눅스도 설치하면 필수적으로 업데이트를 수행해야 합니다. 요즘은 GUI환경으로 설치하면 자동으로 업데이트되지만 CLI환경에서 패키지 관리명령어를 사용하여 업데이트하는 방법을 설명합니다.\n "
+	"content": " 운영체제란? (OS, Operating System) 커널과 shell Unix의 History: BSD계역과 System-V계열의 유닉스부터 전반적인 유닉스의 발전 히스토리를 설명 리눅스란? 리눅스 배포판이란? 리눅스의 배포판 History 리눅스의 init 왕데몬에 관하여 하지만, 이제는 Systemd가 대세 패키지 관리 명령어  Debian계열(Ubuntu): apt-get RedHat게열(CentOS): yum   리눅스라는 운영체제를 설명하기 위하여 운영체제에 대해서 간략하게 설명하고 사용자가 입력하는 명령어을 받아서 실행하는 명령어해독기(shell)에 대한 설명과 여러가지 shell별로 환경변수를 설정하는 방법을 살펴봅니다. 리눅스의 다양한 배포판들이 존재하는 것을 설명하고 배포판들의 뿌리를 설명할 것입니다. 윈도를 처음 설치하면 반드시 업데이트를 수행해야 하는것처럼, 리눅스도 설치하면 필수적으로 업데이트를 수행해야 합니다. 요즘은 GUI환경으로 설치하면 자동으로 업데이트되지만 CLI환경에서 패키지 관리명령어를 사용하여 업데이트하는 방법을 설명합니다.\n "
 },
 {
 	"uri": "http://ssanggu.github.io/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/",

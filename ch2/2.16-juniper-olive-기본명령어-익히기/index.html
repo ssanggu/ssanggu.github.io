@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>2.3 호스트OS에서 LAB환경 접속하기 :: salgunamu&#39;s LAB Blog</title>
+    <title>2.16 Juniper Olive 기본명령어 익히기 :: salgunamu&#39;s LAB Blog</title>
 
     
     <link href="/css/nucleus.css?1552709307" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
+  <body class="" data-url="/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/">
     <nav id="sidebar" class="">
 
 
@@ -99,7 +99,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/" title="2.16 Juniper Olive 기본명령어 익히기" class="dd-item ">
+      <li data-nav-id="/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/" title="2.16 Juniper Olive 기본명령어 익히기" class="dd-item active">
         <a href="/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/">
         2.16 Juniper Olive 기본명령어 익히기
         
@@ -346,7 +346,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item active">
+      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item ">
         <a href="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
         2.3 호스트OS에서 LAB환경 접속하기
         
@@ -695,7 +695,7 @@
                   <span class="links">
                  
                  
-                   2.3 호스트OS에서 LAB환경 접속하기 
+                   2.16 Juniper Olive 기본명령어 익히기 
                  
                   </span>
                 </div>
@@ -712,8 +712,7 @@
 <ul>
 <li><a href="#구성도">[구성도]</a></li>
 <li><a href="#lab의-목적">[LAB의 목적]</a></li>
-<li><a href="#습득해야할-내용">[습득해야할 내용]</a></li>
-<li><a href="#vmware어댑터관계-개념그림">[VMWare어댑터관계 개념그림]</a></li>
+<li><a href="#lab수행조건">[LAB수행조건]</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -730,7 +729,7 @@
         
         <div id="body-inner">
           
-            <h1>2.3 호스트OS에서 LAB환경 접속하기</h1>
+            <h1>2.16 Juniper Olive 기본명령어 익히기</h1>
           
 
         
@@ -740,31 +739,56 @@
 
 <h4 id="구성도">[구성도]</h4>
 
-<p><img src="/images/ch2/2-3.png" alt="2-1.구성도" />
-LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VLAN_Cloud.zip</a>
+<p><img src="/images/ch2/2-16.png" alt="구성도" />
+LAB구성파일: <a href="/lab_export/0115_Juniper-Olive-1.zip">0115_Juniper-Olive-1.zip</a>
 <p/></p>
 
 <h4 id="lab의-목적">[LAB의 목적]</h4>
 
-<p>2.2 LAB에서 구성한 환경을 VMWare에서 제공하는 Host-Only(VMNet1)네트워크에 연결해서 HostOS에서 LAB장비를 연결할 수 있는 방법 익히기
+<p>LAB에서 사용할 수 있는 장비들이 많다면 더 풍부한 테스트환경을 구현할 수 있습니다. Juniper장비를 LAB환경에서 사용하기 위해서 장비의 기본 명령어를 익혀보기위한 LAB입니다.
 <p/></p>
 
-<h4 id="습득해야할-내용">[습득해야할 내용]</h4>
+<h4 id="lab수행조건">[LAB수행조건]</h4>
 
 <ul>
-<li>VMWare Plyaer에서 제공하는 Bridge, NAT, Host-only인터페이스 이해하기</li>
-<li>자기의 VMWare Player버전에 맞는 vmnetcfg.exe를 받아서 네트워크를 재구성하는 방법 익히기</li>
-
-<li><p>Bridge, NAT, Host-only인터페이스중 어떤것을 연결하더라도 LAB상의 장비를 연결하는 방법 익히기
-<p/></p>
-
-<h4 id="vmware어댑터관계-개념그림">[VMWare어댑터관계 개념그림]</h4>
-
-<p><img src="/images/ch2/2-3-1.png" alt="Host OS와 Guest OS" />
-<img src="/images/ch2/2-3-2.png" alt="Bridge Mode" />
-<img src="/images/ch2/2-3-3.png" alt="NAT Mode" />
-<img src="/images/ch2/2-3-4.png" alt="UnetLAB의 NAT에 연결" /></p></li>
+<li>Juniper Olive 이미지 업로드하고 압축해제하기
+<code># tar xvpf Juniper*.ova</code></li>
+<li>이미지 변환하기
+<code># /opt/qemu/bin/qemu-img convert -f vmdk -O qcow2 JunOS\ Olive-disk1.vmdk hda.qcow2</code></li>
+<li>디렉토리 생성. Juniper이미지는 <strong>olive-</strong>이름으로 시작해야함.
+<code># mkdir -p /opt/unetlab/addons/qemu/olive-12.1R1.9</code></li>
+<li>변환한 이미지 move
+<code># mv hda.qcow2 /opt/unetlab/addons/qemu/olive-12.1R1.9</code></li>
+<li>권한수정
+<code># /opt/unetlab/wrappers/unl_wrapper -a fixpermissions</code></li>
+<li>구성한 LAB에서 JunOS명령어를 익혀보세요</li>
 </ul>
+
+<section class="attachments orange">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		참고파일
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			<li>
+				<a href="/ch2/2.16%20Juniper%20Olive%20%ea%b8%b0%eb%b3%b8%eb%aa%85%eb%a0%b9%ec%96%b4%20%ec%9d%b5%ed%9e%88%ea%b8%b0.files/0115_Basic%20Juniper%20Router%20Configuration.pdf" >
+					0115_Basic Juniper Router Configuration.pdf
+				</a>
+				(486 ko)
+			</li>
+		
+	
+	<div>
+	
+</section>
+
+
 
 
 <footer class=" footline" >
@@ -817,6 +841,23 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -1027,26 +1068,6 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1279,10 +1300,10 @@ LAB구성파일: <a href="/lab_export/20161222_L3-VLAN_Cloud.zip">20161222_L3-VL
 	 
 	 
 		
-			<a class="nav nav-prev" href="/ch2/2.4-%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF/" title="2.4 스위치 기본설정 템플릿"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/ch2/" title="EVE-NG LAB"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/ch2/2.2-vlan%EA%B0%84-ip-routing%EC%8B%9C%ED%97%98/" title="2.2 VLAN간 ip routing시험" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/ch2/2.15-null0%EB%9D%BC%EC%9A%B0%ED%8C%85/" title="2.15 Null0 라우팅" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
