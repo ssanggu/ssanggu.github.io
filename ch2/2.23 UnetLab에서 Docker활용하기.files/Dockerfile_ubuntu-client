@@ -1,0 +1,7 @@
+FROM ubuntu
+MAINTAINER Han SangGu <sghan@hinetworks.kr>
+
+RUN apt-get update
+RUN apt-get install -y net-tools iputils-ping openssh-client ftp telnet dnsutils traceroute expect mysql-client openssl wget lynx vim
+
+CMD ["/bin/bash"]

@@ -1,0 +1,10 @@
+FROM ubuntu
+MAINTAINER Han SangGu <sghan@hinetworks.kr>
+
+RUN apt-get update
+RUN apt-get install -y exim4
+RUN mv /etc/exim4/exim4.conf.template /etc/exim4/exim4.conf
+
+CMD /usr/sbin/exim4 -bd -q30m
+
+EXPOSE 25

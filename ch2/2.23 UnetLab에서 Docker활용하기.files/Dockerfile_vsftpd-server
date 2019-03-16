@@ -1,0 +1,31 @@
+FROM ubuntu
+MAINTAINER Han SangGu <sghan@hinetworks.kr>
+
+RUN apt-get update
+RUN export DEBIAN_FRONTEND=noninteractive; apt-get install -y vsftpd
+RUN groupadd -r admin && useradd -r -g admin -s /bin/bash admin
+RUN echo "admin:unl" | chpasswd
+RUN mkdir /home/admin
+RUN mv /etc/vsftpd.conf /etc/vsftpd.conf.org
+RUN mkdir /var/run/vsftpd/
+
+RUN echo 'anonymous_enable=NO' >> /etc/vsftpd.conf
+RUN echo 'local_enable=YES' >> /etc/vsftpd.conf
+RUN echo 'write_enable=YES' >> /etc/vsftpd.conf
+RUN echo 'local_umask=022' >> /etc/vsftpd.conf
+RUN echo 'dirmessage_enable=YES' >> /etc/vsftpd.conf
+RUN echo 'xferlog_enable=YES' >> /etc/vsftpd.conf
+RUN echo 'connect_from_port_20=YES' >> /etc/vsftpd.conf
+RUN echo 'xferlog_file=/var/log/xferlog' >> /etc/vsftpd.conf
+RUN echo 'xferlog_std_format=YES' >> /etc/vsftpd.conf
+RUN echo 'chroot_local_user=NO' >> /etc/vsftpd.conf
+RUN echo 'secure_chroot_dir=/var/run/vsftpd' >> /etc/vsftpd.conf
+RUN echo 'listen=YES' >> /etc/vsftpd.conf
+RUN echo 'pam_service_name=vsftpd' >> /etc/vsftpd.conf
+RUN echo 'userlist_enable=NO' >> /etc/vsftpd.conf
+RUN echo 'tcp_wrappers=YES' >> /etc/vsftpd.conf
+
+
+CMD ["/usr/sbin/vsftpd"]
+
+EXPOSE 21

@@ -1,0 +1,11 @@
+FROM ubuntu
+MAINTAINER Han SangGu <sghan@hinetworks.kr>
+
+RUN apt-get update && \
+	apt-get install -y apache2 ; \
+	apt-get clean
+	
+
+CMD ["/usr/sbin/apachectl","-DFOREGROUND"]
+
+EXPOSE 80

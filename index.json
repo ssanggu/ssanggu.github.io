@@ -28,6 +28,69 @@
 	"content": " 블로그 소개 한 상구(Han SangGu), 네트워크 필드 엔지니어, ssanggu@gmail.com\n \n 본 블로그는 EVE-NG(UnetLab)를 사용하여 구성하고 시험한 LAB환경을 정리하고, 각각의 LAB에서 어떤 지식을 습득해야하는지를 정리하는 블로그입니다. 가능한 다양한 네트워크 장비를 배치하여 구성함으로써 네트워크에 대한 개념을 좀더 효율적으로 정리할 수 있었습니다.    EVE-NG 가상화(VMWare Player, docker, kvm) 리눅스(Ubuntu, CentOS) 네트워크장비(Cisco, Juniper, Extreme VyOS) 보안장비(ASA, PaloAlto, SECUI MF2) IPSec VPN, OpenVPN, SSL VPN SDN(VxLAN)   "
 },
 {
+	"uri": "http://ssanggu.github.io/ch2/2.30-ntp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1-%EB%B0%8F-%EC%8B%9C%EA%B0%84%EB%8F%99%EA%B8%B0%ED%99%94/",
+	"title": "2.30 NTP서버구성 및 시간동기화",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0207_NTP-Time-Sync.zip \n[LAB의 목적] 네트워크 장비나 보안장비등 로그를 모니터링 해야하는 시스템의 시간은 중요한 항목입니다. 따라서, 장비에 NTP서버를 통한 시간동기화는 필수라고 할 수 있습니다. 본 LAB은 Docker시스템에 NTP서버를 구성하여 장비들의 시간을 동기화하는 LAB입니다. 다양한 시스템별로 NTP시간동기화 설정을 어떻게 하는지 방법을 익혀보세요. \n[LAB수행조건]  R1의 e0/0에 pnet0를 연결하고 NAT를 설정하여 LAB상의 모든 시스템이 인터넷이 가능하도록 설정 NTP-server와 ubuntu-client는 우분투 클라이언트 이미지를 사용한 컨테이너로 동작 NTP-server에 인터넷으로부터 NTP패키지를 설치하여 time서버를 구동 Cisco장비(R1, SW1), Juniper(Olive-R), Ubuntu Linux(ubuntu-client)시스템별로 10.0.10.10으로 NTP를 지정하여 시간동기화 확인  구성완료 안됨 도커 컨테이너에서 커널의 시간을 건드리는 문제로 인하여 NTP서버구동에 문제 발생. 향후 KVM환경의 리눅스시스템을 구현할때 다시 구성시도 필요!!!\n "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.29-extended-acl/",
+	"title": "2.29 Extended ACL",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0206_Extended-ACL.zip \n[LAB의 목적] 단순한 ACL을 만들어봤으니 프로토콜과 서비스 포트번호를 포함하여 좀 더 복잡한 보안정책을 구성해보는 LAB입니다. \n[LAB수행조건]  R1 e0/0에 pnet0를 연결하고 NAT설정하여 LAB상의 시스템들이 인터넷 가능하도록 설정 아래 정책으로 Static NAT설정  192.168.234.90 80/TCP \u0026mdash;-\u0026gt; 10.0.100.10 80/TCP 192.168.234.90 10022/TCP \u0026mdash;-\u0026gt; 10.0.100.20 22/TCP  아래의 보안정책을 Extended ACL로 생성하고 인터페이스 적용하기  내부(10.0.100.0/24) \u0026mdash;-\u0026gt; 외부는 모든 통신 permit 외부 \u0026mdash;-\u0026gt; 10.0.100.10 80/TCP permit 외부 \u0026mdash;-\u0026gt; 10.0.100.20 22/TCP permit ALL DENY   "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.28-juniper%EC%9D%98-packet-filtering/",
+	"title": "2.28 Juniper의 Packet Filtering",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 2.27 Standard ACL에서 사용한 LAB에서 R1라우터를 Olive Router로 교체 \n[LAB의 목적] 다양한 장비에서 보안정책 설정하는 방법을 경험하기를 추천합니다!!!\n\n[LAB수행조건]  네트워크를 구성하고 모든 ubuntu-client에서 네트워크장비로 ping, telnet과 다른 client로 ping이 정상임을 확인 아래의 보안정책을 생성하고 어떤 인터페이스에 적용할 것인가를 고민해보세요.  10.0.100.100호스트만 모든 통신을 허락 그 이외의 모든 통신은 거절  아래의 보안정책을 생성하고 어떤 인터페이스에 적용할 것인가를 고민해보세요.  192.168.100.100호스트만 모든 통신을 허락 그 이외의 모든 통신은 거절   "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.27-standard-acl/",
+	"title": "2.27 Standard ACL",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0206_Standard-ACL.zip \n[LAB의 목적] 향후 방화벽의 복잡한 보안정책을 무리없이 설정할 수 있도록 하기위해서 라우터의 IOS기반 ACL(Access Control List)기능을 사용하여 보안정책을 적용하는 방법을 배우고자하는 LAB입니다. ACL테이블을 작성하고 인터페이스의 inbound정책과 outbound정책에 따라 어떤 변화가 있는지 주의깊게 살펴보세요. 저의 생각으로는 보안정책을 적용받는 대상에 가장 가까운 인터페이스의 방향에 적용하는것이 효율적으로 봅니다.\n\n[LAB수행조건]  네트워크를 구성하고 모든 ubuntu-client에서 네트워크장비로 ping, telnet과 다른 client로 ping이 정상임을 확인 아래의 보안정책을 생성하고 어떤 인터페이스에 적용할 것인가를 고민해보세요.  10.0.100.100호스트만 모든 통신을 허락 그 이외의 모든 통신은 거절  아래의 보안정책을 생성하고 어떤 인터페이스에 적용할 것인가를 고민해보세요.  192.168.100.100호스트만 모든 통신을 허락 그 이외의 모든 통신은 거절 두번째 ACL에 대한 통신확인을 수행할때 192.168.100.100 호스트만 통신허락을 했는데, 10.0.100.0/24 \u0026ndash;\u0026gt; 192.168.100.100이 통신이 되지 않은가요? 왜 그럴까요?? 한번 고민해보세요!!\n    "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.26-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98-ii/",
+	"title": "2.26 WireShark로 패킷캡처-II",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0201_Docker-make-server.zip \n[LAB의 목적] 본 LAB은 2.25 Docker로 서버구현하기에서 구성한 LAB을 그대로 이용하여 클라이언트와 서버간에 TCP통신이 수행될때 WireShark로 패킷을 잡아보고 패킷을 분석해보는 LAB입니다. 패킷을 ASCII형태로 decode했을때 어떻게 보이는지와 Flow Graph에서 서버와 클라이언트가 사용하는 TCP Port번호를 주의깊게 살펴보세요.\n\n[LAB수행조건]  WireShark캡처 실행하는 방법 다시한번 숙지하기 ubuntu-client(10.0.0.100)에서 SW1(10.0.0.5)로 telnet, ssh연결에 대한 capture ubuntu-client(10.0.0.100)에서 ftp-server(10.0.0.20)로 ftp, sftp연결에 대한 capture ubuntu-client(10.0.0.100)에서 www-server(10.0.0.10)로 http연결에 대한 capture    Attachments   31장_Wireshark로 패킷 Capture하기.pdf  (868 ko)    "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.25-docker%EB%A1%9C-%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/",
+	"title": "2.25 Docker로 서버구현하기",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0201_Docker-make-server.zip \n[LAB의 목적] 본 LAB은 UnetLab에서 이용할 각종 서버를 Docker시스템을 통하여 구현하고 클라이언트에서 각 서버들을 연결할 수 있는 환경을 구성하는 LAB입니다.\n\n[LAB수행조건]  R1라우터에 VMWare NAT인터페이스를 e0/0에 연결하고 NAT설정을 수행하여 LAB이 인터넷 사용이 가능하도록 구성 SW1스위치는 기본설정 ubuntu-client는 Docker 기본이미지로 만들어진 컨테이너를 사용. 인터넷까지 정상통신되는것을 확인 www-server는 ubuntu-client와 동일한 이미지로 만들어진 컨테이너를 사용. 컨테이너 실행상태에서 apache2, ssh서버를 패키지로 설치하여 서부구성하고 테스트계정 생성하기 ftp-server는 ubuntu-client와 동일한 이미지로 만들어진 컨테이너를 사용. 컨테이너 실행상태에서 vsftpd, ssh서버를 패키지로 설치하여 서버를 구성하고 테스트계정 생성하기 ubuntu-client시스템에서 각 서버로 ssh연결, 웹연결, ftp연결 시험 수행  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.24-docker%EC%97%90%EC%84%9C-%EC%9D%B8%ED%84%B0%EB%84%B7%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/",
+	"title": "2.24 Docker에서 인터넷 사용하기",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0201_Docker-use-internet.zip \n[LAB의 목적] LAB에 추가하는 Docker시스템에 다른 패키지를 설치하거나 설치된 패키지를 업데이트 하기 위해서는 인터넷 연결이 필요합니다. 라우터의 NAT설정을 통해서 Docker에서 인터넷 연결이 가능하도록 설정해보세요.\n\n[LAB수행조건]  LAB에서 생성하는 Docker시스템에서 인터넷을 접근해서 패키지 설치가 가능하도록 설정 R1라우터의 e0/0인터페이스를 VMWare의 NAT인터페이스(pnet0)에 연결하고 ip를 자동할당으로 받도록 설정 R1라우터에 NAT를 설정하여 내부네트워크(10.0.0.0/24)가 외부로 통신할때 e0/0인터페이스 IP로 PAT변환이 수행되도록 설정 우분투 클라이언트 시스템에서 패키지 업데이트를 수행  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.23-unetlab%EC%97%90%EC%84%9C-docker%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/",
+	"title": "2.23 UnetLab에서 Docker활용하기",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0131_Use-Docker.zip \n[LAB의 목적] 컨테이너 기술을 사용하여 경량의 시스템을 구현해주는 도커시스템을 UnetLab에 추가함으로써 다수의 서버를 LAB상에 올릴수 있도록 합니다. \n도커(Docker)란? Docker에 대한 개념정리는 도커 무작정 따라하기를 참조했습니다. \n[LAB수행조건]  UnetLab이 설치된 우분투 리눅스에 Docker설치하기 본 LAB을 구성할때 참조한 How To Adding and Run Docker Container on UnetLab 문서는 여전히 참조할만 하지만 우분투에 docker설치하는 내용은 최근 우분투에 repository를 이용하여 설치하는 방법을 이용해야 합니다. 재검색을 통해서 Installing Docker in EVE-NG 사이트를 찾았습니다. 우분투에 docker를 설치하는 방법과, unetlab에서 사용하는 docker LISTEN포트 수정하는것, unetlab 장비 템플릿에 docker가 기본으로 disable상태인데 활성화하는 방법등 수정이 필요한 내용이 같이 포함되어 있습니다.\n  Docker사용에 필요한 기본 명령 숙지하기  검색: # docker -H=tcp://localhost:4243 search --no-trunc ubuntu 설치: # docker -H=tcp://localhost:4243 pull ubuntu 설치된 이미지 목록 확인하기: # docker -H=tcp://localhost:4243 images 설치된 이미지 삭제하기: # docker -H=tcp://localhost:4243 rmi 이미지-ID 컨터이너 실행하기: # docker -H=tcp://localhost:4243 run 이미지-ID 실행중인 컨터이너 목록 확인하기: # docker -H=tcp://localhost:4243 ps 모든 컨테이너 목록 확인하기: # docker -H=tcp://localhost:4243 ps -a 컨테이너 삭제하기: # docker -H=tcp://localhost:4243 rm 컨테이너-ID 컨테이너 접속하기: # docker -H=tcp://localhost:4243 exec -it /bin/bash 이미지 빌드하기: (1). Dockerfile 작성하기 (2). # docker -H=tcp://localhost:4243 build --tag 이미지이름 - 이미지이름은 대문자 안됨. 소문자, 숫자, 언더바를 사용   참고파일로 앞으로 LAB에서 활용할 몇가지 Docker시스템을 build하는 방법의 문서와 Dockerfile을 올립니다. 문서를 참고하여 Apache2웹서버, exim4메일서버, Mysql서버, OpenSSH서버, 기본명령어를 포함한 OpenSSH클라이언트, vsftp서버를 build하여 준비해보세요.   참고파일   0205_UnetLab-Dockerfile작성하여이미지만들기.pdf  (274 ko)   Dockerfile_apache2-server  (0 ko)   Dockerfile_exim4-SMTP-server  (0 ko)   Dockerfile_mysqld-server  (0 ko)   Dockerfile_openssh-server  (0 ko)   Dockerfile_ubuntu-client  (0 ko)   Dockerfile_vsftpd-server  (1 ko)     우분투 클라이언트를 Docker이미지로 빌드하기. 빌드할때 클라이언트에서 사용하는 기본명령어와 expect스크립트를 사용 가능하도록 만들기 expect스크립를 사용하여 SW1스위치의 config를 백업하기 작성한 스크립트를 crontab에 추가하여 주기적으로 백업하도록 설정하기  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.22-cisco-ios-nat%EC%84%A4%EC%A0%95/",
+	"title": "2.22 Cisco IOS NAT 설정",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0123_CiscoIOS-NAT.zip \n[LAB의 목적] 본 LAB에서는 Cisco IOS라우터에서 NAT설정하는 방법을 습득합니다. 내부의 노드들이 외부로 통신할때 TCP port기반의 NAT를 통해서 주소변환이 발생하도록 설정하고, 외부에서 내부측의 장비로 원격연결을 하기 위한 inside destination NAT를 설정하는 방법을 습득합니다. \n[LAB수행조건]  LAB상의 모든 노드가 통신이 가능하도록 설정 스위치가 원격접속이 가능하도록 설정 SW1에서 SW2로 telnet, SW2에서 SW1으로 telnet 접속하고 who명령을 통해서 출발지 IP주소를 확인하기 10.0.0.0/24대역에서 10.10.0.0/24대역으로 통신할때 192.168.200.200 IP로 PAT변환이 되어서 통신되도록 NAT설정 NAT설정후에 SW1스위치에서 SW2스위치로 telnet 연결하고 who명령으로 출발지 IP확인했을때 192.168.200.200으로 나오는지 확인 SW2스위치에서 telnet 192.168.200.200으로 연결하면 SW1스위치가 연결되도록 NAT설정  "
+},
+{
 	"uri": "http://ssanggu.github.io/ch2/2.21-cisco-hsrp%EC%9D%B4%EC%A4%91%ED%99%94-%EA%B5%AC%EC%84%B1/",
 	"title": "2.21 Cisco HSRP이중화 구성",
 	"tags": [],
@@ -36,7 +99,7 @@
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/",
-	"title": "2.20 UnetLab에서 WireShark로 패킷 캡처",
+	"title": "2.20 WireShark로 패킷 캡처",
 	"tags": [],
 	"description": "",
 	"content": " [LAB의 목적] UnetLab에 구성하는 LAB자체에서 WireShark를 통한 패킷을 캡처가 가능합니다. LAB에서 WireShark를 사용할 수 있도록 구성하는 LAB입니다. 우분투에서는 sudo개념을 사용하고 있기때문에 root암호를 생성하는 과정이 필요합니다. \n[LAB수행조건]  네이버블로그에서 UNL에서 와이어샤크를 이용한 패킷캡처 라는 잘 정리된 글을 통해서 본 LAB을 잘 꾸밀 수 있읍니다. 원리: plink를 이용하여 UNL서버에 SSH터널을 구성하여 tcpdump데이터를 받아오는 구조\n  UnetLab사이트에서 Windows Client Side을 다운로드해서 설치하면 기본프로그램에 대한 레지스크리 등록 수행 wireshark_wrapper.bat파일에 USERNAME과 PASSWORD항목이 있는데 ssh로 연결해서 tcpdump를 실행할 수 있는 권한이 있어야 하므로 root계정정보를 입력해야함 우분투는 sudo개념을 사용함으로 root에 대한 암호설정 필요 ssh데몬의 config파일에서 root로 로그인할 수 있도록 설정 변경 필요 윈도우에 Wireshark프로그램 설치하고, wireshark_wrapper.bat파일의 내용중 wireshark프로그램의 경로를 수정  "
@@ -50,7 +113,7 @@
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/",
-	"title": "2.18 IPSec Site-to-Site VPN 구성하기",
+	"title": "2.18 IPSec Site-to-Site VPN 구성",
 	"tags": [],
 	"description": "",
 	"content": " [구성도] LAB구성파일: 0118_L2L-IPSec_Tunnel.zip \n[LAB의 목적] 본사와 지사간에 공중망을 통해서 데이터전송을 할때 암호화된 트래픽으로 전달하기 위하여 VPN을 사용합니다. 본 LAB은 Cisco IOS기반 라우터를 사용하여 두 지점간에 IPSec VPN터널을 구성하는 방법을 습득합니다. \n[LAB수행조건]  두개의 라우터(R1, R2)를 Cloud(pnet0) 네트워크에 연결해서 구성 두대의 라우터간에 Site-to-Site 터널구성 IPSec터널을 통해서 10.1.1.0/24네트워크와 172.16.20.0/24 네트워크가 통신됨을 확인 debug를 통해서 IPSec세션 로그 확인해보기    참고파일   LAN-to-LAN IPsec Tunnel Between Two Routers.pdf  (281 ko)    "
@@ -64,7 +127,7 @@
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/",
-	"title": "2.16 Juniper Olive 기본명령어 익히기",
+	"title": "2.16 Juniper Olive 기본명령어 학습",
 	"tags": [],
 	"description": "",
 	"content": " [구성도] LAB구성파일: 0115_Juniper-Olive-1.zip \n[LAB의 목적] LAB에서 사용할 수 있는 장비들이 많다면 더 풍부한 테스트환경을 구현할 수 있습니다. Juniper장비를 LAB환경에서 사용하기 위해서 장비의 기본 명령어를 익혀보기위한 LAB입니다. \n[LAB수행조건]  Juniper Olive 이미지 업로드하고 압축해제하기 # tar xvpf Juniper*.ova 이미지 변환하기 # /opt/qemu/bin/qemu-img convert -f vmdk -O qcow2 JunOS\\ Olive-disk1.vmdk hda.qcow2 디렉토리 생성. Juniper이미지는 olive-이름으로 시작해야함. # mkdir -p /opt/unetlab/addons/qemu/olive-12.1R1.9 변환한 이미지 move # mv hda.qcow2 /opt/unetlab/addons/qemu/olive-12.1R1.9 권한수정 # /opt/unetlab/wrappers/unl_wrapper -a fixpermissions 구성한 LAB에서 JunOS명령어를 익혀보세요    참고파일   0115_Basic Juniper Router Configuration.pdf  (486 ko)    "
@@ -85,14 +148,14 @@
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.13-rsyslogd%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%A4%91%EC%95%99%EB%A1%9C%EA%B7%B8%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84/",
-	"title": "2.13 rsyslogd를 통한 중앙로그서버 구현",
+	"title": "2.13 rsyslogd로 중앙로그서버 구현",
 	"tags": [],
 	"description": "",
 	"content": " [구성도] LAB구성파일: 0104_DHCP-Network-Lab.zip \n[LAB의 목적] 네트워크장비의 로그는 버퍼의 사이즈때문에 일정시간 지나면 overwrite되버립니다. 따라서, 원격서버에 로그서버를 구성하여 네트워크 장비의 로그를 저장하는것을 중요합니다. 본 LAB에서는 리눅스에서 기본제공되는 rsyslog데몬을 설정하여 네트워크장비의 로그를 수집하는 방법을 습득합니다. \n[LAB수행조건]  우분투에 rsyslog라는 로그서버 데몬이 기본으로 설치되는데 기본적으로 네트워크에 대해서는 LISTEN하도록 설정되어 있지 않습니다. 네트워크에 대해서 LISTEN모드를 활성화하고 네트워크를 통해서 들어오는 syslog패킷을 수집할 수 있도록 구성 장비의 IP별로 로그파일이 별도로 만들어지도록 구성  "
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.12-dhcp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%EA%B3%BC-dhcp%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/",
-	"title": "2.12 DHCP서버구성과 DHCP네트워크",
+	"title": "2.12 DHCP서버와 DHCP네트워크",
 	"tags": [],
 	"description": "",
 	"content": " [구성도] LAB구성파일: 0104_DHCP-Network-Lab.zip \n[LAB의 목적] 우분투서버에 DHCP서버를 구성하고 3개의 VLAN에 IP를 할당해주는 LAB \n[LAB수행조건]  UnetLab이 설치된 우분투시스템에 isc-dhcp-server패키지를 설치하고 DHCP서버를 구성하여 pnet1인터페이스에서만 LISTEN하도록 구성. pnet0인터페이스와 같이 물리적인 네트워크에 연결된 부분에서 LISTEN하게되면 실제 네트워크레 영향을 줄수 있으므로 반드시 UnetLab 가상머신 내부에서만 사용하는 pnet1에서만 LISTEN하도록 서버를 구성. 백본스위치에 3개 VLAN이 통신되도록 구성 각 VLAN별 스위치 설정 우분투서버에서 Lab환경의 네트워크와 통신할 수 있도록 라우팅설정 백본스위치의 각 VLAN인터페이스에 ip helper를 설정하여 DHCP패킷이 릴레이 되도록 설정 VPC 4,5,6은 DHCP서버에서 해당 네트워크 대역의 IP로 자동할당됨을 확인 VPC7은 DHCP서버에서 IP를 할당받는데 항상 고정된 10.4.4.100을 할당받도록 구성  "
