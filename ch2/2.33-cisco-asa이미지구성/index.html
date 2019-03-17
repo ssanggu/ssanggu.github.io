@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.55.0-DEV" />
+    <meta name="description" content="Network Simulation LAB with EVE-NG">
+<meta name="author" content="Han SangGu(한상구)">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>2.33 Cisco ASA이미지구성 :: salgunamu&#39;s LAB Blog</title>
+
+    
+    <link href="/css/nucleus.css?1552799317" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1552799317" rel="stylesheet">
+    <link href="/css/hybrid.css?1552799317" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1552799317" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1552799317" rel="stylesheet">
+    <link href="/css/auto-complete.css?1552799317" rel="stylesheet">
+    <link href="/css/theme.css?1552799317" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1552799317" rel="stylesheet">
+    
+      <link href="/css/theme-blue.css?1552799317" rel="stylesheet">
+    
+
+    <script src="/js/jquery-2.x.min.js?1552799317"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ch2/2.33-cisco-asa%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B5%AC%EC%84%B1/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://ssanggu.github.io"><img src="/images/logo.png"></a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1552799317"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1552799317"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/ssanggu.github.io\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1552799317"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ch2/" title="EVE-NG LAB" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/ch2/">
+          <b>2. </b>EVE-NG LAB
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.37-configuring-basic-ospf-1/" title="2.37 Configuring Basic OSPF-1" class="dd-item ">
+        <a href="/ch2/2.37-configuring-basic-ospf-1/">
+        2.37 Configuring Basic OSPF-1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.36-frame-relay-switch/" title="2.36 Frame Relay Switch" class="dd-item ">
+        <a href="/ch2/2.36-frame-relay-switch/">
+        2.36 Frame Relay Switch
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.35-port-security/" title="2.35 Port Security" class="dd-item ">
+        <a href="/ch2/2.35-port-security/">
+        2.35 Port Security
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.34-ssl-vpn-with-asa/" title="2.34 SSL VPN with ASA" class="dd-item ">
+        <a href="/ch2/2.34-ssl-vpn-with-asa/">
+        2.34 SSL VPN with ASA
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.33-cisco-asa%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B5%AC%EC%84%B1/" title="2.33 Cisco ASA이미지구성" class="dd-item active">
+        <a href="/ch2/2.33-cisco-asa%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B5%AC%EC%84%B1/">
+        2.33 Cisco ASA이미지구성
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.32-ftp%EC%97%90-%EB%8C%80%ED%95%9C-acl%EC%84%A4%EC%A0%95/" title="2.32 FTP에 대한 ACL설정" class="dd-item ">
+        <a href="/ch2/2.32-ftp%EC%97%90-%EB%8C%80%ED%95%9C-acl%EC%84%A4%EC%A0%95/">
+        2.32 FTP에 대한 ACL설정
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.31-cacti%EC%99%80-snmp-v3/" title="2.31 Cacti와 SNMP V3" class="dd-item ">
+        <a href="/ch2/2.31-cacti%EC%99%80-snmp-v3/">
+        2.31 Cacti와 SNMP V3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.30-ntp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1-%EB%B0%8F-%EC%8B%9C%EA%B0%84%EB%8F%99%EA%B8%B0%ED%99%94/" title="2.30 NTP서버구성 및 시간동기화" class="dd-item ">
+        <a href="/ch2/2.30-ntp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1-%EB%B0%8F-%EC%8B%9C%EA%B0%84%EB%8F%99%EA%B8%B0%ED%99%94/">
+        2.30 NTP서버구성 및 시간동기화
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.29-extended-acl/" title="2.29 Extended ACL" class="dd-item ">
+        <a href="/ch2/2.29-extended-acl/">
+        2.29 Extended ACL
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.28-juniper%EC%9D%98-packet-filtering/" title="2.28 Juniper의 Packet Filtering" class="dd-item ">
+        <a href="/ch2/2.28-juniper%EC%9D%98-packet-filtering/">
+        2.28 Juniper의 Packet Filtering
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.27-standard-acl/" title="2.27 Standard ACL" class="dd-item ">
+        <a href="/ch2/2.27-standard-acl/">
+        2.27 Standard ACL
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.26-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98-ii/" title="2.26 WireShark로 패킷캡처-II" class="dd-item ">
+        <a href="/ch2/2.26-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98-ii/">
+        2.26 WireShark로 패킷캡처-II
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.25-docker%EB%A1%9C-%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/" title="2.25 Docker로 서버구현하기" class="dd-item ">
+        <a href="/ch2/2.25-docker%EB%A1%9C-%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/">
+        2.25 Docker로 서버구현하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.24-docker%EC%97%90%EC%84%9C-%EC%9D%B8%ED%84%B0%EB%84%B7%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" title="2.24 Docker에서 인터넷 사용하기" class="dd-item ">
+        <a href="/ch2/2.24-docker%EC%97%90%EC%84%9C-%EC%9D%B8%ED%84%B0%EB%84%B7%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+        2.24 Docker에서 인터넷 사용하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.23-unetlab%EC%97%90%EC%84%9C-docker%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/" title="2.23 UnetLab에서 Docker활용하기" class="dd-item ">
+        <a href="/ch2/2.23-unetlab%EC%97%90%EC%84%9C-docker%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/">
+        2.23 UnetLab에서 Docker활용하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.22-cisco-ios-nat%EC%84%A4%EC%A0%95/" title="2.22 Cisco IOS NAT 설정" class="dd-item ">
+        <a href="/ch2/2.22-cisco-ios-nat%EC%84%A4%EC%A0%95/">
+        2.22 Cisco IOS NAT 설정
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.21-cisco-hsrp%EC%9D%B4%EC%A4%91%ED%99%94-%EA%B5%AC%EC%84%B1/" title="2.21 Cisco HSRP이중화 구성" class="dd-item ">
+        <a href="/ch2/2.21-cisco-hsrp%EC%9D%B4%EC%A4%91%ED%99%94-%EA%B5%AC%EC%84%B1/">
+        2.21 Cisco HSRP이중화 구성
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/" title="2.20 WireShark로 패킷 캡처" class="dd-item ">
+        <a href="/ch2/2.20-unetlab%EC%97%90%EC%84%9C-wireshark%EB%A1%9C-%ED%8C%A8%ED%82%B7%EC%BA%A1%EC%B2%98/">
+        2.20 WireShark로 패킷 캡처
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.19-remote-access-vpn%EA%B5%AC%EC%84%B1/" title="2.19 Remote Access VPN구성" class="dd-item ">
+        <a href="/ch2/2.19-remote-access-vpn%EA%B5%AC%EC%84%B1/">
+        2.19 Remote Access VPN구성
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="2.18 IPSec Site-to-Site VPN 구성" class="dd-item ">
+        <a href="/ch2/2.18-ipsec-site-to-site-vpn%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/">
+        2.18 IPSec Site-to-Site VPN 구성
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.17-l3%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%9D%98-trunk%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/" title="2.17 L3라우터의 Trunk인터페이스" class="dd-item ">
+        <a href="/ch2/2.17-l3%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%9D%98-trunk%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/">
+        2.17 L3라우터의 Trunk인터페이스
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/" title="2.16 Juniper Olive 기본명령어 학습" class="dd-item ">
+        <a href="/ch2/2.16-juniper-olive-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%9D%B5%ED%9E%88%EA%B8%B0/">
+        2.16 Juniper Olive 기본명령어 학습
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.15-null0%EB%9D%BC%EC%9A%B0%ED%8C%85/" title="2.15 Null0 라우팅" class="dd-item ">
+        <a href="/ch2/2.15-null0%EB%9D%BC%EC%9A%B0%ED%8C%85/">
+        2.15 Null0 라우팅
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.14-etherchannel-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="2.14 Etherchannel 구성하기" class="dd-item ">
+        <a href="/ch2/2.14-etherchannel-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/">
+        2.14 Etherchannel 구성하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.13-rsyslogd%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%A4%91%EC%95%99%EB%A1%9C%EA%B7%B8%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84/" title="2.13 rsyslogd로 중앙로그서버 구현" class="dd-item ">
+        <a href="/ch2/2.13-rsyslogd%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%A4%91%EC%95%99%EB%A1%9C%EA%B7%B8%EC%84%9C%EB%B2%84%EA%B5%AC%ED%98%84/">
+        2.13 rsyslogd로 중앙로그서버 구현
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.12-dhcp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%EA%B3%BC-dhcp%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="2.12 DHCP서버와 DHCP네트워크" class="dd-item ">
+        <a href="/ch2/2.12-dhcp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%EA%B3%BC-dhcp%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/">
+        2.12 DHCP서버와 DHCP네트워크
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.11-tacacs&#43;-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="2.11 TACACS&#43; 인증서버 구성하기" class="dd-item ">
+        <a href="/ch2/2.11-tacacs&#43;-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/">
+        2.11 TACACS&#43; 인증서버 구성하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.10-%EC%9C%88%EB%8F%84%EC%9A%B0%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0/" title="2.10 윈도우이미지 등록하기" class="dd-item ">
+        <a href="/ch2/2.10-%EC%9C%88%EB%8F%84%EC%9A%B0%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0/">
+        2.10 윈도우이미지 등록하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.9-%EC%9A%B0%EB%B6%84%ED%88%AC%EB%A8%B8%EC%8B%A0%EC%97%90-%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC%EC%B6%94%EA%B0%80/" title="2.9 우분투머신에 하드디스크 추가" class="dd-item ">
+        <a href="/ch2/2.9-%EC%9A%B0%EB%B6%84%ED%88%AC%EB%A8%B8%EC%8B%A0%EC%97%90-%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC%EC%B6%94%EA%B0%80/">
+        2.9 우분투머신에 하드디스크 추가
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.8-vyos%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D/" title="2.8 VyOS이미지 등록" class="dd-item ">
+        <a href="/ch2/2.8-vyos%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D/">
+        2.8 VyOS이미지 등록
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.7-%EC%8A%A4%EC%9C%84%EC%B9%98%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF2/" title="2.7 스위치설정 템플릿2" class="dd-item ">
+        <a href="/ch2/2.7-%EC%8A%A4%EC%9C%84%EC%B9%98%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF2/">
+        2.7 스위치설정 템플릿2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.6-static-route%EC%84%A4%EC%A0%95/" title="2.6 Static Route 설정" class="dd-item ">
+        <a href="/ch2/2.6-static-route%EC%84%A4%EC%A0%95/">
+        2.6 Static Route 설정
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/" title="2.5 Trunk환경설정" class="dd-item ">
+        <a href="/ch2/2.5-trunk%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/">
+        2.5 Trunk환경설정
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.4-%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF/" title="2.4 스위치 기본설정 템플릿" class="dd-item ">
+        <a href="/ch2/2.4-%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8%EC%84%A4%EC%A0%95-%ED%85%9C%ED%94%8C%EB%A6%BF/">
+        2.4 스위치 기본설정 템플릿
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/" title="2.3 호스트OS에서 LAB환경 접속하기" class="dd-item ">
+        <a href="/ch2/2.3-hostos%EC%97%90%EC%84%9C-lab%ED%99%98%EA%B2%BD-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/">
+        2.3 호스트OS에서 LAB환경 접속하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.2-vlan%EA%B0%84-ip-routing%EC%8B%9C%ED%97%98/" title="2.2 VLAN간 ip routing시험" class="dd-item ">
+        <a href="/ch2/2.2-vlan%EA%B0%84-ip-routing%EC%8B%9C%ED%97%98/">
+        2.2 VLAN간 ip routing시험
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.1-l2%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8lab/" title="2.1 L2스위치 기본LAB" class="dd-item ">
+        <a href="/ch2/2.1-l2%EC%8A%A4%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B3%B8lab/">
+        2.1 L2스위치 기본LAB
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ch1/" title="준비단계" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ch1/">
+          <b>1. </b>준비단계
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1/1.4-cisco-iou-iol-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/" title="1.4 Cisco IOU/IOL 이미지 구성하기" class="dd-item ">
+        <a href="/ch1/1.4-cisco-iou-iol-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/">
+        1.4 Cisco IOU/IOL 이미지 구성하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" title="1.3 UnetLab(EVE-NG) 설치하기" class="dd-item ">
+        <a href="/ch1/1.3-unetlab-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">
+        1.3 UnetLab(EVE-NG) 설치하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1/1.2-%EC%96%B4%EB%96%A4-%EB%B0%B0%ED%8F%AC%ED%8C%90%EC%9D%84-%EC%84%A4%EC%B9%98%ED%95%A0%EA%B2%83%EC%9D%B8%EA%B0%80/" title="1.2 어떤 배포판을 설치할것인가?" class="dd-item ">
+        <a href="/ch1/1.2-%EC%96%B4%EB%96%A4-%EB%B0%B0%ED%8F%AC%ED%8C%90%EC%9D%84-%EC%84%A4%EC%B9%98%ED%95%A0%EA%B2%83%EC%9D%B8%EA%B0%80/">
+        1.2 어떤 배포판을 설치할것인가?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1/1.1-%EB%A6%AC%EB%88%85%EC%8A%A4%EC%9D%98-%EA%B8%B0%EB%B3%B8/" title="1.1 리눅스의 기본" class="dd-item ">
+        <a href="/ch1/1.1-%EB%A6%AC%EB%88%85%EC%8A%A4%EC%9D%98-%EA%B8%B0%EB%B3%B8/">
+        1.1 리눅스의 기본
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ch0/" title="네트워크 기초이론" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ch0/">
+          <b>0. </b>네트워크 기초이론
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/" title="0.6 네트워크장비개요" class="dd-item ">
+        <a href="/ch0/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9E%A5%EB%B9%84%EA%B0%9C%EC%9A%94/">
+        0.6 네트워크장비개요
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/ethernet%EB%B0%9C%EC%A0%84%EA%B3%BC-%EC%BC%80%EC%9D%B4%EB%B8%94-%EC%95%85%EC%84%B8%EC%82%AC%EB%A6%AC/" title="0.5 Ethernet발전과 케이블 악세사리" class="dd-item ">
+        <a href="/ch0/ethernet%EB%B0%9C%EC%A0%84%EA%B3%BC-%EC%BC%80%EC%9D%B4%EB%B8%94-%EC%95%85%EC%84%B8%EC%82%AC%EB%A6%AC/">
+        0.5 Ethernet발전과 케이블 악세사리
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/cable%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC/" title="0.4 Cable에 대한 정리" class="dd-item ">
+        <a href="/ch0/cable%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC/">
+        0.4 Cable에 대한 정리
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/ethernet%EC%9D%B4%EB%9E%80/" title="0.3 Ethernet이란" class="dd-item ">
+        <a href="/ch0/ethernet%EC%9D%B4%EB%9E%80/">
+        0.3 Ethernet이란
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/" title="0.2 물리적인 연결정의" class="dd-item ">
+        <a href="/ch0/%EB%AC%BC%EB%A6%AC%EC%A0%81%EC%9D%B8-%EC%97%B0%EA%B2%B0%EC%A0%95%EC%9D%98/">
+        0.2 물리적인 연결정의
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch0/osi-7-layer/" title="0.1 OSI 7 Layer" class="dd-item ">
+        <a href="/ch0/osi-7-layer/">
+        0.1 OSI 7 Layer
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   2.33 Cisco ASA이미지구성 
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#구성도">[구성도]</a></li>
+<li><a href="#lab의-목적">[LAB의 목적]</a></li>
+<li><a href="#lab수행조건">[LAB수행조건]</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>2.33 Cisco ASA이미지구성</h1>
+          
+
+        
+
+
+
+
+<h4 id="구성도">[구성도]</h4>
+
+<p><img src="/images/ch2/2-33.png" alt="구성도" />
+LAB구성파일: <a href="/lab_export/0218_Use-ASA.zip">0218_Use-ASA.zip</a>
+<p/></p>
+
+<h4 id="lab의-목적">[LAB의 목적]</h4>
+
+<p>Cisco ASA이미지를 UnetLab에 구성하여 LAB상에서 방화벽장비로 이용하기 위한 LAB입니다. ASA이미지를 구성한후에 기본적인 설정과 ASDM을 통해서 ASA방화벽을 연결한후 기본적인 사용법을 익혀보세요.
+<p/></p>
+
+<h4 id="lab수행조건">[LAB수행조건]</h4>
+
+<ul>
+<li>Cisco ASA이미지를 unetLab에 환경구성하기</li>
+<li>모든 노드가 통신이 가능하도록 환경구성하기</li>
+<li>ASA의 방화벽정책을 ALL Permit정책으로 설정하기</li>
+<li>ASA 관리포트 연결이 호스트OS에서 가능하도록 구성하기
+
+<ul>
+<li><strong>http server enable</strong></li>
+<li><strong>http 접근ip허용</strong></li>
+</ul></li>
+<li>호스트OS에서 ASA관리 연결 및 기본 사용법 숙지하기
+<img src="/images/ch2/2-33-1.png" alt="ASDM연결" />
+<img src="/images/ch2/2-33-2.png" alt="ASA관리화면" /></li>
+</ul>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1552799317"></script>
+    <script src="/js/perfect-scrollbar.min.js?1552799317"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1552799317"></script>
+    <script src="/js/jquery.sticky.js?1552799317"></script>
+    <script src="/js/featherlight.min.js?1552799317"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1552799317"></script>
+    <script src="/js/highlight.pack.js?1552799317"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js?1552799317"></script>
+    <script src="/js/learn.js?1552799317"></script>
+    <script src="/js/hugo-learn.js?1552799317"></script>
+
+    <link href="/mermaid/mermaid.css?1552799317" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1552799317"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

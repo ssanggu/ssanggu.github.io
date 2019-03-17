@@ -28,6 +28,55 @@
 	"content": " 블로그 소개 한 상구(Han SangGu), 네트워크 필드 엔지니어, ssanggu@gmail.com\n \n 본 블로그는 EVE-NG(UnetLab)를 사용하여 구성하고 시험한 LAB환경을 정리하고, 각각의 LAB에서 어떤 지식을 습득해야하는지를 정리하는 블로그입니다. 가능한 다양한 네트워크 장비를 배치하여 구성함으로써 네트워크에 대한 개념을 좀더 효율적으로 정리할 수 있었습니다.    EVE-NG 가상화(VMWare Player, docker, kvm) 리눅스(Ubuntu, CentOS) 네트워크장비(Cisco, Juniper, Extreme VyOS) 보안장비(ASA, PaloAlto, SECUI MF2) IPSec VPN, OpenVPN, SSL VPN SDN(VxLAN)   "
 },
 {
+	"uri": "http://ssanggu.github.io/ch2/2.37-configuring-basic-ospf-1/",
+	"title": "2.37 Configuring Basic OSPF-1",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0304_Configure-OSPF1.zip \n[LAB의 목적] 본 LAB은 Frame Relay망과 Ethernet이 혼합된 네트워크상에서 OSPF라우팅 프로토콜의 기본동작을 숙지하기위한 LAB입니다. \n[LAB수행조건]  LAB구성도에 따라서 LAB상의 장비들을 설정하세요. 본 LAB에서는 인접한 장비끼리만 통신되도록 구성합니다.(R1, R2, R4, R5는 인접하니깐 서로 통신 가능, R1과 R3는 한단계 거쳐서 있으므로 통신불가. R4와 SW1은 통신가능 등) OSPF에 대한 기본개념과 기본용어를 찾아보고 시작하세요.  OSPF is a link state protocol and each router maintains a topology map of their configured area ABR, ASBR, DR, BDR DROTHER의 의미파악 ospf protocol number: 89 multicast address 사용용도(224.0.0.5, 224.0.0.6) OSPF interface type Link State Advertisement types  첨부파일 0304_Configuration Basic OSPF LAB가이트.pdf를 참조해서 아래의 사항을 설정해보세요.  R1, R2, R4, R5의 frame-relay hub-and-spoke인터페이스에 ospf area 0 구성하기 R1, R2, R4, R5의 frame-relay hub-and-spoke인터페이스의 OSPF network type변경하기 ospf adjacency확인하기 debug ip ospf 1 events를 설정하고 clear ip ospf 1 process로 ospf를 reset했을때 어떠한 이벤트가 발생하는지 확인하기 ospf에 대한 debug확인하기     Attachments   0304_Configuration Basic OSPF LAB가이드.pdf  (298 ko)   14193-frbacktoback.pdf  (16 ko)    "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.36-frame-relay-switch/",
+	"title": "2.36 Frame Relay Switch",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0302_Frame-Relay1.zip \n[LAB의 목적] 본 LAB은 WAN기술중에 Frame Relay망으로 라우터들을 연결하여 통신설정하는 방법을 습득하기 위한 LAB입니다. 하단에 참조한 페이지는 본 LAB을 설정하는 방법을 단계적으로 설명한 페이지입니다. 문서의 내용에 따라서 설정하면서 Frame Relay설정방법을 이해하시기 바랍니다. \n[LAB수행조건]  Frame Relay망에 대한 기본개념 이해하기 Frame Relay에서 사용하는 용어 이해하기  PVC(Permanent Cirtual Circuit) SVC(Switched Virtual Circuit) DLCI(Data-Link Connection Identifier) LMI(Local Management Interface)  Cisco IOL한대를 Frame Relay스위치로 설정하여 WAN구간으로 사용하므로 Cisco라우터를 Frame Relay스위치로 활용하는 방법을 이해하기  \n[추가 LAB] 위의 LAB을 설정완료하고 정확하게 이해했다면 아래 그림에서 표시하고 있는 네트워크 구성에 대해서 직접 Frame Relay스위치를 구성하고 LAB생성해서 설정을 해보세요. 참조한 페이지: Frame Relay Switch on a Cisco Router\n "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.35-port-security/",
+	"title": "2.35 Port Security",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0228_port-Security.zip \n[LAB의 목적] 네트워크를 운영하다보면 특정포트에 허브를 연결해서 다수의 시스템을 사용하는것을 제어할 경우가 발생합니다. Cisco의 port secuirty기능을 사용하여 스위치 포트에 Learning되는 mac address갯수를 제한해서 하단에 허브사용을 제어해보는 LAB입니다. \n[LAB수행조건]  HUB2, HUB3장비는 SW1과 동일한 Cisco IOL이미지를 사용했지만, HUB처럼 생각하기 위해서 no ip routing설정만하고 다른 설정은 아무것도 하지 마세요. SW1스위치의 e0/0포트는 1개의 mac만 허락하도록 설정하고 VPC4, 5, 6중 가장 먼저 Learning되는 노드만 통신이 되고 나머지는 통신이 안되도록 구성하기 SW1스위치의 e0/1포트는 1개의 mac만 허락하도록 설정하고 상상 VPC8만 통신이 되도록 구성하기 HUB가 Cisco IOL이미지로 구성함에 다라서 의도하지 않은 문제가 발생할 것입니다. 어떠한 문제점이 발생하는지와 그것에 대한 해결책을 제시해 보세요.  참조한 페이지: Switchport Port Security Explained With Examples\n "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.34-ssl-vpn-with-asa/",
+	"title": "2.34 SSL VPN with ASA",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0218_Use-ASA.zip \n[LAB의 목적] Cisco ASA에서 제공하는 AnyConnect SSL VPN기능을 활성화하여 SSL VPN을 시험하는 LAB입니다. 사용자가 IPSec VPN을 사용할때는 별도 IPSec VPn Client를 설치해야하지만 SSL VPN은 웹브라우저로 연결하여 Active-X로 내려받는 클라이언트를 설치하여 사용하는 방식에 대한 이해도 필요합니다. \n[LAB수행조건]  LAB구성도는 2.33 Cisco ASA이미지구성 LAB에서 사용한 구성도를 그대로 이용 ASDM 관리툴의 마법사(Wizard)기능을 사용하여 AnyConnect SSL VPN설정하기.(처음 설정시에 CLI방식으로 설정하는데 어려움이 있기때문에 마법사를 통하여 설정했을때 어떤부분이 config상에 들어가는지 확인하는것도 좋은 방법) VPN Pool은 10.0.200.100 ~ 10.0.200.110 사용 Split DNS설정으로 10.0.200.0/24네트워크만 VPN을 타도록 설정할것.(Split DNS는 VPN을 사용하는 사용자가 VPN을 연결한 시점에 모든 트래픽이 암호화된 VPN트래픽으로 VPN Peer로 전달되도록 하지 않고, 오직 통신하고자 정의한 대역하고만 암호화통신을 수행하고 그 이외의 통신은 현재 사용자 인터넷 연결상태를 사용하는 방식) 구성후 브라우저로 접속시 Java버전 때문에 차단되는 부분 해결해서 Avtive-X프로그램이 정상적으로 설치되도록 하기 AnyConnect 프로그램 다운로드 후 설치 AnyConnect SSL VPN 연결되고 통신됨을 확인하기    Attachments   01-Cisco ASDM 6.4 for ASA - 10.0.100.2.png  (53 ko)   02-AnyConnect VPN Connection Setup Wizard.png  (72 ko)   03-AnyConnect VPN Connection Setup Wizard.png  (13 ko)   04-AnyConnect VPN Connection Setup Wizard.png  (16 ko)   05-Add Identity Certificate.png  (12 ko)   06-Manage Identity Certificates.png  (13 ko)   07-AnyConnect VPN Connection Setup Wizard.png  (17 ko)   08-AnyConnect VPN Connection Setup Wizard.png  (18 ko)   09-AnyConnect VPN Connection Setup Wizard.png  (16 ko)   10-AnyConnect VPN Connection Setup Wizard.png  (17 ko)   11-AnyConnect VPN Connection Setup Wizard.png  (13 ko)   12-AnyConnect VPN Connection Setup Wizard.png  (12 ko)   13-AnyConnect VPN Connection Setup Wizard.png  (19 ko)   14-AnyConnect VPN Connection Setup Wizard.png  (72 ko)   15-SSL VPN Service.png  (10 ko)   16-Installation - Internet Explorer.png  (55 ko)    "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.33-cisco-asa%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B5%AC%EC%84%B1/",
+	"title": "2.33 Cisco ASA이미지구성",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0218_Use-ASA.zip \n[LAB의 목적] Cisco ASA이미지를 UnetLab에 구성하여 LAB상에서 방화벽장비로 이용하기 위한 LAB입니다. ASA이미지를 구성한후에 기본적인 설정과 ASDM을 통해서 ASA방화벽을 연결한후 기본적인 사용법을 익혀보세요. \n[LAB수행조건]  Cisco ASA이미지를 unetLab에 환경구성하기 모든 노드가 통신이 가능하도록 환경구성하기 ASA의 방화벽정책을 ALL Permit정책으로 설정하기 ASA 관리포트 연결이 호스트OS에서 가능하도록 구성하기  http server enable http 접근ip허용  호스트OS에서 ASA관리 연결 및 기본 사용법 숙지하기   "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.32-ftp%EC%97%90-%EB%8C%80%ED%95%9C-acl%EC%84%A4%EC%A0%95/",
+	"title": "2.32 FTP에 대한 ACL설정",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0212_FTP_mode-ACL.zip \n[LAB의 목적] FTP프로토콜은 passive mode와 active mode로 동작할때 사용되는 port번호가 다르고 요청하는 방향이 달라지기때문에 보안정책을 설정하는데 까다로운 프로토콜입니다. IOS라우터의 ACL기반에서 FTP프로토콜에 대한 ACL정책을 설정하면서 FTP프로토콜에 대한 이해를 돕고자하는 LAB입니다. \n[LAB수행조건]  FTP의 Active Mode와 Passive Mode이해하기 vsftpd환경설정에서 Active Mode와 Passive Mode설정하는 방법 익히기 ftp클라이언트 프로그램(우분투의 ftp명령어)에서 active mode와 passive mode전환 방법 익히기 두 시스템이 정상 통신 되도록 환경구성하기 FTP는 제어포트와 데이터포트를 다르게 사용하기 때문에 연결후에 디렉토리 목록 확인이 필요함 Active Mode로 ubuntu-client에서 FTP서버로 연결했을때 WireShark 패킷캡처로 포트번호 사용 체크하기 Passive Mode로 ubuntu-client에서 FTP서버로 연결했을때 WireShark 패킷캡처로 포트번호 사용 체크하기 R1 e0/1인터페이스 inbound에 ACL을 적용해서 FTP연결만 허용하도록 정책설정    Attachments   FTP Active 모드와 Passive 모드의 차이점.pdf  (252 ko)    "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.31-cacti%EC%99%80-snmp-v3/",
+	"title": "2.31 Cacti와 SNMP V3",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: 0207_NTP-Time-Sync.zip \n[LAB의 목적] 오픈소스 Cacti프로그램은 SNMP기반으로 장비의 상태모니터링과 누적 트래픽그래프를 제공할 수 있는 훌륭한 프로그램입니다. 우분투시스템에 Cacti프로그램으로 모니터링 시스템을 구축하는 방법을 습득하고 LAB상의 장비에 SNMP V3설정하는 방법과 Cacti에 장비를 등록하여 모니터링하는 방법을 배우고자 합니다. \n[LAB수행조건]  LAB구성도는 2.30 NTP서버구성 및 시간동기화에서 사용한 LAB을 그대로 이용 R1의 e0/0에 pnet0를 연결하고 NAT를 설정하여 LAB상의 모든 시스템이 인터넷이 가능하도록 설정 NTP-server에 cacti패키지를 설치하고 구성하기 R1에 Static NAT설정: R1 e0/0 80/TCP \u0026mdash;-\u0026gt; 10.0.10.10 80/TCP 호스트OS에서 R1의 e0/0인터페이스 IP(192.168.234.90)로 웹 연결하면 NTP-server에 구성한 cacti가 연결되어야 함 ubuntu-client에 net-snmp패키지를 설치하고 SNMP V3로 에이전트 구성 Cisco, Juniper에 SNMP V3구성 Cacti에 LAB상의 모든 시스템을 등록하고 정상 모니터링이 되는지 확인하기  "
+},
+{
 	"uri": "http://ssanggu.github.io/ch2/2.30-ntp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1-%EB%B0%8F-%EC%8B%9C%EA%B0%84%EB%8F%99%EA%B8%B0%ED%99%94/",
 	"title": "2.30 NTP서버구성 및 시간동기화",
 	"tags": [],

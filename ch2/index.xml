@@ -12,6 +12,83 @@
     
     
     <item>
+      <title>2.37 Configuring Basic OSPF-1</title>
+      <link>http://ssanggu.github.io/ch2/2.37-configuring-basic-ospf-1/</link>
+      <pubDate>Sun, 17 Mar 2019 13:49:32 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.37-configuring-basic-ospf-1/</guid>
+      <description>[구성도] LAB구성파일: 0304_Configure-OSPF1.zip 
+[LAB의 목적] 본 LAB은 Frame Relay망과 Ethernet이 혼합된 네트워크상에서 OSPF라우팅 프로토콜의 기본동작을 숙지하기위한 LAB입니다. 
+[LAB수행조건]  LAB구성도에 따라서 LAB상의 장비들을 설정하세요. 본 LAB에서는 인접한 장비끼리만 통신되도록 구성합니다.(R1, R2, R4, R5는 인접하니깐 서로 통신 가능, R1과 R3는 한단계 거쳐서 있으므로 통신불가. R4와 SW1은 통신가능 등) OSPF에 대한 기본개념과 기본용어를 찾아보고 시작하세요.  OSPF is a link state protocol and each router maintains a topology map of their configured area ABR, ASBR, DR, BDR DROTHER의 의미파악 ospf protocol number: 89 multicast address 사용용도(224.</description>
+    </item>
+    
+    <item>
+      <title>2.36 Frame Relay Switch</title>
+      <link>http://ssanggu.github.io/ch2/2.36-frame-relay-switch/</link>
+      <pubDate>Sun, 17 Mar 2019 13:33:17 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.36-frame-relay-switch/</guid>
+      <description>[구성도] LAB구성파일: 0302_Frame-Relay1.zip 
+[LAB의 목적] 본 LAB은 WAN기술중에 Frame Relay망으로 라우터들을 연결하여 통신설정하는 방법을 습득하기 위한 LAB입니다. 하단에 참조한 페이지는 본 LAB을 설정하는 방법을 단계적으로 설명한 페이지입니다. 문서의 내용에 따라서 설정하면서 Frame Relay설정방법을 이해하시기 바랍니다. 
+[LAB수행조건]  Frame Relay망에 대한 기본개념 이해하기 Frame Relay에서 사용하는 용어 이해하기  PVC(Permanent Cirtual Circuit) SVC(Switched Virtual Circuit) DLCI(Data-Link Connection Identifier) LMI(Local Management Interface)  Cisco IOL한대를 Frame Relay스위치로 설정하여 WAN구간으로 사용하므로 Cisco라우터를 Frame Relay스위치로 활용하는 방법을 이해하기</description>
+    </item>
+    
+    <item>
+      <title>2.35 Port Security</title>
+      <link>http://ssanggu.github.io/ch2/2.35-port-security/</link>
+      <pubDate>Sun, 17 Mar 2019 13:20:18 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.35-port-security/</guid>
+      <description>[구성도] LAB구성파일: 0228_port-Security.zip 
+[LAB의 목적] 네트워크를 운영하다보면 특정포트에 허브를 연결해서 다수의 시스템을 사용하는것을 제어할 경우가 발생합니다. Cisco의 port secuirty기능을 사용하여 스위치 포트에 Learning되는 mac address갯수를 제한해서 하단에 허브사용을 제어해보는 LAB입니다. 
+[LAB수행조건]  HUB2, HUB3장비는 SW1과 동일한 Cisco IOL이미지를 사용했지만, HUB처럼 생각하기 위해서 no ip routing설정만하고 다른 설정은 아무것도 하지 마세요. SW1스위치의 e0/0포트는 1개의 mac만 허락하도록 설정하고 VPC4, 5, 6중 가장 먼저 Learning되는 노드만 통신이 되고 나머지는 통신이 안되도록 구성하기 SW1스위치의 e0/1포트는 1개의 mac만 허락하도록 설정하고 상상 VPC8만 통신이 되도록 구성하기 HUB가 Cisco IOL이미지로 구성함에 다라서 의도하지 않은 문제가 발생할 것입니다.</description>
+    </item>
+    
+    <item>
+      <title>2.34 SSL VPN with ASA</title>
+      <link>http://ssanggu.github.io/ch2/2.34-ssl-vpn-with-asa/</link>
+      <pubDate>Sun, 17 Mar 2019 13:01:32 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.34-ssl-vpn-with-asa/</guid>
+      <description>[구성도] LAB구성파일: 0218_Use-ASA.zip 
+[LAB의 목적] Cisco ASA에서 제공하는 AnyConnect SSL VPN기능을 활성화하여 SSL VPN을 시험하는 LAB입니다. 사용자가 IPSec VPN을 사용할때는 별도 IPSec VPn Client를 설치해야하지만 SSL VPN은 웹브라우저로 연결하여 Active-X로 내려받는 클라이언트를 설치하여 사용하는 방식에 대한 이해도 필요합니다. 
+[LAB수행조건]  LAB구성도는 2.33 Cisco ASA이미지구성 LAB에서 사용한 구성도를 그대로 이용 ASDM 관리툴의 마법사(Wizard)기능을 사용하여 AnyConnect SSL VPN설정하기.(처음 설정시에 CLI방식으로 설정하는데 어려움이 있기때문에 마법사를 통하여 설정했을때 어떤부분이 config상에 들어가는지 확인하는것도 좋은 방법) VPN Pool은 10.</description>
+    </item>
+    
+    <item>
+      <title>2.33 Cisco ASA이미지구성</title>
+      <link>http://ssanggu.github.io/ch2/2.33-cisco-asa%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B5%AC%EC%84%B1/</link>
+      <pubDate>Sun, 17 Mar 2019 12:52:03 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.33-cisco-asa%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B5%AC%EC%84%B1/</guid>
+      <description> [구성도] LAB구성파일: 0218_Use-ASA.zip 
+[LAB의 목적] Cisco ASA이미지를 UnetLab에 구성하여 LAB상에서 방화벽장비로 이용하기 위한 LAB입니다. ASA이미지를 구성한후에 기본적인 설정과 ASDM을 통해서 ASA방화벽을 연결한후 기본적인 사용법을 익혀보세요. 
+[LAB수행조건]  Cisco ASA이미지를 unetLab에 환경구성하기 모든 노드가 통신이 가능하도록 환경구성하기 ASA의 방화벽정책을 ALL Permit정책으로 설정하기 ASA 관리포트 연결이 호스트OS에서 가능하도록 구성하기  http server enable http 접근ip허용  호스트OS에서 ASA관리 연결 및 기본 사용법 숙지하기   </description>
+    </item>
+    
+    <item>
+      <title>2.32 FTP에 대한 ACL설정</title>
+      <link>http://ssanggu.github.io/ch2/2.32-ftp%EC%97%90-%EB%8C%80%ED%95%9C-acl%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Sun, 17 Mar 2019 12:35:23 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.32-ftp%EC%97%90-%EB%8C%80%ED%95%9C-acl%EC%84%A4%EC%A0%95/</guid>
+      <description>[구성도] LAB구성파일: 0212_FTP_mode-ACL.zip 
+[LAB의 목적] FTP프로토콜은 passive mode와 active mode로 동작할때 사용되는 port번호가 다르고 요청하는 방향이 달라지기때문에 보안정책을 설정하는데 까다로운 프로토콜입니다. IOS라우터의 ACL기반에서 FTP프로토콜에 대한 ACL정책을 설정하면서 FTP프로토콜에 대한 이해를 돕고자하는 LAB입니다. 
+[LAB수행조건]  FTP의 Active Mode와 Passive Mode이해하기 vsftpd환경설정에서 Active Mode와 Passive Mode설정하는 방법 익히기 ftp클라이언트 프로그램(우분투의 ftp명령어)에서 active mode와 passive mode전환 방법 익히기 두 시스템이 정상 통신 되도록 환경구성하기 FTP는 제어포트와 데이터포트를 다르게 사용하기 때문에 연결후에 디렉토리 목록 확인이 필요함 Active Mode로 ubuntu-client에서 FTP서버로 연결했을때 WireShark 패킷캡처로 포트번호 사용 체크하기 Passive Mode로 ubuntu-client에서 FTP서버로 연결했을때 WireShark 패킷캡처로 포트번호 사용 체크하기 R1 e0/1인터페이스 inbound에 ACL을 적용해서 FTP연결만 허용하도록 정책설정    Attachments   FTP Active 모드와 Passive 모드의 차이점.</description>
+    </item>
+    
+    <item>
+      <title>2.31 Cacti와 SNMP V3</title>
+      <link>http://ssanggu.github.io/ch2/2.31-cacti%EC%99%80-snmp-v3/</link>
+      <pubDate>Sun, 17 Mar 2019 12:20:47 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.31-cacti%EC%99%80-snmp-v3/</guid>
+      <description>[구성도] LAB구성파일: 0207_NTP-Time-Sync.zip 
+[LAB의 목적] 오픈소스 Cacti프로그램은 SNMP기반으로 장비의 상태모니터링과 누적 트래픽그래프를 제공할 수 있는 훌륭한 프로그램입니다. 우분투시스템에 Cacti프로그램으로 모니터링 시스템을 구축하는 방법을 습득하고 LAB상의 장비에 SNMP V3설정하는 방법과 Cacti에 장비를 등록하여 모니터링하는 방법을 배우고자 합니다. 
+[LAB수행조건]  LAB구성도는 2.30 NTP서버구성 및 시간동기화에서 사용한 LAB을 그대로 이용 R1의 e0/0에 pnet0를 연결하고 NAT를 설정하여 LAB상의 모든 시스템이 인터넷이 가능하도록 설정 NTP-server에 cacti패키지를 설치하고 구성하기 R1에 Static NAT설정: R1 e0/0 80/TCP &amp;mdash;-&amp;gt; 10.</description>
+    </item>
+    
+    <item>
       <title>2.30 NTP서버구성 및 시간동기화</title>
       <link>http://ssanggu.github.io/ch2/2.30-ntp%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1-%EB%B0%8F-%EC%8B%9C%EA%B0%84%EB%8F%99%EA%B8%B0%ED%99%94/</link>
       <pubDate>Sat, 16 Mar 2019 23:28:31 +0900</pubDate>
