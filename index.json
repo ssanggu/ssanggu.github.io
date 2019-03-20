@@ -28,6 +28,13 @@
 	"content": " 블로그 소개 한 상구(Han SangGu), 네트워크 필드 엔지니어, ssanggu@gmail.com\n \n 본 블로그는 EVE-NG(UnetLab)를 사용하여 구성하고 시험한 LAB환경을 정리하고, 각각의 LAB에서 어떤 지식을 습득해야하는지를 정리하는 블로그입니다. 가능한 다양한 네트워크 장비를 배치하여 구성함으로써 네트워크에 대한 개념을 좀더 효율적으로 정리할 수 있었습니다.    EVE-NG 가상화(VMWare Player, docker, kvm) 리눅스(Ubuntu, CentOS) 네트워크장비(Cisco, Juniper, Extreme VyOS) 보안장비(ASA, PaloAlto, SECUI MF2) IPSec VPN, OpenVPN, SSL VPN SDN(VxLAN)   "
 },
 {
+	"uri": "http://ssanggu.github.io/ch2/2.46-cisco-iol-ipsecvpn%EA%B5%AC%EC%84%B1/",
+	"title": "2.46 Cisco IOL IPSec VPN구성",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] \n[LAB의 목적] 이번 LAB은 Cisco IOS에서 IPSec VPN Remote Access서버를 구성해보는 LAB입니다. 구성도는 2.45 VyOS로 L2TP VPN서버구성의 구성도와 동일한데 VyOS부분에 Cisco IOS라우터를 넣은것입니다. 구성은 첨부한 pdf문서를 참고하여 아래의 순서대로 설정을 하면됩니다.\n\n[LAB수행조건]  VPN사용자 계정 생성 및 aaa로그인옵션 설정 ISAKMP그룹인증관련 설정과 SplitDNS관련 트래픽 정의 ESP데이터암호화를 위한 암호화 알고리즘정의 crypto map정의 인터페이스에 정의한 map설정 PC에 Cisco IPSec VPN클라이언트 프로그램 설치  L2TP over IPSec은 윈도우에서 기본으로 제공하는 기능으로 사용했고, IPSec VPN은 이렇게 별도의 클라이언트 프로그램이 설치되어 사용되어야 합니다. 다른제품의 IPSec VPN서버를 구성하더라도 해당 제품에 맞는 클라이언트가 있어야 연결할 수 있읍니다. Anyconnect클라이언트에서도 IPSec을 지원한다는 문서를 봐서 AnyConnect를 사용해서 IPSec VPN을 연결할 수 있는 LAB을 시험중입니다. 이후 LAB은 AnyCOnnect를 사용해보는 LAB이 되지 않을까하는 생각입니다.\n   Attachments   91193-rtr-ipsec-internet-connect.pdf  (141 ko)    "
+},
+{
 	"uri": "http://ssanggu.github.io/ch2/2.45-vyos%EB%A1%9C-l2tp-vpn%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1/",
 	"title": "2.45 VyOS L2TP VPN서버구성",
 	"tags": [],

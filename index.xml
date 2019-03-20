@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>2.46 Cisco IOL IPSec VPN구성</title>
+      <link>http://ssanggu.github.io/ch2/2.46-cisco-iol-ipsecvpn%EA%B5%AC%EC%84%B1/</link>
+      <pubDate>Wed, 20 Mar 2019 21:42:12 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.46-cisco-iol-ipsecvpn%EA%B5%AC%EC%84%B1/</guid>
+      <description>[구성도] 
+[LAB의 목적] 이번 LAB은 Cisco IOS에서 IPSec VPN Remote Access서버를 구성해보는 LAB입니다. 구성도는 2.45 VyOS로 L2TP VPN서버구성의 구성도와 동일한데 VyOS부분에 Cisco IOS라우터를 넣은것입니다. 구성은 첨부한 pdf문서를 참고하여 아래의 순서대로 설정을 하면됩니다.
+
+[LAB수행조건]  VPN사용자 계정 생성 및 aaa로그인옵션 설정 ISAKMP그룹인증관련 설정과 SplitDNS관련 트래픽 정의 ESP데이터암호화를 위한 암호화 알고리즘정의 crypto map정의 인터페이스에 정의한 map설정 PC에 Cisco IPSec VPN클라이언트 프로그램 설치  L2TP over IPSec은 윈도우에서 기본으로 제공하는 기능으로 사용했고, IPSec VPN은 이렇게 별도의 클라이언트 프로그램이 설치되어 사용되어야 합니다.</description>
+    </item>
+    
+    <item>
       <title>2.45 VyOS L2TP VPN서버구성</title>
       <link>http://ssanggu.github.io/ch2/2.45-vyos%EB%A1%9C-l2tp-vpn%EC%84%9C%EB%B2%84%EA%B5%AC%EC%84%B1/</link>
       <pubDate>Mon, 18 Mar 2019 23:14:30 +0900</pubDate>
