@@ -28,6 +28,118 @@
 	"content": " 블로그 소개 한 상구(Han SangGu), 네트워크 필드 엔지니어, ssanggu@gmail.com\n \n 본 블로그는 EVE-NG(UnetLab)를 사용하여 구성하고 시험한 LAB환경을 정리하고, 각각의 LAB에서 어떤 지식을 습득해야하는지를 정리하는 블로그입니다. 가능한 다양한 네트워크 장비를 배치하여 구성함으로써 네트워크에 대한 개념을 좀더 효율적으로 정리할 수 있었습니다.    EVE-NG 가상화(VMWare Player, docker, kvm) 리눅스(Ubuntu, CentOS) 네트워크장비(Cisco, Juniper, Extreme VyOS) 보안장비(ASA, PaloAlto, SECUI MF2) IPSec VPN, OpenVPN, SSL VPN SDN(VxLAN)   "
 },
 {
+	"uri": "http://ssanggu.github.io/ch2/2.89-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-10/",
+	"title": "2.89 VxLAN개념익히기-10",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190318-080046.zip \n[LAB의 목적] 본 LAB은 802.1X인증시험을 VxLAN환경에 적용하여 시험하는 LAB입니다. \n[LAB수행조건]  LAB구성도는 2.87 VxLAN개념익히기-9에서 정의한 LAB에 하단장비만 VPC에서 802.1X를 시험할 수 있는 라즈베리로 변경했으므로 상단 장비들의 설정은 동일하게 설정하면 됩니다. VyOS 백업한 config파일을 load명령으로 다시 넣어주는 명령들이 있으니깐 한번 기존 config를 받아서 넣어보세요. 각동의 메인스위와 지점의 VyOS-FireWall2장비를 벗어나는 트래픽은 모두 VxLAN터널로 통신해야 합니다. freeradius서버의 사용자구성은 아래와 같이 했읍니다.  각동에 연결된 라즈베리파이 시스템에서 등록된 사용자중 임의로 선택해서 wpa_supplicant를 구성하고 시험했을때 해당 사용자가 소속된 VLAN을 할당받고 해당 네트워크의 IP를 부여받아서 인터넷이 되는것을 확인합니다. 하나의 터미널에서 wpa_supplicant를 구동해놓고 다른 터미널에서 802.1X를 수행하기 이전에 IP할당시도를 했기때문에 IP를 할당받지 못한 상태인데, systemctl restart dhcpcd를 수행하고 좀 기달리면(약간걸림) IP를 정상적으로 받아옵니다.  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.88-802.1x%EC%9D%B8%EC%A6%9D%EC%8B%9C%ED%97%98/",
+	"title": "2.88 802.1X인증시험",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190314-064256.zip \n[LAB의 목적] VxLAN다음 단계를 진행하기 위해서 기능시험을 위한 LAB올립니다.  사용자들이 자유롭게 위치를 이동하더라도 자신에게 할당받은 고유한 IP주소를 계속 사용하려면 사용자에 대한 신원확인이 필수적입니다. Cisco ISE에서 동작하는 원리는 차후 더 찾아봐야 하겠지만, 현재 환경에서 RADIUS서버와 스위치의 802.1X인증을 통해서 이와 같은 환경을 구성해봅니다. \n[LAB수행조건]  Cisco 3725 Dynamips이미지가 필요합니다. Dynamips이미지를 만드는 과정을 수행했던것으로 기억하는데 이미지가 없다면 자료를 찾아서 가장 먼저 이 이미지를 올려주세요. 현재 LAB환경에서 802.1x기능을 지원하는것은 C3725라우터에 16포트 스위치모듈을 Slot에 장착해서 사용하는것 밖에 없습니다.  리눅스머신을 구동해서 인터넷이 되도록 만든후에 FreeRADIUS패키지를 설치해서 FreeRADIUS서버를 구성하세요. 서버를 구성할때 참조한 내용은 How To Install FreeRADIUS On Ubuntu Server - Packet6입니다. 참조문서에 따라서 설정했던 radius.conf, eap.conf, users파일은 첨부파일로 올렸으니 참고하세요. C3725라우터는 Cloud0를 연결, RADIUS서버연결하는 인터페이스는 라우터포트로 설정했고, 스위치 16포트는 모두 802.1X포트설정을 했읍니다. vlan 100, 200을 생성하고 L3인터페이스를 만들어놓았으면 라우터에 dhcp서버를 vlan100, vlan200에 대해서 생성했읍니다. 라우터의 config파일을 첨부파일로 올립니다. 설정할때 참조한 링크는 CCNP SWITCH and GNS3 – part 2.3 LAB - Configuring User AAA authentication and 802.1X port-based authentication 와 IEEE 802.1X VLAN Assignment\u0026nbsp; [Support]입니다. 802.1X인증시험을 Window7과 라즈베리파이 머신 2대로 진행했읍니다. Win7은 메모리를 많이 차지해서 여러대 구동하기가 어려울듯해서 좀 더 가벼운 라즈베리파이도 시험을 했읍니다. VxLAN환경에서 시험할때는 라즈베리파이를 사용해서 여러대 구동해볼 예정입니다. Windows 7의 유선NIC에서 802.1X를 사용하기 위해서 설정하는 부분은 Configuring 802.1X Wired Authentication on를 참고했읍니다. 라즈베리파일에서 802.1X를 설정하는 부분은 raspberry pi 3 Ethernet with 802.1X를 참고했고요, wpa_supplicant.conf파일을 첨부파일로 올렸읍니다. Windows 7에서 sghan으로 로그인하면 Windows 7이 연결된 Fa1/0이 VLAN100에 소속되고 VLAN100의 IP가 할당됩니다.  Windows 7에서 sghan1으로 로그인하면 Windows 7이 연결된 Fa1/0이 VLAN200에 소속되고 VLAN200의 IP가 할당됩니다.  라즈베리파이에서 sghan으로 로그인하면 라즈베리파이가 연결된 Fa1/1이 VLAN100에 소속되고 VLAN100의 IP가 할당됩니다.  라즈베리파이에서 sghan1으로 로그인하면 라즈베리파이가 연결된 Fa1/1이 VLAN200에 소속되고 VLAN200의 IP가 할당됩니다.     Attachments   R3725.cfg  (3 ko)   eap.conf  (21 ko)   radiusd.conf  (28 ko)   users  (6 ko)   wpa_supplicant.conf  (0 ko)    "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.87-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-9/",
+	"title": "2.87 VxLAN개념익히기-9",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190307-090516.zip \n[LAB의 목적] 본 LAB에서는 각동의 노드들이 IP를 자동으로 할당받도록 네트워크를 구성할때 어떤 장비에서 dhcp relay를 수행해야하는지를 이해하고 정상적으로 IP할당이 이루어지는지를 확인하는 것입니다. \n[LAB수행조건]  구성도는 2.86 VxLAN개념익히기-8에서 사용한 구성도에 DHCP서버를 추가한 것임 모든 VxLAN에 있는 VPC들이 dhcp서버를 통해서 IP를 자동할당 받도록 구성하기 VyOS에서 DHCP서버구성하는 것과 Broder-GW에서 dhcp relay를 설정해주는 것이 필요  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.86-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-8/",
+	"title": "2.86 VxLAN개념익히기-8",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190304-060202.zip \n[LAB의 목적] 본 LAB을 설정하면서 언더레이 네트워크와 오버레이 네트워크에 대한 개념이해가 필요합니다. 각동의 단말들은 오버레이 네트워크를 통해서 Broder-GW까지 와서 다른 네트워크와 통신을 수행한다는 것을 이해하시기 바랍니다. 또한, 방화벽이 있을때 VxLAN캡슐화에 사용되는 UDP 포트만 허용되었을때 정상적인 통신이 되는지를 확인하고자 합니다. \n[LAB수행조건]  Border-GW와 A-Dong-Main, B-Dong-Main, C-Dong-Main, 지점의 VyOS-FireWall2장비간에 VxLAN터널링으로 10.0.100.0/24, 10.0.110.0/24, 10.0.120.0/24, 10.0.130.0/24대역이 서로간에 통신이 되고 Cloud0를 통해서 인터넷도 가능하도록 NAT설정도 해보세요. 추가로 VyOS-FireWall과 vyOS-FireWall2에서 VxLAN터널링이 사용하는 8472/UDP포트만 허락하는 방화벽정책을 설정했을때 정상적으로 통신이 되는지도 확인해보세요. VyOS에서 firewall정책을 interface기반으로 적용할때 in, out, local이 있습니다. 패킷이 VyOS자신의 인터페이스를 목적지로하는 패킷은 local에 적용해야됩니다.  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.85-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-7/",
+	"title": "2.85 VxLAN개념익히기-7",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190302-172116.zip \n[LAB의 목적] 엔터프라이즈 네트워크환경에서 peer가 한개 이상일때 peer로 설정할 수 없기때문에 multicast address를 사용하여 구성해야한다는 것을 이해하기 위한 LAB입니다. \n[LAB수행조건]  2.84 VxLAN개념익히기-6에서 설정했던 환경에 한개 동을 더 추가해서 확장한 것입니다. 현재 VyOS는 multicast routing을 지원하지 않아서 백본스위치 용도로 Cisco IOL스위치를 넣었습니다. 본 LAB은 VXLAN문서를 참고하여 설정하였습니다.  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.84-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-6/",
+	"title": "2.84 VxLAN개념익히기-6",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190302-135452.zip \n[LAB의 목적] 엔터프라이즈 네트워크환경에서 peer가 한개 이상일때 peer로 설정할 수 없기때문에 multicast address를 사용하여 구성해야한다는 것을 이해하기 위한 LAB입니다. \n[LAB수행조건]  VyOS1을 백본스위치로 간주하고, VyOS2는 동의 메인스위치로 생각했을때 둘간에 VxLAN캡슐화로 통신을 하도록 구성하려고 합니다. 기존까지는 VxLAN에 peer를 지정해서 설정을 했을것입니다. VyOS1 백본스위치에서 구성도처럼 동이 한개만 있다면 peer를 사용해도 되지만 여러개의 동이 구성되면 백본스위치입장에서 peer를 어떤것으로 지정을 해야할까요?? 이 고민으로 출발해보니 multicast를 사용해야하는 이유가 나오더군요. 본 LAB은 peer를 사용하지 마시고 multicast group주소를 사용해서 구성해보세요.  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.83-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-5/",
+	"title": "2.83 VxLAN개념익히기-5",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190226-045111.zip \n[LAB의 목적] 본 LAB은 하단에 시스코 스위치를 연결하여 VLAN과 VxLAN매핑관계를 이해하기 위한 LAB입니다. \n[개념도] 아래의 그림은 VxLAN과 VLAN이 묶이는 개념도입니다. \n[LAB수행조건] 이번 LAB에서는 기존의 구성을 하단 시스코스위치로 VLAN을 확장해보도록 합니다. VyOS에서 trunk로 tagging되는 vlan정보를 인터페이스에 연결해주는 방법을 이해해야합니다. 그리고, 172.16.241.0/24, 172.16.242.0/24대역에 대한 L3라우팅을 SW13스위치에 올렸는데 SW13에서 해야할지 VyOS2에서 해야할지 어떤것이 좋은 방법인지는 고민을 해봐야할듯합니다.\n"
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.82-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-4/",
+	"title": "2.82 VxLAN개념익히기-4",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] \n[LAB의 목적] 본 LAB은 2.81 VxLAN개념익히기-3에서 설정한 모든 노드들이 인터넷이 되도록 설정하는것이 목적이고, default route정보를 OSPF로 재분재(redistribution)해주는 방법과 VyOS NAT설정에서 특정대역을 배제(exclude)시키는 방법에 대해서 익히기 위함입니다. \n[LAB수행조건]  ISP에 있는 R1라우터에 각 VMWare의 NAT인터페이스를 연결하고 LAB상의 모든 대역이 연결된 인터페이스로 NAT되도록 구성하기 R1에 설정된 default route정보가 OSPF로 모든 라우터에 뿌려지도록 구성하기(이렇게 구성하면 라우팅 테이블에 존재하지 않는 네트워크로 가는 패킷들은 모두 R1으로 오게되므로 인터넷 통신이 가능) 위와같이 구성이 되면 모든 라우터에서는 인터넷으로 통신이 가능하지만 도커에서는 인터넷 통신이 안됨. 왜냐하면 도커가 사용하는 172.16.241.0/24, 172.16.242.0/24대역은 ISP에 존재하는 라우터들이 모르는 네트워크들이기 때문입니다. 내부에서 임의로 사용하는 IP를 ISP쪽으로 라우팅을 뿌리거나 설정하는것은 안되므로 VyOS2라우터에서 NAT처리하도록 설정하세요. NAT설정할때 외부 연결인터페이스 eth1, eth3에서 어떤 것을 타고 나갈지 모르기 때문에 두 인터페이스 모두에 적용해야함. 또한, 172.16.241.0/24와 172.16.242.0/24대역끼리 통신하는것은 VxLAN UDP캡슐화가 되어야 하기 때문에 NAT룰에서 배제되어야 합니다. 이 두가지를 주의해서 NAT설정을 해보세요.  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.81-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-3/",
+	"title": "2.81 VxLAN개념익히기-3",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190225-093554.zip\n\n[LAB의 목적] 여러개의 L3장비를 통과하더라고 VxLAN UDP 캡슐화를 통해서 떨어져 있는 장비들을 동일대역으로 묶어서 통신할 수 있다는 것을 이해하기 위한 LAB입니다. \n[LAB수행조건] 두대의 VyOS사이에 조금 복잡해보이는 ISP를 한번 구성해볼까요.\n여러대의 라우터를 OSPF로 라우팅을 구성해보세요. 구성을 간단히 하기 위해서 OSPF는 area 0에만 연결하도록 구성합니다. 이 LAB의 목적은 여러개의 L3장비를 통과하더라도 VxLAN UDP캡슐화를 통해서 떨어져 있는 장비들을 동일대역으로 묶어서 통신할 수 있다는것을 이해하기 위함입니다. \n통신이 된다면 아래의 사항들을 수행해보세요.\n ISP의 라우터상에 패킷을 캡처했을때 UDP로 encapsulation이 되어서 보이나요? 통신되고 있는 라우터의 링크를 down시켜서 다른 path로 자동 복구되는지 시험해보세요. 라우터 인터페이스의 ospf cost를 조정해서 통신하는 path를 변경되도록 해보세요. [고민해볼까요??] VyOS에서 ISP연결이 2개의 인터페이스에 있는데 통신하고자 하는 상대방을 어떤 인터페이스를 선택해서 통신할 것인지? 두개중에 자동으로 선택해서 통신을 하도록 만들고 싶은데\u0026hellip; ==\u0026gt; 이 문제를 고민하면서 loopback인터페이스를 왜 사용하는지에 대한 이해를 하기 바랍니다.  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.80-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-2/",
+	"title": "2.80 VxLAN개념익히기-2",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] \n[LAB의 목적] 본 LAB에서는 VxLAN을 사용하기 위해서는 반드시 Multicast를 사용해야 하는가? 에 대한 해답을 찾기위한 LAB입니다. \n[LAB수행조건] 2.79 VxLAN개념익히기-1의 LAB은 잘 풀어보셨나요??\n혹시 Multicast를 사용해서 풀었나요? 그렇다면 아래와 같이 직접연결되었던 VyOS라우터를 L2스위치에 연결해서 통신이 가능한지 시험을 한번 해볼까요? L2스위치는 아무 설정도 없이 기본상태로 두어도 통신이 되어야합니다. 왜냐하면 기본 L2스위치는 IGMP snooping이 기본으로 enable되어있기때문에 multicast패킷을 넘겨야 하거든요.  이 시험의 목적은 VxLAN을 사용하기 위해서는 반드시 Multicast를 사용해야하는가?에 대한 답을 찾고자 하는것입니다. 단순히 L2스위치를 통과시켰지만 무수히 많이 거치는 ISP의 L3장비들 모두가 multicast를 무사히 잘 넘겨줄것인가 하는 의구심이 듭니다. \n통신을 성공하셨나요?? 그렇다면 위의 환경에서 172.16.241.0/24대역과 172.16.242.0/24대역이 서로 통신할 수 있도록 구성해보세요.\n"
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.79-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-1/",
+	"title": "2.79 VxLAN개념익히기-1",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190306-100108.zip\n\n[LAB의 목적] 2대의 VyOS라우터를 바로 연결해서 VxLAN기본통신에 대한 개념이해를 위한 LAB입니다. \n[개념도] 아래의 그림은 물리적인 포트와 bridge-group, VxLAN인터페이스의 관계를 이해하기 위해서 그린 개념도입니다. [LAB수행조건]  172.16.241.0/24대역에 정의된 Docker 4,6끼리 정상통신이 되어야 함 172.16.242.0/24대역에 정의된 Docker 5,7끼리 정상통신이 되어야 함 게이트웨이가 없기때문에 서로다른 네트워크간에는 통신이 안됨 VyOS라우터의 eth0인터페이스에서 패킷을 잡아보면 Encapsulation된 데이터만 보여야함 (내부적으로 실제 통신하는 172.16.241이나 172.16.242대역이 안보임)  VyOS라우터의 내부인터페이스에서 패킷을 잡아보면 encapsulation이 해제된 실제 IP통신들이 보여야함   "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.78-vyos%EB%9D%BC%EC%9A%B0%ED%84%B0-%EC%82%AC%EC%9A%A9%EB%B2%95/",
+	"title": "2.78 VyOS라우터 사용법",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] \n[LAB의 목적] 본 LAB은 앞으로 진행할 VxLAN에 대한 개념잡기에서 VyOS장비를 사용할 예정이므로 이 장비에 대한 사용법을 익히기 위하여 만든 LAB입니다. 구성도의 환경을 설정하면서 VyOS를 자유롭게 다룰 수 있도록 요구하는 조건말고도 여러가지 설정들을 해보면서 VyOS에 대하여 익숙해지기 바랍니다. \n[LAB수행조건]  VyOS 1.1.8이미지 등록하기  기존에 우리는 VyOS 1.1.7버전을 EVE-NG에 올린적이 있습니다. 1.1.7버전도 VxLAN기능을 지원하는데 최근 버전이 1.1.8버전을 사용할 예정입니다. HowTo add VyOS Vytta 문서를 참고하여 1.1.8이미지를 설치 다운로드할 이미지는 vyos-1.1.8-amd64.iso VyOS에 대한 설정문서는 Welcome to VyOS\u0026rsquo;s documentation! \u0026ndash; VyOS 1.2.0-beta documentation를 참고해서 설정했습니다.  모든 Docker시스템(Docker2,3,4,5)는 OpenSSH서버가 동작하도록 구성할것 모든 VyOS장비(VyOS1,2,3)는 ssh(22/tcp)로 연결가능하도록 구성할것 Docker2,3이 연결된 VyOS1장비의 포트2개를 브리지로 구성하여 동일 네트워크가 되도록 구성할것 VyOS2와 VyOS3간의 이중링크는 802.3ad Bonding으로 구성할것 VyOS3에 있는 10.30.10.0/24 내부네트워크는 다른곳에서 보이지 않아야하며 10.30.10.0/24대역에서 다른 네트워크로 통신할때는 외부인터페이스인 192.168.110.2주소로 NAT변환되도록 구성할것 192.168.11.0.2 10022/TCP로 ssh연결하면 Docker5로 ssh연결되도록 NAT구성할것  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.77-mf2%EC%9D%98-%EC%9D%B4%EC%A4%91%ED%99%94%ED%9A%8C%EC%84%A0%EA%B5%AC%EC%84%B1/",
+	"title": "2.77 MF2의 이중화회선구성",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190308-035942.zip \n[LAB의 목적] 본 LAB은 MF2방화벽으로 본점과 지점이 IPSec VPN통신을 사용중인데, 회선을 두개 사용중인 Weno_MF2지점방화벽에서 eth1을 주회선으로 IPSec통신을 하다가 회선에 장애가 발생하면 자동으로 eth0 보조회선으로 통신하도록 구성하는 LAB입니다. \n[LAB수행조건]  구성도에 따라서 장비를 설정 본점장비(Center_MF2)와 지점장비(Weno_MF2, Jeju_MF2)간에 IPSec VPN Site-to-Site설정구성 정상적인 통신상태 확인하기 Weno_MF2지점방화벽에서 패킷을 캡처해서 eth1으로 ESP패킷을 주고받는지 확인하기 Weno_MF2지점방화벽에서 eth1인터페이스를 down시키고 IPSec VPN통신이 정상적으로 eth0인터페이스를 통해서 통신되는지 확인하기  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.76-mf2%EC%9D%98-nat-ipsec/",
+	"title": "2.76 MF2의 NAT-IPSec",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] LAB구성파일: _Exports_unetlab_export-20190227-091015.zip \n[LAB의 목적] 본 LAB은 MF2의 NAT설정과 IPSec VPN설정관계를 이해하기 위한 것으로, 출발지 IP를 보이지않도록 하기 위하여 출발지 IP를 NAT로 변환한후에 IPSec VPN터널을 사용하도록 설정하는 LAB입니다. \n[LAB수행조건]  PC1(10.10.10.1)에서 ping 200.200.200.1을 수행하면 출발지 IP가 100.100.100.1로 변경되어서 IPSEC터널을 통과하여 20.20.20.1과 통신이 되어야 함 PC2(20.20.20.1)에서 ping 100.100.100.1을 수행하면 출발지 IP가 200.200.200.1로 변경되어서 IPSEC터널을 통과하여 10.10.10.1과 통신이 되어야 함 위의 구성을 성공하였다면 각각의 MF2방화벽에서 default게이트웨이를 제거하고 필요한 네트워크만 라우팅을 설정하여 동일하게 통신이 되도록 구성해보세요.  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.75-mf2%EC%9D%98-802.1q-trunk/",
+	"title": "2.75 MF2의 802.1Q Trunk",
+	"tags": [],
+	"description": "",
+	"content": " [변경전 구성도] LAB구성파일: _Exports_unetlab_export-20181213-092218.zip \n[변경후 구성도] \n[LAB의 목적] 본 LAB은 MF2방화벽과 시스코 스위치로 구성된 단일 VLAN환경을 다중 VLAN을 사용할 수 있도록 802.1Q Trunk네트워크로 재설정하는 LAB입니다. 단, 모든 작업을 원격지에서 수행한다는 조건을 붙입니다. 따라서, 네트워크 변경후에 모든 장비들이 정상적으로 연결되어야하므로 네트워크 설정시에 재연결에 대한 고려를 충분히 생각해야 합니다.\n[LAB수행조건]  변경전 구성도에 맞추어서 네트워크를 구성하고 모든 장비들이 정상적으로 통신되도록 구성하기 정상적인 통신환경을 확인후에 아래의 조건을 수행하면서 네트워크를 변경하기 VPC5를 VLAN109로 분리 VLAN109, VLAN110에 대한 L3인터페이스를 MF2방화벽에 생성 모든 작업은 원격지에서 설정하기 때문에 콘솔 연결말고 ssh로 연결해서 설정하기   Cisco reload명령어를 이용한 자동 재실행  원격지에 있는 스위치 장비를 설정하던 중에 장비설정이 잘못되어 ssh 또는 telnet연결이 안되는 경우를 대비하여 정해진 시간에 재부팅하여 장비설정이 원래대로 되돌라 가도록 하는 방법. 장비를 설정하면서 write로 저장하면 절대 안됨.  "
+},
+{
+	"uri": "http://ssanggu.github.io/ch2/2.74-mf2%EC%9D%98-ipsec-vpn/",
+	"title": "2.74 MF2의 IPSec VPN",
+	"tags": [],
+	"description": "",
+	"content": " [구성도] \n[LAB의 목적] 본 LAB은 MF2의 라우트모드와 브리지모드를 이해하고, 라우트모드로 동작하는 방화벽과 브리지모드로 동작하는 방화벽간에 IPSec VPN을 구성하여 Site-to-Site VPN구성을 수행하는 LAB입니다. \n[LAB수행조건] LAB을 구성하기전에는 서로 다른 모드간에 당연히 IPSec VPN 터널 구성이 안될것이라고 생각했지만 LAB을 구성하고 시험을 진행해보니 정상적으로 구성이 되었습니다. MF2방화벽에서 두개의 인터페이스를 브리지로 구성하고 br0를 설정할때 해당 인터페이스가 L3모드여서 가능한 것 같습니다. 그냥 L2관리용도면 안될것 같은데 무조건 L3인터페이스로 활성화 됩니다.\n  MF2-9117방화벽은 라우트모드로 설정 MF2-4869방화벽은 브리지모드로 설정 R2, R5라우터에는 default route를 설정하지마시고 필요한 네트워크만 설정해주세요. 이것은 ISP에서 VPN을 경유하는 하단 네트워크에 대한 라우팅이 없다는 것을 구성하기 위한 것입니다.  R2라우터: 10.233.1.0/24에 대한 라우팅만 설정 R5라우터: 2.2.2.0/24d에 대한 라우팅만 설정  MF2-9117이 VPN센터로 설정 2.2.2.2/24와 10.233.1.10/24간에 IPSec VPN터널을 맺어서 129.254.11.0/24대역과 10.233.1.0/24대역이 통신이 가능해야 함 MF2방화벽의 eth0를 Manage Net에 연결한것은 방화벽 설정용도로만 사용하는 것입니다.  "
+},
+{
 	"uri": "http://ssanggu.github.io/ch2/2.73-%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-qemu%EC%9D%B4%EB%AF%B8%EC%A7%80/",
 	"title": "2.73 라즈베리파이 qemu이미지",
 	"tags": [],
