@@ -12,19 +12,19 @@
     <title>2.79 VxLAN개념익히기-1 :: salgunamu&#39;s LAB Blog</title>
 
     
-    <link href="/css/nucleus.css?1553948079" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1553948079" rel="stylesheet">
-    <link href="/css/hybrid.css?1553948079" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1553948079" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1553948079" rel="stylesheet">
-    <link href="/css/auto-complete.css?1553948079" rel="stylesheet">
-    <link href="/css/theme.css?1553948079" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1553948079" rel="stylesheet">
+    <link href="/css/nucleus.css?1553955105" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1553955105" rel="stylesheet">
+    <link href="/css/hybrid.css?1553955105" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1553955105" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1553955105" rel="stylesheet">
+    <link href="/css/auto-complete.css?1553955105" rel="stylesheet">
+    <link href="/css/theme.css?1553955105" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1553955105" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1553948079" rel="stylesheet">
+      <link href="/css/theme-blue.css?1553955105" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1553948079"></script>
+    <script src="/js/jquery-2.x.min.js?1553955105"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1553948079"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1553948079"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1553955105"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1553955105"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/ssanggu.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1553948079"></script>
+<script type="text/javascript" src="/js/search.js?1553955105"></script>
 
     
   </div>
@@ -2129,7 +2129,7 @@
 <h4 id="구성도">[구성도]</h4>
 
 <p><img src="/images/ch2/2-79.png" alt="구성도" />
-LAB구성파일: <a href="/lab_export/_Exports_unetlab_export-20190306-100108.zip">_Exports_unetlab_export-20190306-100108.zip</a></p>
+LAB구성파일: <a href="/lab_export/Exports_unetlab_export-20190306-100108.zip">Exports_unetlab_export-20190306-100108.zip</a></p>
 
 <p><p/></p>
 
@@ -2151,24 +2151,325 @@ LAB구성파일: <a href="/lab_export/_Exports_unetlab_export-20190306-100108.zi
 <li>172.16.242.0/24대역에 정의된 Docker 5,7끼리 정상통신이 되어야 함</li>
 <li>게이트웨이가 없기때문에 서로다른 네트워크간에는 통신이 안됨</li>
 <li>VyOS라우터의 eth0인터페이스에서 패킷을 잡아보면 Encapsulation된 데이터만 보여야함 (내부적으로 실제 통신하는 172.16.241이나 172.16.242대역이 안보임)
-<img src="/images/ch2/2-79-2.png" alt="capture1" /></li>
-<li>VyOS라우터의 내부인터페이스에서 패킷을 잡아보면 encapsulation이 해제된 실제 IP통신들이 보여야함
-<img src="/images/ch2/2-79-3.png" alt="capture2" />
 <p/></li>
 </ul>
 
 <h4 id="lab구성후기">[LAB구성후기]</h4>
 
-<p>SDN에 대한 자료를 수집하면서 그 근간이 되는 VxLAN에 대한 개념이해가 가장 먼저인것을 알고서, VxLAN에 대한 개념이해를 위한 LAB을 시작했읍니다. 처음 이론을 접하면서, 뭐지? 그냥 VLAN에서 사용하는 tagging을 더 많은 갯수로 사용하기 위해서 확장한거야??로 시작했지만 그것은 아니더군요.<br/>
-아무것도 모르고 예제를 찾아서 처음 구성한 LAB<br/>
+<p>SDN에 대한 자료를 수집하면서 그 근간이 되는 VxLAN에 대한 개념이해가 가장 먼저인것을 알고서, VxLAN에 대한 개념이해를 위한 LAB을 시작했읍니다. 처음 이론을 접하면서, 뭐지? 그냥 VLAN에서 사용하는 tagging을 더 많은 갯수로 사용하기 위해서 확장한거야??로 시작했지만 그것은 아니더군요.<p/></p>
+
+<p>아무것도 모르고 예제를 찾아서 처음 구성한 LAB<br/>
 <strong>지리적으로 떨어져 있는 서버들을 같은 네트워크로 묶을 수 있다!!</strong><br/>
-다중 VLAN을 지원하는 Trunk를 구성해야 하는 것인가?? LAB상에서는 VyOS2와 VyOS3가 바로 연결되어 있으니깐 설정이 가능하겠지만, 그 사이에 무수히 많은 ISP의 L3장비들이 놓인다고 가정하면 Trunk은 안되는데&hellip; 어떻게 구성한다는 것인가?<br/>
-LAB을 시작하기 전에 용어에 대한 이해가 필요한데, <strong>언더레이네트워크(Under-Layer Network)와 오버레이네트워크(Over-Layer Network)</strong>입니다.<br/>
-레이어(Layer)라는 용어들을 한번이라도 들어보지 않으셨나요?? 저는 간단하게 그림편집할때 김프(gimp)를 사용하는데요, 김프나 포토샵같은 그림편집툴에서 아용하는 레이어를 생각하면서 이해하면 좋을것 같습니다. 그림편집툴의 레이어처럼 두개의 층이 나뉘어 진것입니다.<br/>
+다중 VLAN을 지원하는 Trunk를 구성해야 하는 것인가?? LAB상에서는 VyOS2와 VyOS3가 바로 연결되어 있으니깐 설정이 가능하겠지만, 그 사이에 무수히 많은 ISP의 L3장비들이 놓인다고 가정하면 Trunk은 안되는데&hellip; 어떻게 구성한다는 것인가?<p/></p>
+
+<p>LAB을 시작하기 전에 용어에 대한 이해가 필요한데, <strong>언더레이네트워크(Under-Layer Network)와 오버레이네트워크(Over-Layer Network)</strong>입니다.<br/>
+레이어(Layer)라는 용어들을 한번이라도 들어보지 않으셨나요?? 저는 간단하게 그림편집할때 김프(gimp)를 사용하는데요, 김프나 포토샵같은 그림편집툴에서 이용하는 레이어를 생각하면서 이해하면 좋을것 같습니다. 그림편집툴의 레이어처럼 두개의 층이 나뉘어 진것입니다.<br/>
 언더레이네트워크는 네트워크 장비들간 기본적인 통신을 수행할 수 있도록 구성한 물리적인 네트워크 구성이라고 보면 됩니다. 일반적으로 지금 구성해서 사용하는 네트워크들이 언더레이어네트워크라고 보면 될것같습니다. 이러한 물리적인 네트워크환경위에 새로운 층(레이어)을 생성하여 서브넷을 구성하기 위하여 설정하는 VLAN이나 접근제한 정책등등 이러한 논리적인 설정들이 존재하는것이 오버레이네트워크입니다. <p/></p>
 
 <p>본 LAB에서 VyOS2와 VyOS3 두대만 직접적으로 연결된것이 언더레이를 구성하지만 그 사이에 무수히 많은 L3장비들을 통과할 수 있다는 가정을 해보면됩니다. 이 구간을 통과할때는 오버레이에서 사용하는 IP들은 전혀 보이지않고 오로지 VyOS2와 VyOS3장비가 사용하는 IP주소만 사용하여 패킷을 주고받게 됩니다. 이와같은 언더레이네트워크 위에 오버레이네트워크 층을 만들어서 241대역과 242대역으로 구성되는 서브넷을 구성해서 지리적으로 떨어져있는 서버들을 동일한 네트워크 대역으로 구성하는 것입니다. <br/>
 Docker4서버에서 Docker6서버로 통신을 하고자 한다면 Docker4에서 발생한 패킷을 VyOS2가 VxLAN패킷으로 캡슐화를 하여 상대방으로 지정한 VyOS3(10.1.2.11)로 보냅니다. 이때 언더레이를 통과하기때문에 오로지 VyOS2와 VyOS3 IP만 보입니다. 패킷을 받은 VyOS3장비는 VxLAN패킷을 풀어서 Docker6서버에게 보내게 됩니다. 이와같이 오버레이에서 발생하는 패킷을 캡술화하고 해독하고 하는 역할을 VyOS장비가 담당하도록 구성할것데 이러한 역할을 수행하는 장비들을 VTEP(VxLAN Tunnel EndPoint)장비라고 부른다고 합니다. <p/></p>
+
+<p>한가지씩 설정을 진행해볼까요!!<br/></p>
+
+<ul>
+<li><p>Docker시스템 IP설정하기</p>
+
+<ul>
+<li>EVE-NG LAB에서 도커시스템을 구동하기전에 <strong>STARTUP-CONFIGS</strong>에서 사용할 IP Address와 default Gateway를 지정한 후에 시스템을 구동해야 합니다. 이것이 정상적으로 지정되지 않으면 구동이 안됩니다. LAB할때마다 이 명령어가 기억이 안나서 검색을 다시 하곤 하는데요, 우분투의 ip명령을 사용하여 설정합니다. 또한, Docker이미지는 도커 구성LAB시간에 생성한 Ubuntu-Client이미지를 사용해서 기본 명령어들을 사용할 수 있도록 하세요. <font color="red">중요한 것은 도커 시스템의 default gateway를 지정하는 명령은 ip route add default via 게이트웨이 주소 를 사용해서 설정해야하는데 본 LAB은 동일 네트워크끼리만 통신을 시험하는 것이기때문에 default gateway를 설정하지 않는다는 것입니다. </font></li>
+</ul>
+
+<pre><code>    Docker3: ip address add 172.16.241.10/24 dev eth0
+    Docker4: ip address add 172.16.242.10/24 dev eth0
+    Docker5: ip address add 172.16.241.11/24 dev eth0
+    Docker6: ip address add 172.16.242.11/24 dev eth0
+</code></pre></li>
+
+<li><p>Docker시스템의 IP설정을 완료했다면 모든 시스템을 Start!!! 정상적으로 시스템이 구동되면 Docker시스템들을 먼저 로그인해서 ip가 정상적으로 설정되었는지 먼저 확인하세요.</p>
+
+<pre><code>root@Docker6:/# ifconfig
+eth0      Link encap:Ethernet  HWaddr 50:00:00:06:00:00
+        inet addr:172.16.242.11  Bcast:0.0.0.0  Mask:255.255.255.0
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:10 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:788 (788.0 B)  TX bytes:0 (0.0 B)
+
+        lo        Link encap:Local Loopback
+        inet addr:127.0.0.1  Mask:255.0.0.0
+        UP LOOPBACK RUNNING  MTU:65536  Metric:1
+        RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1
+        RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+</code></pre></li>
+
+<li><p>VyOS1의 eth0인터페이스 설정</p>
+
+<ul>
+<li>VyOS의 기본암호는 vyos/vyos입니다. 로그인해서 시스템의 이름과 eth0의 ip address를 설정하고 commit으로 적용합니다. IP주소만 설정하고 default gateway를 설정하지 않았기 때문에 자신의 라우팅 테이블에 있는 네트워크만 통신이 가능합니다.</li>
+</ul>
+
+<pre><code>Welcome to VyOS - vyos ttyS0
+
+vyos login: vyos
+Password:
+Last login: Sat Mar 30 13:09:25 UTC 2019 on ttyS0
+Linux vyos 3.13.11-1-amd64-vyos #1 SMP Sat Nov 11 12:10:30 CET 2017 x86_64
+Welcome to VyOS.
+This system is open-source software. The exact distribution terms for
+each module comprising the full system are described in the individual
+files in /usr/share/doc/*/copyright.
+vyos@vyos:~$ config
+[edit]
+vyos@vyos# set system host-name VyOS1
+[edit]
+vyos@vyos# set interfaces ethernet eth0 address 10.1.2.10/24
+[edit]
+vyos@vyos# commit
+[edit]
+vyos@vyos#
+</code></pre></li>
+
+<li><p>VyOS2의 eth0인터페이스 설정</p>
+
+<ul>
+<li>VyOS의 기본암호는 vyos/vyos입니다. 로그인해서 시스템의 이름과 eth0의 ip address를 설정하고 commit으로 적용합니다. IP주소만 설정하고 default gateway를 설정하지 않았기 때문에 자신의 라우팅 테이블에 있는 네트워크만 통신이 가능합니다.</li>
+</ul>
+
+<pre><code>Welcome to VyOS - vyos ttyS0
+
+vyos login: vyos
+Password:
+Last login: Sat Mar 30 13:13:55 UTC 2019 on ttyS0
+Linux vyos 3.13.11-1-amd64-vyos #1 SMP Sat Nov 11 12:10:30 CET 2017 x86_64
+Welcome to VyOS.
+This system is open-source software. The exact distribution terms for
+each module comprising the full system are described in the individual
+files in /usr/share/doc/*/copyright.
+vyos@vyos:~$ config
+[edit]
+vyos@vyos# set system host-name VyOS2
+[edit]
+vyos@vyos# set interfaces ethernet eth0 address 10.1.2.11/24
+[edit]
+vyos@vyos# commit
+[edit]
+vyos@vyos#
+</code></pre></li>
+
+<li><p>VyOS1과 VyOS2간의 통신확인하기</p>
+
+<ul>
+<li>save로 설정한 값을 저장하고 exit로 나와서 VyOS1과 VyOS2간의 통신이 이루어지는지를 확인합니다.</li>
+</ul>
+
+<pre><code>vyos@VyOS1# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@VyOS1# exit
+exit
+vyos@vyos:~$ ping 10.1.2.11
+PING 10.1.2.11 (10.1.2.11) 56(84) bytes of data.
+64 bytes from 10.1.2.11: icmp_req=1 ttl=64 time=0.718 ms
+64 bytes from 10.1.2.11: icmp_req=2 ttl=64 time=1.29 ms
+64 bytes from 10.1.2.11: icmp_req=3 ttl=64 time=0.532 ms
+^C
+--- 10.1.2.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 0.532/0.846/1.290/0.324 ms
+---------------------------------------------------------------
+vyos@VyOS2# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@VyOS2# exit
+exit
+vyos@vyos:~$
+vyos@vyos:~$ ping 10.1.2.10
+PING 10.1.2.10 (10.1.2.10) 56(84) bytes of data.
+64 bytes from 10.1.2.10: icmp_req=1 ttl=64 time=1.74 ms
+64 bytes from 10.1.2.10: icmp_req=2 ttl=64 time=1.12 ms
+64 bytes from 10.1.2.10: icmp_req=3 ttl=64 time=0.549 ms
+^C
+--- 10.1.2.10 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 0.549/1.140/1.748/0.490 ms
+</code></pre></li>
+
+<li><p>VyOS에서 Bridge네트워크 정의하기</p>
+
+<ul>
+<li>VyOS는 <font color="red"> VLAN을 지원하지 않습니다.</font> 따라서, Bridge그룹 만들고 물리적인 포트나 가상의 네트워크들을 동일한 Bridge그룹에 소속하게 함으로써 VLAN으로 설정하는 역할을 대신하게 합니다. 각각의 VyOS에서 2개의 Bridge그룹(br241, br242)을 생성하고 Docker시스템이 연결된 각각의 물리적인 포트(eth1, eth2)와 가상의 VxLAN을 각각의 Bridge그룹으로 묶을것입니다. 이것은 위의 개념도 그림을 설정하는 부분입니다.</li>
+<li>브리지그룹을 생성하고 물리적인 eth1, eth2포트를 생성한 브리지그룹에 소속시킵니다.</li>
+</ul>
+
+<pre><code>vyos@VyOS1# set interfaces bridge br241
+[edit]
+vyos@VyOS1# set interfaces bridge br242
+[edit]
+vyos@VyOS1# set interfaces ethernet eth1 bridge-group bridge br241
+[edit]
+vyos@VyOS1# set interfaces ethernet eth2 bridge-group bridge br242
+[edit]
+vyos@VyOS1# commit
+[ interfaces ethernet eth1 bridge-group ]
+Adding interface eth1 to bridge br241
+
+[ interfaces ethernet eth2 bridge-group ]
+Adding interface eth2 to bridge br242
+
+[edit]
+vyos@VyOS1# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@VyOS1# exit
+exit
+vyos@vyos:~$ show bridge
+bridge name     bridge id               STP enabled     interfaces
+br241           0000.500000010001       no              eth1
+br242           0000.500000010002       no              eth2
+---------------------------------------------------------------
+vyos@VyOS2# set interfaces bridge br241
+[edit]
+vyos@VyOS2# set interfaces bridge br242
+[edit]
+vyos@VyOS2# set interfaces ethernet eth1 bridge-group bridge br241
+[edit]
+vyos@VyOS2# set interfaces ethernet eth2 bridge-group bridge br242
+[edit]
+vyos@VyOS2# commit
+[ interfaces ethernet eth1 bridge-group ]
+Adding interface eth1 to bridge br241
+
+[ interfaces ethernet eth2 bridge-group ]
+Adding interface eth2 to bridge br242
+
+[edit]
+vyos@VyOS2# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@VyOS2# exit
+exit
+vyos@vyos:~$ show bridge
+bridge name     bridge id               STP enabled     interfaces
+br241           0000.500000020001       no              eth1
+br242           0000.500000020002       no              eth2
+
+</code></pre></li>
+
+<li><p>VxLAN설정하기</p>
+
+<ul>
+<li>VxLAN을 설정할때는 <strong><font color="red">태킹을 위하여 사용하는 VNI number, 언더레이네트워크로 진입하기 위한 인터페이스를 지정하는 link명령어, 모르는 IP에 대해서 통신을 할 노드를 지정하는 group명령어, 소속될 브리지그룹 </font></strong>을 정의합니다. 처음 접한 문서에서 group으로 멀티캐스트 주소를 사용했는데 자신이 모르는 노드의 정보를 쿼리할때 지정된 멀티캐스트로 패킷을 보내면 동일한 멀티캐스트에 속한 장비가 패킷을 잡아서 캡슐화를 해제하는 방식입니다. 2번째 LAB에서 의문을 제기하지만 반드시 멀티캐스트를 사용해야하는가?? 하는 의문을 가진상태에서 그대로 설정해서 시험을 진행했습니다.</li>
+</ul>
+
+<pre><code>vyos@VyOS1# set interfaces vxlan vxlan241 vni 241
+[edit]
+vyos@VyOS1# set interfaces vxlan vxlan241 link eth0
+[edit]
+vyos@VyOS1# set interfaces vxlan vxlan241 group 239.0.0.241
+[edit]
+vyos@VyOS1# set interfaces vxlan vxlan241 bridge-group bridge br241
+[edit]
+vyos@VyOS1# set interfaces vxlan vxlan242 vni 242
+[edit]
+vyos@VyOS1# set interfaces vxlan vxlan242 link eth0
+[edit]
+vyos@VyOS1# set interfaces vxlan vxlan242 group 239.0.0.242
+[edit]
+vyos@VyOS1# set interfaces vxlan vxlan242 bridge-group bridge br242
+[edit]
+vyos@VyOS1# commit
+[ interfaces vxlan vxlan241 bridge-group ]
+Adding interface vxlan241 to bridge br241
+
+[ interfaces vxlan vxlan242 bridge-group ]
+Adding interface vxlan242 to bridge br242
+
+[edit]
+vyos@VyOS1# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@VyOS1# exit
+exit
+vyos@vyos:~$ show bridge
+bridge name     bridge id               STP enabled     interfaces
+br241           0000.500000010001       no              eth1
+                                                        vxlan241
+br242           0000.3ec2ab203c0c       no              eth2
+                                                        vxlan242
+-------------------------------------------------------------------
+vyos@VyOS2# set interfaces vxlan vxlan241 vni 241
+[edit]
+vyos@VyOS2# set interfaces vxlan vxlan241 link eth0
+[edit]
+vyos@VyOS2# set interfaces vxlan vxlan241 group 239.0.0.241
+[edit]
+vyos@VyOS2# set interfaces vxlan vxlan241 bridge-group bridge br241
+[edit]
+vyos@VyOS2# set interfaces vxlan vxlan242 vni 242
+[edit]
+vyos@VyOS2# set interfaces vxlan vxlan242 link eth0
+[edit]
+vyos@VyOS2# set interfaces vxlan vxlan242 group 239.0.0.242
+[edit]
+vyos@VyOS2# set interfaces vxlan vxlan242 bridge-group bridge br242
+[edit]
+vyos@VyOS2# commit
+[ interfaces vxlan vxlan241 bridge-group ]
+Adding interface vxlan241 to bridge br241
+
+[ interfaces vxlan vxlan242 bridge-group ]
+Adding interface vxlan242 to bridge br242
+
+[edit]
+vyos@VyOS2# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@VyOS2# exit
+exit
+vyos@vyos:~$ show bridge
+bridge name     bridge id               STP enabled     interfaces
+br241           0000.500000020001       no              eth1
+vxlan241
+br242           0000.423333c96f14       no              eth2
+                                                    vxlan242
+</code></pre></li>
+
+<li><p>VyOS시스템의 라우팅 테이블 확인하기</p>
+
+<ul>
+<li>언더레이네트워크를 담당하는 VyOS시스템의 라우팅테이블을 확인해보면 아래의 그림처럼 나옵니다. VyOS는 172.16.241이나 172.16.242네트워크를 전혀 모르는 상태입니다. 하지만, 내부인터페이스에서 VxLAN패킷으로 캡슐화가 되어서 넘어가기 때문에 오로지 언더레이 네트워크인 10.1.2.0/24네트워크만 사용하여 통신을 하게 됩니다.
+<img src="/images/ch2/2-79-4.png" alt="VyOS라우팅테이블" /></li>
+</ul></li>
+
+<li><p>Docker시스템 통신확인하기</p>
+
+<ul>
+<li>각각의 Docker시스템에서 원격지에 있는 동일한 네트워크의 다른 Docker시스템으로 ping을 했을때 아래와 같이 정상적으로 통신됨을 확인할 수 있습니다.
+<img src="/images/ch2/2-79-5.png" alt="Docker시스템 통신확인" /></li>
+</ul></li>
+
+<li><p>VyOS의 eth0인터페이스에서 패킷 캡처</p>
+
+<ul>
+<li>Docker시스템들끼리 통신을 하는동안 VyOS시스템의 eth0인터페이스에서 패킷을 캡처해보면 아래 그림과 같이 두대의 VyOS간에 VxLAN터널포트인 8472/UDP의 캡슐화 데이터만 보이는것을 확인할 수 있습니다.
+<img src="/images/ch2/2-79-2.png" alt="VyOS외부인터페이스 패킷 캡처" /></li>
+</ul></li>
+
+<li><p>VyOS의 내부인터페이스에서 패킷 캡처</p>
+
+<ul>
+<li>Docker시스템들끼리 통신을 하는동안 VyOS시스템의 Docker시스템이 연결된 내부인터페이스에서 패킷을 캡처해보면 실질적인 서버의 IP주소들이 보이는것을 확인할 수 있습니다.
+<img src="/images/ch2/2-79-3.png" alt="VyOS내부인터페이스 패킷 캡처" /></li>
+</ul></li>
+</ul>
 
 
 <footer class=" footline" >
@@ -3857,20 +4158,20 @@ Docker4서버에서 Docker6서버로 통신을 하고자 한다면 Docker4에서
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1553948079"></script>
-    <script src="/js/perfect-scrollbar.min.js?1553948079"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1553948079"></script>
-    <script src="/js/jquery.sticky.js?1553948079"></script>
-    <script src="/js/featherlight.min.js?1553948079"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1553948079"></script>
-    <script src="/js/highlight.pack.js?1553948079"></script>
+    <script src="/js/clipboard.min.js?1553955105"></script>
+    <script src="/js/perfect-scrollbar.min.js?1553955105"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1553955105"></script>
+    <script src="/js/jquery.sticky.js?1553955105"></script>
+    <script src="/js/featherlight.min.js?1553955105"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1553955105"></script>
+    <script src="/js/highlight.pack.js?1553955105"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1553948079"></script>
-    <script src="/js/learn.js?1553948079"></script>
-    <script src="/js/hugo-learn.js?1553948079"></script>
+    <script src="/js/modernizr.custom.71422.js?1553955105"></script>
+    <script src="/js/learn.js?1553955105"></script>
+    <script src="/js/hugo-learn.js?1553955105"></script>
 
-    <link href="/mermaid/mermaid.css?1553948079" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1553948079"></script>
+    <link href="/mermaid/mermaid.css?1553955105" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1553955105"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
