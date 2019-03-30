@@ -270,7 +270,7 @@
 	"title": "2.55 RemixOS를 사용하기",
 	"tags": [],
 	"description": "",
-	"content": " [LAB의 목적] LAB에서 윈도우환경을 사용할 수 있도록 하기 위해서 찾아보다가 RemixOS(PC에서 안드로이드를 사용할 수 있도록 만든 OS)를 선택했는데 가볍지 않은것 같습니다. 일단은 PC에서 안드로이드를 테스트해볼 수 있다는 의미도 있으므로 설치한번 해보세요.\n[LAB 수행조건] EVE-NG에서 직접 가상머신을 만들려고 했지만 설치를 실패해서 아래와 같은 방법으로 구성했습니다.  1. 윈도우 VMWare에서 RemixOS를 설치하여 PC에서 RemixOS를 사용할 수 있는 환경을 구성 2. PC의 설치된 vmdk파일을 EVE-NG로 가져감 3. EVE-NG에서 vmdk파일을 qcow2파일로 변환해서 사용\n가장먼저, RemixOS를 다운받기 아래의 영상은 윈도우 VMWare에 RemixOS를 설치하는 과정입니다. RemixOS는 USB로 부팅해서 사용하는 시스템이기때문에 하드디스크에 설치하기 위해서는 Grub메뉴에서 TAB키를 누르고 나오는 메뉴의 내용을 영상처럼 수정해야합니다. (SRC전까지 삭제하고 INSTALL=1넣어주기)\n 아래의 영상은 PC에서 설치한 vmdk파일을 EVE-NG시스템으로 옮겨서 LAB에서 사용할 수 있는 시스템을 만드는 과정입니다. LAB에 RemixOS 노드를 생성할때 -usbdevice tablet를 -usbdevice mouse로 변경해주고 있는데 VNC로 연결했을때 키보드와 마우스 동작때문입니다. tablet기본값으로 하면 마우스포인터가 전혀 움직이지 않읍니다. mouse로 변경하면 키보드와 마우스가 정상동작하지만 마우스의 포인트가 맞지 않는 문제가 있네요. 이것은 좀 더 검색이 필요할듯합니다.\n "
+	"content": " [LAB의 목적] LAB에서 윈도우환경을 사용할 수 있도록 하기 위해서 찾아보다가 RemixOS(PC에서 안드로이드를 사용할 수 있도록 만든 OS)를 선택했는데 가볍지 않은것 같습니다. 일단은 PC에서 안드로이드를 테스트해볼 수 있다는 의미도 있으므로 설치한번 해보세요.\n[LAB 수행조건] EVE-NG에서 직접 가상머신을 만들려고 했지만 설치를 실패해서 아래와 같은 방법으로 구성했습니다.  1. 윈도우 VMWare에서 RemixOS를 설치하여 PC에서 RemixOS를 사용할 수 있는 환경을 구성 2. PC의 설치된 vmdk파일을 EVE-NG로 가져감 3. EVE-NG에서 vmdk파일을 qcow2파일로 변환해서 사용\n가장먼저, RemixOS를 다운받기 아래의 영상은 윈도우 VMWare에 RemixOS를 설치하는 과정입니다. RemixOS는 USB로 부팅해서 사용하는 시스템이기때문에 하드디스크에 설치하기 위해서는 Grub메뉴에서 TAB키를 누르고 나오는 메뉴의 내용을 영상처럼 수정해야합니다. (SRC전까지 삭제하고 INSTALL=1넣어주기)  \n아래의 영상은 PC에서 설치한 vmdk파일을 EVE-NG시스템으로 옮겨서 LAB에서 사용할 수 있는 시스템을 만드는 과정입니다. LAB에 RemixOS 노드를 생성할때 -usbdevice tablet를 -usbdevice mouse로 변경해주고 있는데 VNC로 연결했을때 키보드와 마우스 동작때문입니다. tablet기본값으로 하면 마우스포인터가 전혀 움직이지 않읍니다. mouse로 변경하면 키보드와 마우스가 정상동작하지만 마우스의 포인트가 맞지 않는 문제가 있네요. 이것은 좀 더 검색이 필요할듯합니다.  \n"
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.54-ssh%EB%A5%BC-%ED%86%B5%ED%95%B4%EC%84%9C-%ED%8C%8C%ED%8B%B0%EC%85%98%EB%A7%88%EC%9A%B4%ED%8A%B8/",
@@ -281,7 +281,7 @@
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.53-snort-ids%ED%99%98%EA%B2%BD%EA%B5%AC%EC%84%B1/",
-	"title": "2.52 Snort IDS환경구성",
+	"title": "2.53 Snort IDS환경구성",
 	"tags": [],
 	"description": "",
 	"content": " [구성도] LAB구성파일: Exports-unetlab_export-20170829-101155.zip\n\n[LAB의 목적] 본 LAB은 우분투 리눅스머신에 공개용 Snort IDS를 구축하고 도커시스템에서 스캔이나 공격등을 수행했을때 탐지되는 상황을 보기위한 LAB입니다.\n구성도 처럼 환경을 꾸며보세요. R1라우터의 NAT기능을 통해서 LAB안의 도커나 linux시스템이 인터넷 접근이 가능해야합니다. 패키지를 설치해야하기때문에요.. Snort가 설치되는 linux는 도커시스템이 아니고 지난번에 생성한 우분투 리눅스시스템으로 하고, 이더넷 카드 하나를 더 추가해야합니다. 리눅스머신이 서로 다른 2개의 네트워크에 패킷을 전달하기 위해서는 라우팅모드로 만들어야합니다 (ip_forward값설정)  첨부 pdf문서는 우분투에 snort를 설치하는 메뉴얼입니다. apt패키지로 설치하면 2.7.9버전이 설치되므로 패키지로 하지 마시고 3.0으로 소스컴파일방법으로 문서대로 설치한번 해보세요. 그래야 설치위치라던지 환경파악이 더 될듯합니다.\n  Attachments   Snort_3.0.0-a4-223_on_Ubuntu_14_and_16.pdf  (125 ko)    "
