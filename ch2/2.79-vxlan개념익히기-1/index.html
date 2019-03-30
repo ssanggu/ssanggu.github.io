@@ -12,19 +12,19 @@
     <title>2.79 VxLAN개념익히기-1 :: salgunamu&#39;s LAB Blog</title>
 
     
-    <link href="/css/nucleus.css?1553914166" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1553914166" rel="stylesheet">
-    <link href="/css/hybrid.css?1553914166" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1553914166" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1553914166" rel="stylesheet">
-    <link href="/css/auto-complete.css?1553914166" rel="stylesheet">
-    <link href="/css/theme.css?1553914166" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1553914166" rel="stylesheet">
+    <link href="/css/nucleus.css?1553914434" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1553914434" rel="stylesheet">
+    <link href="/css/hybrid.css?1553914434" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1553914434" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1553914434" rel="stylesheet">
+    <link href="/css/auto-complete.css?1553914434" rel="stylesheet">
+    <link href="/css/theme.css?1553914434" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1553914434" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1553914166" rel="stylesheet">
+      <link href="/css/theme-blue.css?1553914434" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1553914166"></script>
+    <script src="/js/jquery-2.x.min.js?1553914434"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1553914166"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1553914166"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1553914434"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1553914434"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/ssanggu.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1553914166"></script>
+<script type="text/javascript" src="/js/search.js?1553914434"></script>
 
     
   </div>
@@ -2152,10 +2152,10 @@ LAB구성파일: <a href="/lab_export/_Exports_unetlab_export-20190306-100108.zi
 <li>게이트웨이가 없기때문에 서로다른 네트워크간에는 통신이 안됨</li>
 <li>VyOS라우터의 eth0인터페이스에서 패킷을 잡아보면 Encapsulation된 데이터만 보여야함 (내부적으로 실제 통신하는 172.16.241이나 172.16.242대역이 안보임)
 <img src="/images/ch2/2-79-2.png" alt="capture1" /></li>
-
-<li><p>VyOS라우터의 내부인터페이스에서 패킷을 잡아보면 encapsulation이 해제된 실제 IP통신들이 보여야함
+<li>VyOS라우터의 내부인터페이스에서 패킷을 잡아보면 encapsulation이 해제된 실제 IP통신들이 보여야함
 <img src="/images/ch2/2-79-3.png" alt="capture2" />
-<p/></p>
+<p/></li>
+</ul>
 
 <h4 id="lab구성후기">[LAB구성후기]</h4>
 
@@ -2165,8 +2165,7 @@ LAB구성파일: <a href="/lab_export/_Exports_unetlab_export-20190306-100108.zi
 다중 VLAN을 지원하는 Trunk를 구성해야 하는 것인가?? LAB상에서는 VyOS2와 VyOS3가 바로 연결되어 있으니깐 설정이 가능하겠지만, 그 사이에 무수히 많은 ISP의 L3장비들이 놓인다고 가정하면 Trunk은 안되는데&hellip; 어떻게 구성한다는 것인가?<br/>
 LAB을 시작하기 전에 용어에 대한 이해가 필요한데, <strong>언더레이네트워크(Under-Layer Network)와 오버레이네트워크(Over-Layer Network)</strong>입니다.<br/>
 레이어(Layer)라는 용어들을 한번이라도 들어보지 않으셨나요?? 저는 간단하게 그림편집할때 김프(gimp)를 사용하는데요, 김프나 포토샵같은 그림편집툴에서 아용하는 레이어를 생각하면서 이해하면 좋을것 같습니다. 그림편집툴의 레이어처럼 두개의 층이 나뉘어 진것입니다.<br/>
-언더레이네트워크는 네트워크 장비들간 기본적인 통신을 수행할 수 있도록 구성한 물리적인 네트워크 구성이라고 보면 됩니다. 일반적으로 지금 구성해서 사용하는 네트워크들이 언더레이어네트워크라고 보면 될것같습니다. 이러한 물리적인 네트워크환경위에 새로운 층(레이어)을 생성하여 서브넷을 구성하기 위하여 설정하는 VLAN이나 접근제한 정책등등 이러한 논리적인 설정들이 존재하는것이 오버레이네트워크입니다. <p/></p></li>
-</ul>
+언더레이네트워크는 네트워크 장비들간 기본적인 통신을 수행할 수 있도록 구성한 물리적인 네트워크 구성이라고 보면 됩니다. 일반적으로 지금 구성해서 사용하는 네트워크들이 언더레이어네트워크라고 보면 될것같습니다. 이러한 물리적인 네트워크환경위에 새로운 층(레이어)을 생성하여 서브넷을 구성하기 위하여 설정하는 VLAN이나 접근제한 정책등등 이러한 논리적인 설정들이 존재하는것이 오버레이네트워크입니다. <p/></p>
 
 <p>본 LAB에서 VyOS2와 VyOS3 두대만 직접적으로 연결된것이 언더레이를 구성하지만 그 사이에 무수히 많은 L3장비들을 통과할 수 있다는 가정을 해보면됩니다. 이 구간을 통과할때는 오버레이에서 사용하는 IP들은 전혀 보이지않고 오로지 VyOS2와 VyOS3장비가 사용하는 IP주소만 사용하여 패킷을 주고받게 됩니다. 이와같은 언더레이네트워크 위에 오버레이네트워크 층을 만들어서 241대역과 242대역으로 구성되는 서브넷을 구성해서 지리적으로 떨어져있는 서버들을 동일한 네트워크 대역으로 구성하는 것입니다. <br/>
 Docker4서버에서 Docker6서버로 통신을 하고자 한다면 Docker4에서 발생한 패킷을 VyOS2가 VxLAN패킷으로 캡슐화를 하여 상대방으로 지정한 VyOS3(10.1.2.11)로 보냅니다. 이때 언더레이를 통과하기때문에 오로지 VyOS2와 VyOS3 IP만 보입니다. 패킷을 받은 VyOS3장비는 VxLAN패킷을 풀어서 Docker6서버에게 보내게 됩니다. 이와같이 오버레이에서 발생하는 패킷을 캡술화하고 해독하고 하는 역할을 VyOS장비가 담당하도록 구성할것데 이러한 역할을 수행하는 장비들을 VTEP(VxLAN Tunnel EndPoint)장비라고 부른다고 합니다. <p/></p>
@@ -3858,20 +3857,20 @@ Docker4서버에서 Docker6서버로 통신을 하고자 한다면 Docker4에서
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1553914166"></script>
-    <script src="/js/perfect-scrollbar.min.js?1553914166"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1553914166"></script>
-    <script src="/js/jquery.sticky.js?1553914166"></script>
-    <script src="/js/featherlight.min.js?1553914166"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1553914166"></script>
-    <script src="/js/highlight.pack.js?1553914166"></script>
+    <script src="/js/clipboard.min.js?1553914434"></script>
+    <script src="/js/perfect-scrollbar.min.js?1553914434"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1553914434"></script>
+    <script src="/js/jquery.sticky.js?1553914434"></script>
+    <script src="/js/featherlight.min.js?1553914434"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1553914434"></script>
+    <script src="/js/highlight.pack.js?1553914434"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1553914166"></script>
-    <script src="/js/learn.js?1553914166"></script>
-    <script src="/js/hugo-learn.js?1553914166"></script>
+    <script src="/js/modernizr.custom.71422.js?1553914434"></script>
+    <script src="/js/learn.js?1553914434"></script>
+    <script src="/js/hugo-learn.js?1553914434"></script>
 
-    <link href="/mermaid/mermaid.css?1553914166" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1553914166"></script>
+    <link href="/mermaid/mermaid.css?1553914434" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1553914434"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
