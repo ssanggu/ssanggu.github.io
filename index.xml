@@ -120,10 +120,11 @@
       <pubDate>Sun, 24 Mar 2019 13:07:19 +0900</pubDate>
       
       <guid>http://ssanggu.github.io/ch2/2.80-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-2/</guid>
-      <description>[구성도] 
+      <description>[구성도] LAB구성파일: Exports_unetlab_export-20190401-102502.zip
+
 [LAB의 목적] 본 LAB에서는 VxLAN을 사용하기 위해서는 반드시 Multicast를 사용해야 하는가? 에 대한 해답을 찾기위한 LAB입니다. 
 [LAB수행조건] 2.79 VxLAN개념익히기-1의 LAB은 잘 풀어보셨나요??
-혹시 Multicast를 사용해서 풀었나요? 그렇다면 아래와 같이 직접연결되었던 VyOS라우터를 L2스위치에 연결해서 통신이 가능한지 시험을 한번 해볼까요? L2스위치는 아무 설정도 없이 기본상태로 두어도 통신이 되어야합니다. 왜냐하면 기본 L2스위치는 IGMP snooping이 기본으로 enable되어있기때문에 multicast패킷을 넘겨야 하거든요.  이 시험의 목적은 VxLAN을 사용하기 위해서는 반드시 Multicast를 사용해야하는가?에 대한 답을 찾고자 하는것입니다.</description>
+혹시 Multicast를 사용해서 풀었나요? 그렇다면 아래와 같이 직접연결되었던 VyOS라우터를 L2스위치에 연결해서 통신이 가능한지 시험을 한번 해볼까요? L2스위치는 아무 설정도 없이 기본상태로 두어도 통신이 되어야합니다. 왜냐하면 기본 L2스위치는 IGMP snooping이 기본으로 enable되어있기때문에 multicast패킷을 넘겨야 하거든요.  이 시험의 목적은 VxLAN을 사용하기 위해서는 반드시 Multicast를 사용해야하는가?</description>
     </item>
     
     <item>
