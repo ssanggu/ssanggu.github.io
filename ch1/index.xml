@@ -35,7 +35,7 @@
       <pubDate>Mon, 11 Mar 2019 21:37:23 +0900</pubDate>
       
       <guid>http://ssanggu.github.io/ch1/1.2-%EC%96%B4%EB%96%A4-%EB%B0%B0%ED%8F%AC%ED%8C%90%EC%9D%84-%EC%84%A4%EC%B9%98%ED%95%A0%EA%B2%83%EC%9D%B8%EA%B0%80/</guid>
-      <description>UnetLab Requirement  처음 EVE-NG프로그램을 접했을때는 UnetLab이라는 이름으로 배포되었습니다. 시간이 흐르고 흘러 소프트웨어가 정교하게 다듬어지면서 EVE-NG라는 이름으로 변경되더군요. 지금도 Pro패키지가 있지만 완전 상용화가 될까봐 걱정을 하면서 사용중입니다. 초기 시스템 요구사항에 따라서 Ununtu 14.04 LTS버전을 사용했었지만 EVE-NG는 16.04버전을 권장하고 있습니다.  무료로 사용할 수 있는 VMWare Player에 Ubuntu 16.04 LTS버전 설치하기  4GB RAM과 4개의 Processor로 설치진행 향후 LAB을 크게 구성할때를 대비하여 8GB RAM을 사용하는것이 좋습니다.  우분투 일반버전과 LTS버전차이 우분투 Desktop버전과 Server버전차이 우분투리눅스 설치후에 putt로 원격연결하는 방법 우분투리눅스에 연결해서  우분투의 sudo개념 업데이트: apt=get update; apt-get upgrade dist upgrade는 하지말것!</description>
+      <description>UnetLab Requirement  처음 EVE-NG프로그램을 접했을때는 UnetLab이라는 이름으로 배포되었습니다. 시간이 흐르고 흘러 소프트웨어가 정교하게 다듬어지면서 EVE-NG라는 이름으로 변경되더군요. 지금도 Pro패키지가 있지만 완전 상용화가 될까봐 걱정을 하면서 사용중입니다. 초기 시스템 요구사항에 따라서 Ununtu 14.04 LTS버전을 사용했었지만 EVE-NG는 16.04버전을 권장하고 있습니다.  무료로 사용할 수 있는 VMWare Player에 Ubuntu 16.04 LTS버전 설치하기  4GB RAM과 4개의 Processor로 설치진행 향후 LAB을 크게 구성할때를 대비하여 8GB RAM을 사용하는것이 좋습니다.  우분투 일반버전과 LTS버전차이 우분투 Desktop버전과 Server버전차이 우분투리눅스 설치후에 putty로 원격연결하는 방법 우분투리눅스에 연결해서  우분투의 sudo개념 업데이트: apt-get update; apt-get upgrade dist upgrade는 하지말것!</description>
     </item>
     
     <item>
