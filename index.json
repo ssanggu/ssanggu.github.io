@@ -291,7 +291,7 @@
 	"title": "2.52 Ostinato 트래픽생성기 사용",
 	"tags": [],
 	"description": "",
-	"content": " [구성도] LAB구성파일: Exports-unetlab_export-20170829-033356.zip\n\n[LAB의 목적] LAB상이나 실제 네트워크상에서 다양한 시험을 위해서 트래픽생성기가 필요할 경우가 있습니다.  예를들면 A에서 B로 SSH연결에 대한 트래픽을 만든다던지 등등\u0026hellip; 이렇게 사용자가 원하는 트래픽을 생성해서 시험을 할때 사용하는 Traffic Generator로 eve-ng에서 오픈소스 Ostinato를 지원합니다. Ostinato는 dron(에이전트)과 제어시스템으로 나누어집니다. LAB상에 위치하는 Ostinato는 에이전트 역할을 하는 drone들로서 제어시스템의 설정값을 받아서 실제 패킷을 생성하는 시스템입니다. 제어프로그램은 윈도우용이므로 자신의 윈도우 시스템에서 LAB에 있는 drone이 연결될 수 있도록 LAB을 구성해야합니다.\n + Ostinato drone설치방법 + 제어프로그램에서 LAB상의 drone을 등록한 화면 + R1라우터의 192.168.10.52에서 1.1.1.10서버로 SSH패킷을 보내도록 스트림 설정화면 +\n"
+	"content": " [구성도] LAB구성파일: Exports-unetlab_export-20170829-033356.zip\n\n[LAB의 목적] LAB상이나 실제 네트워크상에서 다양한 시험을 위해서 트래픽생성기가 필요할 경우가 있습니다.  예를들면 A에서 B로 SSH연결에 대한 트래픽을 만든다던지 등등\u0026hellip; 이렇게 사용자가 원하는 트래픽을 생성해서 시험을 할때 사용하는 Traffic Generator로 eve-ng에서 오픈소스 Ostinato를 지원합니다. Ostinato는 dron(에이전트)과 제어시스템으로 나누어집니다. LAB상에 위치하는 Ostinato는 에이전트 역할을 하는 drone들로서 제어시스템의 설정값을 받아서 실제 패킷을 생성하는 시스템입니다. 제어프로그램은 윈도우용이므로 자신의 윈도우 시스템에서 LAB에 있는 drone이 연결될 수 있도록 LAB을 구성해야합니다.\n\n Ostinato drone설치방법  제어프로그램에서 LAB상의 drone을 등록한 화면  R1라우터의 192.168.10.52에서 1.1.1.10서버로 SSH패킷을 보내도록 스트림 설정화면   "
 },
 {
 	"uri": "http://ssanggu.github.io/ch2/2.51-asa%EC%99%80ios%EA%B0%84-l2l-vpn/",
