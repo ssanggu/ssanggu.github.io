@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>2.90 OpenvSwitch설치하기</title>
+      <link>http://ssanggu.github.io/ch2/2.90-openvswitch%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Wed, 24 Apr 2019 17:39:46 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.90-openvswitch%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
+      <description>[LAB의 목적] 이번 LAB은 이후에 진행할 SDN(소프트웨어 정의 네트워크) LAB을 꾸밀때 이용할 OpenFlow를 지원하는 스위치를 만드는 LAN입니다. 2.48 우분루 리눅스이미지 생성 LAB에서 만들어놓은 우분투 이미지를 사용하여 OpenvSwitch패키지를 생성하여 별도의 리눅스 이미지를 만들것입니다. 
+[LAB수행조건]  우선, 아래의 그리처럼 우분투서버를 인터넷연결이 가능하도록 Cloud에 연결해서 시스템을 구동합니다.  OpenvSwitch설치방법은 Debian패키지설치방법을 참조하여 설치하였습니다.  apt-get update apt-get install openvswitch-switch openvswitch-common openvswitch-switch-dpdk openvswitch-vtep   설치가 완료되면 아래와 같이 설치에 대한 확인을 수행합니다.   dpkg -l |grep openvswitch : openvsdwitch패키지들이 정상적으로 설치됨을 확인 systemctl status openvswitch-switch : openvswitch-switch서비스가 정상적으로 구동됨을 확인 ovs-vsctl show : openvswitch의 제어명령을 통해서 버전정보확인으로 정상적인 설치확인   패키지는 정상적으로 설치되었습니다.</description>
+    </item>
+    
+    <item>
       <title>2.89 VxLAN개념익히기-10</title>
       <link>http://ssanggu.github.io/ch2/2.89-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-10/</link>
       <pubDate>Sun, 24 Mar 2019 14:19:09 +0900</pubDate>
