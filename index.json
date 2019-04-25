@@ -28,6 +28,13 @@
 	"content": " 블로그 소개 한 상구(Han SangGu), 네트워크 필드 엔지니어, ssanggu@gmail.com\n \n 본 블로그는 EVE-NG(UnetLab)를 사용하여 구성하고 시험한 LAB환경을 정리하고, 각각의 LAB에서 어떤 지식을 습득해야하는지를 정리하는 블로그입니다. 가능한 다양한 네트워크 장비를 배치하여 구성함으로써 네트워크에 대한 개념을 좀더 효율적으로 정리할 수 있었습니다.    EVE-NG 가상화(VMWare Player, docker, kvm) 리눅스(Ubuntu, CentOS) 네트워크장비(Cisco, Juniper, Extreme VyOS) 보안장비(ASA, PaloAlto, SECUI MF2) IPSec VPN, OpenVPN, SSL VPN SDN(VxLAN)   "
 },
 {
+	"uri": "http://ssanggu.github.io/ch2/2.91-openvswitch%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/",
+	"title": "2.91 OpenvSwitch기본구성하기",
+	"tags": [],
+	"description": "",
+	"content": " [LAB의 목적] 이번 LAB은 OpenvSwitch를 SDN네트워크에 이용하는 방법을 익히기 전에 기본 vlan스위치로 이용가능한지 시험을 하기 위하여 구성한 LAB입니다. ovs-vsctl명령으로 vlan설정하는 방법을 익혀야합니다. \n[구성도] LAB구성파일: Exports_unetlab_export-20190425-145827.zip \n[LAB수행조건]  OpenvSwitch에 VLAN설정하는 방법은 Isolating VM Traffic Using VLANs 문서를 참고했습니다. 호스트들이 연결된 물리적인 포트를 활성화하고, bridge0라는 브리지네트워크를 구성한 후에 물리적인 포트를 추가합니다.  ifconfig eth0 up ifconfig eth1 up ifconfig eth2 up ifconfig eth3 up ifconfig eth4 up ovs-vsctl add-br bridge0 ovs-vsctl add-port bridge0 eth0 ovs-vsctl add-port bridge0 eth1 ovs-vsctl add-port bridge0 eth4 ovs-vsctl add-port bridge0 eth2 tag=100 ovs-vsctl add-port bridge0 eth3 tag=100  위의 설정한 후에 결과를 확인해볼까요. 위와같이 구성을 완료하면 VPC2,3간의 통신 OK, VPC4,5간의 통신OK입니다. 하지만 VPC6은 trunk mode인데 tag가 지정되지 않아서 통신이 안됩니다. 이제 VPC노드들간의 통신을 할 수 있도록 L3스위치를 위쪽에 연결해봅시다. \n[구성도] LAB구성파일: Exports_unetlab_export-20190425-154720.zip \n[LAB수행조건]  L3스위치와 연결된 eth5인터페이스를 활성화하고 bridge0에 trunk포트로 추가합니다.  ifconfig eth5 up ovs-vsctl add-port bridge0 eth5  eth5를 설정한 후의 결과화면입니다. + L3스위치의 기본설정은 아래와 같습니다.\n! vlan 100 name VLAN100 ! vlan 200 name VLAN200 ! interface GigabitEthernet0/0 switchport trunk encapsulation dot1q switchport trunk native vlan 200 switchport mode trunk media-type rj45 negotiation auto ! interface Vlan100 ip address 172.16.100.1 255.255.255.0 ! interface Vlan200 ip address 10.0.10.1 255.255.255.0 !   설정을 완료하고 L3스위치에 VPC6을 제외한 모든 VPC시스템으로 ping이 됨을 확인할 수 있습니다.  L3스위치에서 모든 VPC시스템들까지 ping이 되지만 VLAN100과 VLAN200간의 VPC들끼리는 통신이 안되는 문제가 발생했습니다. 이것은 아마도 아래의 자료처럼 untagged패킷처리하는 부분의 설정이 정상적이지 않아서 발생하는 문제같습니다. 이 부분은 좀 더 시험이 필요한것으로 보입니다. 첨부 pdf파일을 통해서 ovs에서 trunk설정을 좀 더 찾아보고 이 문제에 대한 답변을 달도록 하겠습니다.\n     참고파일   ovs-vswitchd.conf.db.5.pdf  (173 ko)    "
+},
+{
 	"uri": "http://ssanggu.github.io/ch2/2.90-openvswitch%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/",
 	"title": "2.90 OpenvSwitch설치하기",
 	"tags": [],

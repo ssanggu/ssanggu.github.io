@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>2.91 OpenvSwitch기본구성하기</title>
+      <link>http://ssanggu.github.io/ch2/2.91-openvswitch%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Thu, 25 Apr 2019 22:50:07 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.91-openvswitch%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/</guid>
+      <description>[LAB의 목적] 이번 LAB은 OpenvSwitch를 SDN네트워크에 이용하는 방법을 익히기 전에 기본 vlan스위치로 이용가능한지 시험을 하기 위하여 구성한 LAB입니다. ovs-vsctl명령으로 vlan설정하는 방법을 익혀야합니다. 
+[구성도] LAB구성파일: Exports_unetlab_export-20190425-145827.zip 
+[LAB수행조건]  OpenvSwitch에 VLAN설정하는 방법은 Isolating VM Traffic Using VLANs 문서를 참고했습니다. 호스트들이 연결된 물리적인 포트를 활성화하고, bridge0라는 브리지네트워크를 구성한 후에 물리적인 포트를 추가합니다.  ifconfig eth0 up ifconfig eth1 up ifconfig eth2 up ifconfig eth3 up ifconfig eth4 up ovs-vsctl add-br bridge0 ovs-vsctl add-port bridge0 eth0 ovs-vsctl add-port bridge0 eth1 ovs-vsctl add-port bridge0 eth4 ovs-vsctl add-port bridge0 eth2 tag=100 ovs-vsctl add-port bridge0 eth3 tag=100  위의 설정한 후에 결과를 확인해볼까요.</description>
+    </item>
+    
+    <item>
       <title>2.90 OpenvSwitch설치하기</title>
       <link>http://ssanggu.github.io/ch2/2.90-openvswitch%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
       <pubDate>Wed, 24 Apr 2019 17:39:46 +0900</pubDate>
