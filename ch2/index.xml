@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>2.92 Floodlight SDN컨트롤러</title>
+      <link>http://ssanggu.github.io/ch2/2.92-floodlight-sdn%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/</link>
+      <pubDate>Fri, 26 Apr 2019 15:40:13 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.92-floodlight-sdn%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/</guid>
+      <description>[LAB의 목적] 이번 LAB은 OpenFlow프로토콜을 지원하는 Opensource SDN Controller인 Floodlight를 EVE-BG에서 이용할 수 있도록 이미지를 구성하는 LAB입니다. Floodlight VM이미지를 이용하여 시스템을 만들고 Floodlight컨트롤러와 OpenvSwitch 2대 정도를 Cloud망에 연결해서 컨트롤러 GUI화면상에 스위치가 보이는지까지 시험을 하도록 합니다. 
+[LAB 수행조건]  Floodlight Install Guide문서를 참조하면 설치할 수 있습니다. 하지만, 수동으로 설치를 해보니 Floodlight가 Java 7 또는 8이 설치되어 있어야하는데 Oracle JDK8부터 설치가 쉽지 않았습니다. 그래서 모든것이 포함되어 있는 Floodlight VM이미지를 받아서 이 이미지를 KVM이미지로 변환해서 사용하기로 했습니다.</description>
+    </item>
+    
+    <item>
       <title>2.91 OpenvSwitch기본구성하기</title>
       <link>http://ssanggu.github.io/ch2/2.91-openvswitch%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/</link>
       <pubDate>Thu, 25 Apr 2019 22:50:07 +0900</pubDate>

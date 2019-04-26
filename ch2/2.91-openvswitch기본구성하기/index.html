@@ -12,19 +12,19 @@
     <title>2.91 OpenvSwitch기본구성하기 :: salgunamu&#39;s LAB Blog</title>
 
     
-    <link href="/css/nucleus.css?1556202898" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1556202898" rel="stylesheet">
-    <link href="/css/hybrid.css?1556202898" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1556202898" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1556202898" rel="stylesheet">
-    <link href="/css/auto-complete.css?1556202898" rel="stylesheet">
-    <link href="/css/theme.css?1556202898" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1556202898" rel="stylesheet">
+    <link href="/css/nucleus.css?1556265791" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1556265791" rel="stylesheet">
+    <link href="/css/hybrid.css?1556265791" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1556265791" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1556265791" rel="stylesheet">
+    <link href="/css/auto-complete.css?1556265791" rel="stylesheet">
+    <link href="/css/theme.css?1556265791" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1556265791" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1556202898" rel="stylesheet">
+      <link href="/css/theme-blue.css?1556265791" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1556202898"></script>
+    <script src="/js/jquery-2.x.min.js?1556265791"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1556202898"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1556202898"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1556265791"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1556265791"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/ssanggu.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1556202898"></script>
+<script type="text/javascript" src="/js/search.js?1556265791"></script>
 
     
   </div>
@@ -91,6 +91,25 @@
           
           
         
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2/2.92-floodlight-sdn%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/" title="2.92 Floodlight SDN컨트롤러" class="dd-item ">
+        <a href="/ch2/2.92-floodlight-sdn%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/">
+        2.92 Floodlight SDN컨트롤러
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
           
             
             
@@ -2140,6 +2159,7 @@
 <li><a href="#lab수행조건">[LAB수행조건]</a></li>
 <li><a href="#구성도-1">[구성도]</a></li>
 <li><a href="#lab수행조건-1">[LAB수행조건]</a></li>
+<li><a href="#추가시험">[추가시험]</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -2282,6 +2302,11 @@ interface Vlan200
 
 
 
+<h4 id="추가시험">[추가시험]</h4>
+
+<p>VLAN100으로 지정된 VPC들을 제외한 시스템들을 L3스위치에서 native vlan을 200으로 설정하여 통신하도록 구현하려고 추가시험을 했지만 <strong>성공하지는 못했습니다.</strong> openvswitch에서 추가된 포트들은 기본적으로 trunk포트이고, tag을 지정한 포트는 access포트가 된다고 합니다. vlan_mode값에 access, native-tagged, native-untagged, trunk중에 한가지로 설정할 수 있다고하여 native-*로 설정해서 서로 다른 네트워크간에 통신이 되도록 설정하고자 했으나 설정을 완료하지 못했읍니다. 따라서, 아래와 같이 VPC2,3시스템을 VLAN200으로 소속시키고 L3스위치에서는 native vlan설정을 지워서 VLAN간의 통신이 정상적으로 수행되는것을 확인하고 이번 LAB을 종료합니다.
+<img src="/images/ch2/2-91-7.png" alt="추가시험" /></p>
+
 
 <footer class=" footline" >
 	
@@ -2327,6 +2352,25 @@ interface Vlan200
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -3998,20 +4042,20 @@ interface Vlan200
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1556202899"></script>
-    <script src="/js/perfect-scrollbar.min.js?1556202899"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1556202899"></script>
-    <script src="/js/jquery.sticky.js?1556202899"></script>
-    <script src="/js/featherlight.min.js?1556202899"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1556202899"></script>
-    <script src="/js/highlight.pack.js?1556202899"></script>
+    <script src="/js/clipboard.min.js?1556265791"></script>
+    <script src="/js/perfect-scrollbar.min.js?1556265791"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1556265791"></script>
+    <script src="/js/jquery.sticky.js?1556265791"></script>
+    <script src="/js/featherlight.min.js?1556265791"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1556265791"></script>
+    <script src="/js/highlight.pack.js?1556265791"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1556202899"></script>
-    <script src="/js/learn.js?1556202899"></script>
-    <script src="/js/hugo-learn.js?1556202899"></script>
+    <script src="/js/modernizr.custom.71422.js?1556265791"></script>
+    <script src="/js/learn.js?1556265791"></script>
+    <script src="/js/hugo-learn.js?1556265791"></script>
 
-    <link href="/mermaid/mermaid.css?1556202899" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1556202899"></script>
+    <link href="/mermaid/mermaid.css?1556265791" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1556265791"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
