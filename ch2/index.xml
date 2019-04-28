@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>2.93 OpenDaylight컨트롤러</title>
+      <link>http://ssanggu.github.io/ch2/2.93-opendaylight%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/</link>
+      <pubDate>Sun, 28 Apr 2019 19:28:25 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.93-opendaylight%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/</guid>
+      <description>[LAB의 목적] 이번 LAB의 가장 큰목적은 OpenDaylight SDN컨트롤러를 만드는 것입니다. 현재 상태에서는 정확하게 SDN컨트롤러와 openvSwitch간의 openflow를 통해서 동작하는 방법을 이해하지 못한 상태입니다. 이후로 SDN LAB을 계속 시험해보기 위해서 OpenDaylight컨트롤러를 만들고 그 시스템에 Cisco DevNet에서 제공한 OFM(OpenFlow Manager) App을 설치해서 openflow테이블을 웹상에서 관리할 수 있도록 준비합니다. 
+[LAB구성도] LAB구성파일: Exports_unetlab_export-20190428-105231.zip [LAB 수행조건] 본 LAB은 OpenDaylight 컨트롤러 이미지 만들기, openvSwitch와 VPC시스템 설정하기, 컨트롤러 웹인터페이스에서 상태확인하기로 이루어집니다.
+ OpenDaylight 컨트롤러 이미지 만들기 Floodlight컨트롤러 작업때와 동일하게 인터넷이 가능하도록 ubuntu서버를 LAB에 등록하고 필요한 패키지를 설치한 후에 정상적으로 동작됨을 확인한후에 다른 LAB에서도 사용할 수 있도록 이미지변환을 수행할 것입니다.</description>
+    </item>
+    
+    <item>
       <title>2.92 Floodlight SDN컨트롤러</title>
       <link>http://ssanggu.github.io/ch2/2.92-floodlight-sdn%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/</link>
       <pubDate>Fri, 26 Apr 2019 15:40:13 +0900</pubDate>
