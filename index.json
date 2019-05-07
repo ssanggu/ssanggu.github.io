@@ -28,6 +28,13 @@
 	"content": " 블로그 소개 한 상구(Han SangGu), 네트워크 필드 엔지니어, ssanggu@gmail.com\n \n 본 블로그는 EVE-NG(UnetLab)를 사용하여 구성하고 시험한 LAB환경을 정리하고, 각각의 LAB에서 어떤 지식을 습득해야하는지를 정리하는 블로그입니다. 가능한 다양한 네트워크 장비를 배치하여 구성함으로써 네트워크에 대한 개념을 좀더 효율적으로 정리할 수 있었습니다.    EVE-NG 가상화(VMWare Player, docker, kvm) 리눅스(Ubuntu, CentOS) 네트워크장비(Cisco, Juniper, Extreme VyOS) 보안장비(ASA, PaloAlto, SECUI MF2) IPSec VPN, OpenVPN, SSL VPN SDN(VxLAN)   "
 },
 {
+	"uri": "http://ssanggu.github.io/ch2/2.94-openvswitch%EC%9E%AC%EA%B5%AC%EC%84%B1/",
+	"title": "2.94 OpenvSwitch재구성",
+	"tags": [],
+	"description": "",
+	"content": " [LAB의 목적] SDN컨트롤러를 구성하여 시험하는 도중에 OpenvSwitch이미지를 잘못 생성한 부분이 있어서 수정을 위한 LAB을 생성합니다. 본 LAB은 2.90 OpenvSwitch설치하기 LAB에서 생성한 이미지를 수정하여 다시 이미지를 생성하는 LAB입니다. openvswitch가 SDN컨트롤러에 연결될때 스위치의 UUID를 사용하는데 이미 생성한 이미지에는 openvswitch의 DB구성이 되어 있는 상태여서 UUID가 동일하게 생성되므로 여러대의 openvswitch를 LAB에 넣는경우에 동일한 UUID를 사용하기 때문에 문제가 발생하는것으로 보입니다. 따라서, openvswitch이미지를 구동해서 openvswitch의 DB를 삭제한 상태로 새로 이미지를 만들어서 사용하려고 합니다. DB가 없는상태에서 openvswitch가 구동되면 DB를 새로 생성하므로 추가하는 openvswitch마다 UUID가 다시 생성되게 됩니다.\n[LAB수행조건]  신규 LAB에 openvswitch 노드를 하나 추가한 후에 구동합니다. 스위치가 구동되면 ovs-vsctl show명령으로 확인했을때 가장 상단에 나오는 2c35d5ad-5f2b-4c1e-9306-4467e3ae0a2가 UUID입니다. 이것이 DB상에 이미 들어있어서 추가되는 모든 openvswitch가 동일하게 나옵니다. openvswitch의 DB디렉토리가 /var/lib/openvswitch/입니다. 이 디렉토리의 내용을 삭제하기 위해서 systemctl stop openvswitch-switch 명령으로 서비스를 중지하고 DB디렉토리의 파일을 삭제한 후에 시스템을 중지합니다.  + 현재 LAB상의 이미지를 convert해서 기존 openvswitch이미지를 대체합니다.\n+ 새로 생성한 이미지로 openvswitch를 구동해서 UUDI가 변경된것을 확인합니다.\n"
+},
+{
 	"uri": "http://ssanggu.github.io/ch2/2.93-opendaylight%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/",
 	"title": "2.93 OpenDaylight컨트롤러",
 	"tags": [],

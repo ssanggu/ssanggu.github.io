@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>2.80 VxLAN개념익히기-2 :: salgunamu&#39;s LAB Blog</title>
+    <title>2.94 OpenvSwitch재구성 :: salgunamu&#39;s LAB Blog</title>
 
     
     <link href="/css/nucleus.css?1557216777" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ch2/2.80-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-2/">
+  <body class="" data-url="/ch2/2.94-openvswitch%EC%9E%AC%EA%B5%AC%EC%84%B1/">
     <nav id="sidebar" class="">
 
 
@@ -99,7 +99,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.94-openvswitch%EC%9E%AC%EA%B5%AC%EC%84%B1/" title="2.94 OpenvSwitch재구성" class="dd-item ">
+      <li data-nav-id="/ch2/2.94-openvswitch%EC%9E%AC%EA%B5%AC%EC%84%B1/" title="2.94 OpenvSwitch재구성" class="dd-item active">
         <a href="/ch2/2.94-openvswitch%EC%9E%AC%EA%B5%AC%EC%84%B1/">
         2.94 OpenvSwitch재구성
         
@@ -365,7 +365,7 @@
  
   
     
-      <li data-nav-id="/ch2/2.80-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-2/" title="2.80 VxLAN개념익히기-2" class="dd-item active">
+      <li data-nav-id="/ch2/2.80-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-2/" title="2.80 VxLAN개념익히기-2" class="dd-item ">
         <a href="/ch2/2.80-vxlan%EA%B0%9C%EB%85%90%EC%9D%B5%ED%9E%88%EA%B8%B0-2/">
         2.80 VxLAN개념익히기-2
         
@@ -2177,7 +2177,7 @@
                   <span class="links">
                  
                  
-                   2.80 VxLAN개념익히기-2 
+                   2.94 OpenvSwitch재구성 
                  
                   </span>
                 </div>
@@ -2192,10 +2192,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#구성도">[구성도]</a></li>
 <li><a href="#lab의-목적">[LAB의 목적]</a></li>
 <li><a href="#lab수행조건">[LAB수행조건]</a></li>
-<li><a href="#lab-구성후기">[LAB 구성후기]</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -2212,7 +2210,7 @@
         
         <div id="body-inner">
           
-            <h1>2.80 VxLAN개념익히기-2</h1>
+            <h1>2.94 OpenvSwitch재구성</h1>
           
 
         
@@ -2220,239 +2218,24 @@
 
 
 
-<h4 id="구성도">[구성도]</h4>
-
-<p><img src="/images/ch2/2-80.png" alt="구성도" />
-LAB구성파일: <a href="/lab_export/Exports_unetlab_export-20190401-102502.zip">Exports_unetlab_export-20190401-102502.zip</a></p>
-
-<p><p/></p>
-
 <h4 id="lab의-목적">[LAB의 목적]</h4>
 
-<p>본 LAB에서는 <strong><font color="red">VxLAN을 사용하기 위해서는 반드시 Multicast를 사용해야 하는가? </font></strong>에 대한 해답을 찾기위한 LAB입니다.
-<p/></p>
+<p>SDN컨트롤러를 구성하여 시험하는 도중에 OpenvSwitch이미지를 잘못 생성한 부분이 있어서 수정을 위한 LAB을 생성합니다. 본 LAB은 <a href="https://ssanggu.github.io/ch2/2.90-openvswitch%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" target="_blank">2.90 OpenvSwitch설치하기</a> LAB에서 생성한 이미지를 수정하여 다시 이미지를 생성하는 LAB입니다. openvswitch가 SDN컨트롤러에 연결될때 스위치의 UUID를 사용하는데 이미 생성한 이미지에는 openvswitch의 DB구성이 되어 있는 상태여서 UUID가 동일하게 생성되므로 여러대의 openvswitch를 LAB에 넣는경우에 동일한 UUID를 사용하기 때문에 문제가 발생하는것으로 보입니다. 따라서, openvswitch이미지를 구동해서 openvswitch의 DB를 삭제한 상태로 새로 이미지를 만들어서 사용하려고 합니다. DB가 없는상태에서 openvswitch가 구동되면 DB를 새로 생성하므로 추가하는 openvswitch마다 UUID가 다시 생성되게 됩니다.</p>
 
 <h4 id="lab수행조건">[LAB수행조건]</h4>
 
-<p><strong>2.79 VxLAN개념익히기-1</strong>의 LAB은 잘 풀어보셨나요??<p/></p>
-
-<p><strong><font color="red">혹시 Multicast를 사용해서 풀었나요? </font></strong>그렇다면 아래와 같이 직접연결되었던 VyOS라우터를 L2스위치에 연결해서 통신이 가능한지 시험을 한번 해볼까요? L2스위치는 아무 설정도 없이 기본상태로 두어도 통신이 되어야합니다. 왜냐하면 기본 L2스위치는 IGMP snooping이 기본으로 enable되어있기때문에 multicast패킷을 넘겨야 하거든요. <br/>
-이 시험의 목적은 VxLAN을 사용하기 위해서는 반드시 Multicast를 사용해야하는가?에 대한 답을 찾고자 하는것입니다. 단순히 L2스위치를 통과시켰지만 무수히 많이 거치는 ISP의 L3장비들 모두가 multicast를 무사히 잘 넘겨줄것인가 하는 의구심이 듭니다. <p/></p>
-
-<p><strong><font color="red">통신을 성공하셨나요??</font></strong><br/>
-그렇다면 위의 환경에서 172.16.241.0/24대역과 172.16.242.0/24대역이 서로 통신할 수 있도록 구성해보세요.
-<p/></p>
-
-<h4 id="lab-구성후기">[LAB 구성후기]</h4>
-
-<p><strong>2.79 VxLAN개념익히기-1</strong> LAB을 설정할때 vxlan설정부분에서 multicast group주소를 사용한것을 보았습니다. 그런데, 왜 사용하는지 첫번째 LAB에서 이해를 하지 못했고, 두 지점간에 무수히 많이 거치는 ISP L3라우터에서 multicast를 넘겨준다는 보장이 없는데, 왜 multicast를 사용하는지 의구심이 들었읍니다. 그래서, 본 LAB에서는 간단히 두 지점간에 L2스위치만 넣어서 통신이 되는지 확인을 해보는 LAB을 꾸몄습니다. <br/></p>
-
-<p>실질적인 네트워크상에서 L2스위치는 <strong>IGMP Snooping</strong>기능이 기본으로 설정되기때문에 multicast를 자동으로 넘겨주고 더군다나 동일한 네트워크이기 때문에 아무런 문제가 없이 통신이 될것이라고 생각하고 LAB을 꾸몄습니다. <font color="red">하지만, 결론적으로 통신이 되지 않았습니다.</font><br/>
-설정한 VyOS장비의 설정값은 아래와 같습니다. <br/></p>
-
 <ul>
-<li>VyOS1설정값
-<img src="/images/ch2/2-80-1.png" alt="VyOS1설정값" /></li>
-
-<li><p>VyOS2설정값
-<img src="/images/ch2/2-80-2.png" alt="VyOS2설정값" />
-<br/>
-위와같이 설정된 상태에서 Docker4(172.16.241.10)에서 Docker6(172.16.241.11)으로 ping을 수행하고 L2스위치의 e0/0인터페이스와 e0/1인터페이스에서 패킷을 잡아봤습니다. e0/0에서는 멀티캐스트그룹으로 패킷을 보내는것이 보이지만 e0/1인터페이스에서는 전혀 멀티캐스트 패킷이 보이지 않습니다. L2스위치가 멀티캐스트를 처리하지 못하는것이고 두 지점간의 Docker서버간의 통신이 안되는 상황이 발생합니다. <br/></p></li>
-
-<li><p>L2스위치의 e0/0인터페이스에서 패킷수집
-<img src="/images/ch2/2-80-3.png" alt="L2스위치의 e0/0인터페이스에서 패킷수집" /></p></li>
-
-<li><p>L2스위치의 e0/1인터페이스에서 패킷수집
-<img src="/images/ch2/2-80-4.png" alt="L2스위치의 e0/1인터페이스에서 패킷수집" />
-<br/>
-L2스위치 한대만 추가했는데도 통신의 문제가 발생하기 때문에 외부로 연결되는 두지점간의 VxLAN통신에는 멀티캐스트가 아닌 유니캐스트로 통신할 방법을 사용하는것이 타당한것 같읍니다. 그래야, 여러개 거치는 L3장비의 멀티캐스트 설정여부를 신경쓰지 않을테니깐요.<br/>
-<strong>그래서, VyOS장비에서 기존 VxLAN설정을 지우고 remote명령으로 상대방 peer address를 지정하는 방식으로 아래와 같이 다시 설정을 하였읍니다.</strong><br/></p></li>
-
-<li><p>VyOS1 재설정</p></li>
+<li>신규 LAB에 openvswitch 노드를 하나 추가한 후에 구동합니다.</li>
+<li>스위치가 구동되면 <code>ovs-vsctl show</code>명령으로 확인했을때 가장 상단에 나오는 <strong>2c35d5ad-5f2b-4c1e-9306-4467e3ae0a2</strong>가 UUID입니다. 이것이 DB상에 이미 들어있어서 추가되는 모든 openvswitch가 동일하게 나옵니다. openvswitch의 DB디렉토리가 /var/lib/openvswitch/입니다. 이 디렉토리의 내용을 삭제하기 위해서 <code>systemctl stop openvswitch-switch</code> 명령으로 서비스를 중지하고 DB디렉토리의 파일을 삭제한 후에 시스템을 중지합니다.</li>
 </ul>
 
-<pre><code>vyos@VyOS1:~$ config
-[edit]
-vyos@VyOS1# delete interfaces vxlan
-[edit]
-vyos@VyOS1# commit
-[ interfaces vxlan vxlan241 bridge-group ]
-Removing interface vxlan241 from bridge br241
+<p><img src="/images/ch2/2-94-1.png" alt="openvswitch DB삭제" />
++ 현재 LAB상의 이미지를 convert해서 기존 openvswitch이미지를 대체합니다.</p>
 
-[ interfaces vxlan vxlan242 bridge-group ]
-Removing interface vxlan242 from bridge br242
+<p><img src="/images/ch2/2-94-2.png" alt="openvswitch이미지 대체" />
++ 새로 생성한 이미지로 openvswitch를 구동해서 UUDI가 변경된것을 확인합니다.</p>
 
-[edit]
-vyos@VyOS1# set interfaces vxlan vxlan241 bridge-group bridge 'br241'
-[edit]
-vyos@VyOS1# set interfaces vxlan vxlan241 remote 10.1.2.11
-[edit]
-vyos@VyOS1# set interfaces vxlan vxlan241 link 'eth0'
-[edit]
-vyos@VyOS1# set interfaces vxlan vxlan241 vni '241'
-[edit]
-vyos@VyOS1# set interfaces vxlan vxlan242 bridge-group bridge 'br242'
-[edit]
-vyos@VyOS1# set interfaces vxlan vxlan242 remote 10.1.2.11
-[edit]
-vyos@VyOS1# set interfaces vxlan vxlan242 link 'eth0'
-[edit]
-vyos@VyOS1# set interfaces vxlan vxlan242 vni '242'
-[edit]
-vyos@VyOS1# commit
-[ interfaces vxlan vxlan241 bridge-group ]
-Adding interface vxlan241 to bridge br241
-
-[ interfaces vxlan vxlan242 bridge-group ]
-Adding interface vxlan242 to bridge br242
-
-[edit]
-vyos@VyOS1# save
-Saving configuration to '/config/config.boot'...
-Done
-[edit]
-vyos@VyOS1# exit
-exit
-vyos@VyOS1:~$ show bridge
-bridge name     bridge id               STP enabled     interfaces
-br241           0000.500000010001       no              eth1
-                                                        vxlan241
-br242           0000.2a00d70bfe9c       no              eth2
-                                                        vxlan242
-vyos@VyOS1:~$ show config commands
-set interfaces bridge 'br241'
-set interfaces bridge 'br242'
-set interfaces ethernet eth0 address '10.1.2.10/24'
-set interfaces ethernet eth0 hw-id '50:00:00:01:00:00'
-set interfaces ethernet eth1 bridge-group bridge 'br241'
-set interfaces ethernet eth1 hw-id '50:00:00:01:00:01'
-set interfaces ethernet eth2 bridge-group bridge 'br242'
-set interfaces ethernet eth2 hw-id '50:00:00:01:00:02'
-set interfaces ethernet eth3 hw-id '50:00:00:01:00:03'
-set interfaces loopback 'lo'
-set interfaces vxlan vxlan241 bridge-group bridge 'br241'
-set interfaces vxlan vxlan241 link 'eth0'
-set interfaces vxlan vxlan241 remote '10.1.2.11'
-set interfaces vxlan vxlan241 vni '241'
-set interfaces vxlan vxlan242 bridge-group bridge 'br242'
-set interfaces vxlan vxlan242 link 'eth0'
-set interfaces vxlan vxlan242 remote '10.1.2.11'
-set interfaces vxlan vxlan242 vni '242'
-set system config-management commit-revisions '20'
-set system console device ttyS0 speed '9600'
-set system host-name 'VyOS1'
-set system login user vyos authentication encrypted-password '$1$K.GcN.UA$YmhyqIi7OmGozZR96WnNt/'
-set system login user vyos authentication plaintext-password ''
-set system login user vyos level 'admin'
-set system ntp server '0.pool.ntp.org'
-set system ntp server '1.pool.ntp.org'
-set system ntp server '2.pool.ntp.org'
-set system package repository community components 'main'
-set system package repository community distribution 'helium'
-set system package repository community url 'http://packages.vyos.net/vyos'
-set system syslog global facility all level 'notice'
-set system syslog global facility protocols level 'debug'
-vyos@VyOS1:~$
-</code></pre>
-
-<ul>
-<li>VyOS2 재설정</li>
-</ul>
-
-<pre><code>vyos@VyOS2:~$ config
-[edit]
-vyos@VyOS2# delete interfaces vxlan
-[edit]
-vyos@VyOS2# commit
-[ interfaces vxlan vxlan241 bridge-group ]
-Removing interface vxlan241 from bridge br241
-
-[ interfaces vxlan vxlan242 bridge-group ]
-Removing interface vxlan242 from bridge br242
-
-[edit]
-vyos@VyOS2# set interfaces vxlan vxlan241 bridge-group bridge 'br241'
-[edit]
-vyos@VyOS2# set interfaces vxlan vxlan241 remote 10.1.2.10
-[edit]
-vyos@VyOS2# set interfaces vxlan vxlan241 link 'eth0'
-[edit]
-vyos@VyOS2# set interfaces vxlan vxlan241 vni '241'
-[edit]
-vyos@VyOS2# set interfaces vxlan vxlan242 bridge-group bridge 'br242'
-[edit]
-vyos@VyOS2# set interfaces vxlan vxlan242 remote 10.1.2.10
-[edit]
-vyos@VyOS2# set interfaces vxlan vxlan242 link 'eth0'
-[edit]
-vyos@VyOS2# set interfaces vxlan vxlan242 vni '242'
-[edit]
-vyos@VyOS2# commit
-[ interfaces vxlan vxlan241 bridge-group ]
-Adding interface vxlan241 to bridge br241
-
-[ interfaces vxlan vxlan242 bridge-group ]
-Adding interface vxlan242 to bridge br242
-
-[edit]
-vyos@VyOS2# save
-Saving configuration to '/config/config.boot'...
-Done
-[edit]
-vyos@VyOS2# exit
-exit
-vyos@VyOS2:~$ show bridge
-bridge name     bridge id               STP enabled     interfaces
-br241           0000.500000020001       no              eth1
-                                                        vxlan241
-br242           0000.500000020002       no              eth2
-                                                        vxlan242
-vyos@VyOS2:~$ show config commands
-set interfaces bridge 'br241'
-set interfaces bridge 'br242'
-set interfaces ethernet eth0 address '10.1.2.11/24'
-set interfaces ethernet eth0 hw-id '50:00:00:02:00:00'
-set interfaces ethernet eth1 bridge-group bridge 'br241'
-set interfaces ethernet eth1 hw-id '50:00:00:02:00:01'
-set interfaces ethernet eth2 bridge-group bridge 'br242'
-set interfaces ethernet eth2 hw-id '50:00:00:02:00:02'
-set interfaces ethernet eth3 hw-id '50:00:00:02:00:03'
-set interfaces loopback 'lo'
-set interfaces vxlan vxlan241 bridge-group bridge 'br241'
-set interfaces vxlan vxlan241 link 'eth0'
-set interfaces vxlan vxlan241 remote '10.1.2.10'
-set interfaces vxlan vxlan241 vni '241'
-set interfaces vxlan vxlan242 bridge-group bridge 'br242'
-set interfaces vxlan vxlan242 link 'eth0'
-set interfaces vxlan vxlan242 remote '10.1.2.10'
-set interfaces vxlan vxlan242 vni '242'
-set system config-management commit-revisions '20'
-set system console device ttyS0 speed '9600'
-set system host-name 'VyOS2'
-set system login user vyos authentication encrypted-password '$1$K.GcN.UA$YmhyqIi7OmGozZR96WnNt/'
-set system login user vyos authentication plaintext-password ''
-set system login user vyos level 'admin'
-set system ntp server '0.pool.ntp.org'
-set system ntp server '1.pool.ntp.org'
-set system ntp server '2.pool.ntp.org'
-set system package repository community components 'main'
-set system package repository community distribution 'helium'
-set system package repository community url 'http://packages.vyos.net/vyos'
-set system syslog global facility all level 'notice'
-set system syslog global facility protocols level 'debug'
-vyos@VyOS2:~$
-</code></pre>
-
-<p><p/>
-위와같이 설정한 상태에서 다시한번 Docker4(172.16.241.10)에서 Docker6(172.16.241.11)으로 ping을 수행하고 L2스위치의 e0/0인터페이스와 e0/1인터페이스에서 패킷을 잡아봤습니다. 양쪽 인터페이스 모두에서 지정한 peer주소로 UDP패킷이 발생하는 것이 보이고, Docker서버간에 정상적으로 통신되는것을 확인했습니다. <br/></p>
-
-<ul>
-<li>L2스위치의 e0/0인터페이스에서 패킷수집
-<img src="/images/ch2/2-80-5.png" alt="L2스위치의 e0/0인터페이스에서 패킷수집" /></li>
-<li>L2스위치의 e0/1인터페이스에서 패킷수집
-<img src="/images/ch2/2-80-6.png" alt="L2스위치의 e0/1인터페이스에서 패킷수집" />
-<br/></li>
-</ul>
+<p><img src="/images/ch2/2-94-3.png" alt="신규 openvswitch이지미확인" /></p>
 
 
 <footer class=" footline" >
@@ -2505,6 +2288,23 @@ vyos@VyOS2:~$
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -2731,26 +2531,6 @@ vyos@VyOS2:~$
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 

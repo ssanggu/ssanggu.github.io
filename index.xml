@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>2.94 OpenvSwitch재구성</title>
+      <link>http://ssanggu.github.io/ch2/2.94-openvswitch%EC%9E%AC%EA%B5%AC%EC%84%B1/</link>
+      <pubDate>Tue, 07 May 2019 16:53:32 +0900</pubDate>
+      
+      <guid>http://ssanggu.github.io/ch2/2.94-openvswitch%EC%9E%AC%EA%B5%AC%EC%84%B1/</guid>
+      <description>[LAB의 목적] SDN컨트롤러를 구성하여 시험하는 도중에 OpenvSwitch이미지를 잘못 생성한 부분이 있어서 수정을 위한 LAB을 생성합니다. 본 LAB은 2.90 OpenvSwitch설치하기 LAB에서 생성한 이미지를 수정하여 다시 이미지를 생성하는 LAB입니다. openvswitch가 SDN컨트롤러에 연결될때 스위치의 UUID를 사용하는데 이미 생성한 이미지에는 openvswitch의 DB구성이 되어 있는 상태여서 UUID가 동일하게 생성되므로 여러대의 openvswitch를 LAB에 넣는경우에 동일한 UUID를 사용하기 때문에 문제가 발생하는것으로 보입니다. 따라서, openvswitch이미지를 구동해서 openvswitch의 DB를 삭제한 상태로 새로 이미지를 만들어서 사용하려고 합니다. DB가 없는상태에서 openvswitch가 구동되면 DB를 새로 생성하므로 추가하는 openvswitch마다 UUID가 다시 생성되게 됩니다.</description>
+    </item>
+    
+    <item>
       <title>2.93 OpenDaylight컨트롤러</title>
       <link>http://ssanggu.github.io/ch2/2.93-opendaylight%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC/</link>
       <pubDate>Sun, 28 Apr 2019 19:28:25 +0900</pubDate>
